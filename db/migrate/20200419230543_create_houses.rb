@@ -4,9 +4,9 @@ class CreateHouses < ActiveRecord::Migration[6.0]
       t.references :host, null: false, foreign_key: true
       t.string :city
       t.string :street
-      t.string :number
-      t.number :size
-      t.number :rooms
+      t.string :house_number
+      t.integer :size
+      t.integer :rooms
 
       t.timestamps
     end

@@ -5,11 +5,10 @@ class CreateCleaningSessions < ActiveRecord::Migration[6.0]
       t.references :cleaner, null: false, foreign_key: true
       t.datetime :date
       t.time :time
-      t.number :hours
-      t.number :total_price
+      t.integer :hours
+      t.integer :total_price
       t.string :size
-      t.number :rooms
-      t.references :review, null: false, foreign_key: true
+      t.integer :rooms
 
       t.timestamps
     end
