@@ -4,9 +4,9 @@ class Host < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :cleaning_sessions
-  has_many :houses
-  has_many :payment_methods
-  has_many :invoices, through: :cleaning_sessions
+  has_many :houses, dependent: :destroy
+  has_many :payment_methods, dependent: :destroy
+  has_many :invoices, through: :cleaning_sessions, dependent: :destroy
        
   # In case of nested attributes forms
   # accepts_nested_attributes_for :company
