@@ -4,7 +4,8 @@ class Cleaner < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :cleaning_sessions
+  has_many :cleaning_sessions, dependent: :destroy
+
   has_many :reviews, through: :cleaning_sessions
 
   # In case of nested attributes forms

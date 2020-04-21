@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_04_20_164640) do
     t.datetime "date"
     t.time "time"
     t.integer "hours"
+    t.integer "price_hour"
     t.integer "total_price"
     t.string "size"
     t.integer "rooms"

@@ -6,6 +6,7 @@ class CreateCleaningSessions < ActiveRecord::Migration[6.0]
       t.datetime :date
       t.time :time
       t.integer :hours
+      t.integer :price_hour
       t.integer :total_price
       t.string :size
       t.integer :rooms

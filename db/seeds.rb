@@ -1,7 +1,178 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+  p "Cleaning database"
+  
+  puts "Destroying Cleaning Sessions..."
+  CleaningSession.destroy_all
+  
+  puts "Destroying Reviews..."
+  Review.destroy_all
+  
+  puts "Destroying Cleaners"
+  Cleaner.destroy_all
+    
+  puts "Destroying Hosts..."
+  Host.destroy_all
+
+  puts "Destroying Invoices..."
+  Invoice.destroy_all
+  
+  puts "Destroying Houses..."
+  House.destroy_all
+
+  puts "Payment Methods..."
+  PaymentMethod.destroy_all
+  
+
+
+  #Creating entries
+
+
+
+
+
+  puts "\nCreating hosts..."
+  #   address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+  50.times do|i|
+    host = Host.new(
+      first_name: Faker::Name.first_name, 
+      last_name: Faker::Name.last_name,
+      email: "host#{i}@moppy.com", 
+      password: "123456"
+    )
+    host.save!
+  end
+
+  puts "\nCreating cleaners..."
+  50.times do |i|
+    cleaner = Cleaner.new(
+      first_name:    Faker::Name.first_name, 
+      last_name: Faker::Name.last_name,  
+      bank_account: Faker::Bank.account_number(digits: 11), 
+      address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+      email: "cleaner#{i}@moppy.com", 
+      password: "123456"
+
+)
+cleaner.save!
+end
+
+
+puts "\nCreating Cleaning Sessions..."
+50.times do |i|
+    hours = rand(1..7)
+    price_hour= rand(270..400)
+    session = CleaningSession.new(
+        host: Host.all[i],
+        cleaner: Cleaner.all[i],
+        date:Faker::Date.between_except(from: 1.year.ago, to: 1.year.from_now, excepted: Date.today),
+        time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
+        hours:  hours,
+        size: rand(20..250),
+        rooms: rand(1..8),
+        price_hour: price_hour,
+        total_price:  price_hour * hours,
+    )
+    session.save!
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#   categories.each do |category|
+#     Category.where(name: category[:name]).first_or_create!
+#     category[:companies].each do |vendor|
+#       new_vendor = Vendor.find_by("LOWER(name) = ?", vendor[0].downcase) || Vendor.create!(name:vendor[0], category:category[:name])
+#     end
+#   end
+
+
+
+#   puts "Created #{Vendor.all.count} vendors from #{Category.all.count} categories"
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+
+#   puts "\nCreating companies..."
+#   companies = [
+#     {name: "Overblik", website:"www.overblik.io", country: "Denmark", city: "Copenhagen", address:"Ahornsgade 15" },
+#   ]
+  
+#   companies.each do |company|
+#       Company.create!(company)
+#     end
+#     puts "Created #{Company.all.count} companies"
+    
+#     puts "Creating departments"
+#       departments =["Sales", "Finance", "IT", "HR", "Engineering"]
+#       departments.each do |department|
+#         Department.create!(name:department)
+#       end
+#     puts "Finishing creating departments"
+  
+#   puts "Creating system accounts"
+
+#   SystemAccount.create(stripe_account: "strip try1")
+#   SystemAccount.create(stripe_account: "strip try2")
+#   SystemAccount.create(stripe_account: "strip try3")
+#   SystemAccount.create(stripe_account: "strip try4")
+#   SystemAccount.create(stripe_account: "strip try5")
+
+
+#   puts "\nCreating users..."
+#   p "COMPANYYYYYYYYYYYYYYYYYYYYYYYYYYYYY #{Company.first}"
+#     users = [
+#       {first_name: "Susan", last_name: "Ferguson", email: "susan@company.com", password: "123456", department: Department.first, company: Company.first, company_name: Company.first.name, system_account: SystemAccount.first },
+#       {first_name: "Peter", last_name: "Albridge", email: "peter@company.com", password: "123456", department: Department.first, company: Company.first, company_name: Company.first.name, system_account: SystemAccount.all[1] },
+#       {first_name: "Mike", last_name: "Peterson", email: "mike@company.com", password: "123456", department: Department.first, company: Company.first, company_name: Company.first.name, system_account: SystemAccount.all[2] },
+#       {first_name: "Carol", last_name: "Anderson", email: "carol@company.com", password: "123456", department: Department.first, company: Company.first, company_name: Company.first.name, system_account: SystemAccount.all[3] },
+#       {first_name: "Kathrine", last_name: "Hudson", email: "kathrine@company.com", password: "123456", department: Department.first, company: Company.first, company_name: Company.first.name, system_account: SystemAccount.all[4] },
+#     ]
+  
+#     users.each do |user|
+#       User.create!(user)
+#     end
+#   puts "Finished creating users"
+  
+
+  
