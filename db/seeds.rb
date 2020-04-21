@@ -8,12 +8,12 @@
   
   puts "Destroying Cleaners"
   Cleaner.destroy_all
-  
-  puts "Destroying Invoices..."
-  Invoice.destroy_all
-  
+    
   puts "Destroying Hosts..."
   Host.destroy_all
+
+  puts "Destroying Invoices..."
+  Invoice.destroy_all
   
   puts "Destroying Houses..."
   House.destroy_all
@@ -30,24 +30,27 @@
 
 
   puts "\nCreating hosts..."
-  50.times do
+  #   address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+  50.times do|i|
     host = Host.new(
-      first_name:    Faker::Name.first_name 
-      last_name: Faker::Name.last_name   
-    #   address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
-      rating:  rand(0..5)
+      first_name: Faker::Name.first_name, 
+      last_name: Faker::Name.last_name,
+      email: "host#{i}@moppy.com", 
+      password: "123456"
     )
     host.save!
   end
 
   puts "\nCreating cleaners..."
-  50.times do
+  50.times do |i|
     cleaner = Cleaner.new(
-      first_name:    Faker::Name.first_name 
-      last_name: Faker::Name.last_name  
-      bank_account: Faker::Bank.account_number(digits: 11) 
+      first_name:    Faker::Name.first_name, 
+      last_name: Faker::Name.last_name,  
+      bank_account: Faker::Bank.account_number(digits: 11), 
       address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
-    #   rating:  rand(0..5)
+      email: "cleaner#{i}@moppy.com", 
+      password: "123456"
+
 )
 cleaner.save!
 end
@@ -58,17 +61,17 @@ puts "\nCreating Cleaning Sessions..."
     hours = rand(1..7)
     price_hour= rand(270..400)
     session = CleaningSession.new(
-        host: Host.all[i]
-        host: Cleaner.all[i]
-        date:Faker::Date.between_except(from: 1.year.ago, to: 1.year.from_now, excepted: Date.today)
-        time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all) 
-        hours:  hours
-        size: rand(20..250)
-        rooms: rand(1..8)
-        price_hour: price_hour
-        total_price:  price_hour * hours
+        host: Host.all[i],
+        cleaner: Cleaner.all[i],
+        date:Faker::Date.between_except(from: 1.year.ago, to: 1.year.from_now, excepted: Date.today),
+        time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
+        hours:  hours,
+        size: rand(20..250),
+        rooms: rand(1..8),
+        price_hour: price_hour,
+        total_price:  price_hour * hours,
     )
-    sessions.save!
+    session.save!
   end
 
 
@@ -103,7 +106,7 @@ puts "\nCreating Cleaning Sessions..."
 
 
 
-  
+
 
 #   categories.each do |category|
 #     Category.where(name: category[:name]).first_or_create!

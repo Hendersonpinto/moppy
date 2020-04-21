@@ -3,8 +3,8 @@ class Api::V1::CleaningSessionsController < ApplicationController
 
 
   def index
-    # recipe = Recipe.all.order(created_at: :desc)
-    render json: {session1:"onse"}
+    @sessions = CleaningSession.all
+    render json: @sessions
   end
 
   def create
