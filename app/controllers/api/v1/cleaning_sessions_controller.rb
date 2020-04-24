@@ -4,7 +4,15 @@ class Api::V1::CleaningSessionsController < ApplicationController
 
   def index
     @sessions = CleaningSession.all
-    render json: @sessions
+    @hosts = Host.all
+    @cleaners = Cleaner.all
+    # render json: {sessions:@sessions, hosts:@hosts, cleaners:@cleaners}
+    @sessions2 = @sessions.inject({}) do |hash, item|
+      hash[item[:id]]=item
+      hash
+  end
+  p @sessions2
+    render json: {sessions:@sessions2}
   end
 
   def create
@@ -26,7 +34,7 @@ class Api::V1::CleaningSessionsController < ApplicationController
 
   def destroy
     @session&.destroy
-    render json: { message: 'Recipe deleted!' }
+    render json: { message: 'Session deleted!' }
   end
 
 

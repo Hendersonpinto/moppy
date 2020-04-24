@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      get 'cleaning_sessions/index'
+      get 'cleaning_sessions/index', to: 'cleaning_sessions#index', as: 'sessions'
       post 'cleaning_sessions/create'
       get 'cleaning_sessions/show/:id', to: 'cleaning_sessions#show'
       post 'cleaning_sessions/destroy/:id', to: 'cleaning_sessions#destroy'
