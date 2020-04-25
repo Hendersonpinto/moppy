@@ -1,18 +1,20 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "../components/Home";
-import ShowSession from "../components/ShowSession";
+import NavBar from "../components/NavBar";
+import ShowSession from "../components/sessions/ShowSession";
 import NotFound from "../components/NotFound";
-import CreateSession from "../components/CreateSession";
-import DeleteSession from "../components/DeleteSession";
-import EditSession from "../components/EditSession";
-import SessionsIndex from "../components/SessionsIndex";
+import CreateSession from "../components/sessions/CreateSession";
+import DeleteSession from "../components/sessions/DeleteSession";
+import EditSession from "../components/sessions/EditSession";
+import SessionsIndex from "../components/sessions/SessionsIndex";
 import CleanersIndex from "../components/cleaners/CleanersIndex";
 import HostsIndex from "../components/hosts/HostsIndex";
 
 const Routes = () => {
   return (
     <Router>
+      <NavBar />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/sessions" exact component={SessionsIndex} />

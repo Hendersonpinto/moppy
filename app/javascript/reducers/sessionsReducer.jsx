@@ -13,7 +13,7 @@ export default (state = {}, action) => {
     case FETCH_SESSIONS:
       // return { ...state, ..._.mapKeys(action.payload, "id") };
       // I have done the transformation above, in ruby instead.
-      return { ...state, ...action.payload.sessions };
+      return { ...state, ...action.payload };
     case FETCH_SESSION:
       return { ...state, [action.payload.id]: action.payload };
     case CREATE_SESSION:

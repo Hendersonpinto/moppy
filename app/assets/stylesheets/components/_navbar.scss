@@ -1,0 +1,17 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  background-color: $rose;
+
+  &__action {
+    margin-left: 20px;
+  }
+
+  a {
+    color: $green;
+    &:hover {
+      color: $darkgreen;
+      text-decoration: none;
+    }
+  }
+}

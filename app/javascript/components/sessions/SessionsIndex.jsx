@@ -8,7 +8,7 @@ import {
   ListGroupItemText,
 } from "reactstrap";
 
-import { fetchSessions } from "../actions";
+import { fetchSessions } from "../../actions";
 
 class SessionsIndex extends React.Component {
   componentDidMount() {
@@ -17,16 +17,22 @@ class SessionsIndex extends React.Component {
   }
 
   renderSessions() {
+    if (this.props.sessions.length < 1) {
+      return <p>Loading...</p>;
+    }
     return this.props.sessions.map((session) => {
       return (
-        <ListGroupItem>
+        <ListGroupItem key={session.id}>
           <Link to={`/sessions/${session.id}`} className="header">
-            <ListGroupItemHeading>{`Total Price: ${session.total_price}`}</ListGroupItemHeading>
+            <ListGroupItemHeading>{`Host: ${session.host.first_name}`}</ListGroupItemHeading>
           </Link>
           <ListGroupItemText>
-            {`Total hours ${session.hours}`}
+            {`Cleaner: ${session.cleaner.first_name}`}
           </ListGroupItemText>
-          <ListGroupItemText>{`Total size ${session.size}`}</ListGroupItemText>
+          <ListGroupItemText>
+            {`Total hours: ${session.hours}`}
+          </ListGroupItemText>
+          <ListGroupItemText>{`Total size: ${session.size}`}</ListGroupItemText>
         </ListGroupItem>
       );
     });

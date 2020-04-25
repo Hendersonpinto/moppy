@@ -3,16 +3,16 @@ class Api::V1::CleaningSessionsController < ApplicationController
 
 
   def index
+    # @sessions = CleaningSession.includes(:host, :cleaner)
     @sessions = CleaningSession.all
-    @hosts = Host.all
-    @cleaners = Cleaner.all
+    render json: @sessions, include: ['host', 'cleaner']
     # render json: {sessions:@sessions, hosts:@hosts, cleaners:@cleaners}
-    @sessions2 = @sessions.inject({}) do |hash, item|
-      hash[item[:id]]=item
-      hash
-  end
-  p @sessions2
-    render json: {sessions:@sessions2}
+    # @sessions2 = @sessions.inject({}) do |hash, item|
+      # hash[item[:id]]=item
+      # hash
+  # end
+  # p @sessions2
+    # render json: {sessions:@sessions2}
   end
 
   def create
