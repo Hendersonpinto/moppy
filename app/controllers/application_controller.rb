@@ -28,8 +28,6 @@ class ApplicationController < ActionController::Base
   # Devise methods
   # Authentication key(:username) and password field will be added automatically by devise.
   def configure_permitted_parameters
-    p "QUE COÑOOOOOOOO"
-    p params
     # added_attrs = [:email, :first_name, :last_name,:password,:password_confirmation]
     # devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :last_name, :image,:email, :password, :password_confirmation, :current_password) }

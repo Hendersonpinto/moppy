@@ -1,6 +1,6 @@
 import _ from "lodash";
 
-import { CHECK_HOST, HOST_LOG, HOST_LOGOUT } from "../actions/types";
+import { CHECK_HOST, HOST_LOGIN, HOST_LOGOUT } from "../actions/types";
 import { HOST_CREATE } from "../actions/types";
 
 // const INITIAL_STATE = {
@@ -14,7 +14,7 @@ export default (state = {}, action) => {
       return { ...state, current_host: action.payload };
     case HOST_CREATE:
       return { ...state, [action.payload.id]: action.payload };
-    case HOST_LOG:
+    case HOST_LOGIN:
       return { ...state, current_host: action.payload };
     case HOST_LOGOUT:
       return { ...state, current_host: null };

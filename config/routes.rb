@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       devise_for :hosts, controllers: { sessions: "api/v1/hosts/sessions", registrations:"api/v1/hosts/registrations", passwords:"api/v1/hosts/passwords"}
     
       # Custom route for custom method inside of devise
-      devise_scope :host do
+      devise_scope :api_v1_host do
         get 'hosts/check_host', to: 'hosts/sessions#check_host'
       end
 

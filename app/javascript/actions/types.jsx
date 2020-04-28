@@ -10,5 +10,5 @@ export const DELETE_SESSION = "DELETE_SESSION";
 export const FETCH_SESSION = "FETCH_SESSION";
 export const UPDATE_SESSION = "UPDATE_SESSION";
 export const HOST_CREATE = "HOST_CREATE";
-export const HOST_LOG = "HOST_LOG";
+export const HOST_LOGIN = "HOST_LOGIN";
 export const HOST_LOGOUT = "HOST_LOG";

@@ -5,7 +5,7 @@ class Api::V1::Hosts::SessionsController < Devise::SessionsController
 
 
   def check_host
-        render json: current_host
+        render json: current_api_v1_host
   end
 
 
@@ -17,8 +17,7 @@ class Api::V1::Hosts::SessionsController < Devise::SessionsController
     return invalid_login_attempt unless @host
     
     if @host.valid_password?(host_params[:password])
-      sign_in :host, @host
-      # p current_host
+      sign_in :api_v1_host, @host
       render json: @host
     else
       invalid_login_attempt
@@ -49,7 +48,8 @@ class Api::V1::Hosts::SessionsController < Devise::SessionsController
     def respond_to_on_destroy
       head :no_content
     end
-  
+
+
 
 end
 

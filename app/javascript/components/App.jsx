@@ -9,6 +9,9 @@ class App extends React.Component {
     this.props.checkHost();
   }
 
+  // componentDidUpdate() {
+  //   this.props.checkHost();
+  // }
   render() {
     return <Routes />;
   }

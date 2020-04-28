@@ -9,7 +9,7 @@ import {
   DELETE_SESSION,
   FETCH_SESSION,
   CHECK_HOST,
-  HOST_LOG,
+  HOST_LOGIN,
   HOST_LOGOUT,
   HOST_CREATE,
 } from "./types";
@@ -61,7 +61,7 @@ export const logHost = (formValues) => {
         console.log(error);
       });
     console.dir(response);
-    dispatch({ type: HOST_LOG, payload: response.data });
+    dispatch({ type: HOST_LOGIN, payload: response.data });
     // Here is where we force our user with programmatic navitagion
     history.push("/");
   };
