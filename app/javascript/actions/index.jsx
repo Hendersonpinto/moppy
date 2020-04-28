@@ -1,12 +1,15 @@
 import history from "../packs/history";
 import deviseHostsAxios from "../api/deviseHostsAxios";
 import sessionsAxios from "../api/sessionsAxios";
+import axios from "axios";
 
 import {
   SIGN_IN,
   SIGN_OUT,
   CREATE_SESSION,
+  FETCH_ALL_SESSIONS,
   FETCH_SESSIONS,
+  CLEAN_SESSIONS,
   UPDATE_SESSION,
   DELETE_SESSION,
   FETCH_SESSION,
@@ -16,9 +19,24 @@ import {
   HOST_CREATE,
 } from "./types";
 
-export const fetchSessions = () => {
+export const cleanSessions = () => {
+  return { type: CLEAN_SESSIONS };
+};
+export const fetchAllSessions = () => {
   return async (dispatch) => {
-    const response = await sessionsAxios.get("/api/v1/cleaning_sessions/index");
+    const response = await sessionsAxios.get(
+      "/api/v1/cleaning_sessions/all_sessions"
+    );
+    dispatch({ type: FETCH_ALL_SESSIONS, payload: response.data });
+  };
+};
+
+export const fetchSessions = (id) => {
+  return async (dispatch) => {
+    const response = await sessionsAxios.get(
+      `/api/v1/cleaning_sessions/index`,
+      { params: { host: { id: id } } }
+    );
     dispatch({ type: FETCH_SESSIONS, payload: response.data });
   };
 };

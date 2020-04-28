@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { checkHost } from "../actions";
+import LeftNavBar from "./LeftNavBar";
+import SessionsList from "./sessions/SessionsList";
 
 class Dashboard extends React.Component {
   componentDidMount() {
@@ -11,17 +13,17 @@ class Dashboard extends React.Component {
   render() {
     if (this.props.current_host) {
       return (
-        <div className="vw-100 vh-100 primary-color d-flex align-items-center justify-content-center">
-          <div className="jumbotron jumbotron-fluid bg-transparent">
-            <div className="container secondary-color">
-              <h1 className="display-4">Dashboard</h1>
-              <p className="lead">
-                This is the dashboard for {this.props.current_host.first_name}
-              </p>
-              <hr className="my-4" />
-              <Link to="/sessions" className="btn btn-lg">
-                View sessions
-              </Link>
+        <div className="dashboard">
+          <LeftNavBar />
+          <div className="panel">
+            <h1 className="panel__title">
+              {`${
+                this.props.current_host.first_name.charAt(0).toUpperCase() +
+                this.props.current_host.first_name.slice(1)
+              }'s Dashboard`}
+            </h1>
+            <div className="panel__content">
+              <SessionsList />
             </div>
           </div>
         </div>
@@ -32,9 +34,6 @@ class Dashboard extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.dir("my props to dashboard");
-  console.dir(ownProps);
-
   return {
     current_host: state.hosts.current_host,
   };

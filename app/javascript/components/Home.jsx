@@ -17,7 +17,7 @@ const Home = () => {
           <Link to="/hosts" className="btn btn-lg">
             View hosts
           </Link>
-          <Link to="/sessions" className="btn btn-lg">
+          <Link to="/all_sessions" className="btn btn-lg">
             View sessions
           </Link>
         </div>

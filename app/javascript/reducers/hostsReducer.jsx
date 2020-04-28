@@ -13,7 +13,7 @@ export default (state = {}, action) => {
     case CHECK_HOST:
       return { ...state, current_host: action.payload };
     case HOST_CREATE:
-      return { ...state, [action.payload.id]: action.payload };
+      return { ...state, ...action.payload };
     case HOST_LOGIN:
       return { ...state, current_host: action.payload };
     case HOST_LOGOUT:

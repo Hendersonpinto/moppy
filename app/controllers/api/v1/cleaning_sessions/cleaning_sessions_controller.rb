@@ -3,8 +3,24 @@ class Api::V1::CleaningSessions::CleaningSessionsController < ApplicationControl
   
   
     def index
+      @sessions = CleaningSession.where(host_id:session_params[:id])
+      render json: @sessions, include: ['host', 'cleaner']
+      # if @sessions.empty?
+        # render json: nil
+      # else
+    # end
       # @sessions = CleaningSession.includes(:host, :cleaner)
-      @sessions = CleaningSession.all
+      # render json: {sessions:@sessions, hosts:@hosts, cleaners:@cleaners}
+      # @sessions2 = @sessions.inject({}) do |hash, item|
+        # hash[item[:id]]=item
+        # hash
+        # end
+        # p @sessions2
+        # render json: {sessions:@sessions2}
+      end
+      def admin_index
+        # @sessions = CleaningSession.includes(:host, :cleaner)
+        @sessions = CleaningSession.all
       render json: @sessions, include: ['host', 'cleaner']
       # render json: {sessions:@sessions, hosts:@hosts, cleaners:@cleaners}
       # @sessions2 = @sessions.inject({}) do |hash, item|
@@ -40,9 +56,16 @@ class Api::V1::CleaningSessions::CleaningSessionsController < ApplicationControl
   
     private
     def session_params
-      params.permit(:name, :image, :ingredients, :instruction)
+      params.require(:host).permit(:id)
+      # raise
+      # params.fetch(:host, {}).permit(:id)
+
     end
-  
+  #   def host_params
+  #     params.require(:host).permit(:id)
+  #  end
+
+
     def set_cleaning_session
       @session = CleaningSession.find(params[:id])
     end

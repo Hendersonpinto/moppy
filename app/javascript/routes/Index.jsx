@@ -15,17 +15,24 @@ import EditSession from "../components/sessions/EditSession";
 import SessionsIndex from "../components/sessions/SessionsIndex";
 import CleanersIndex from "../components/cleaners/CleanersIndex";
 import HostsIndex from "../components/hosts/HostsIndex";
+import ProtectedRoute from "./ProtectedRoute";
 
-const Routes = () => {
+const Routes = (props) => {
+  console.log(props);
   return (
     <Router history={history}>
       <NavBar />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/sessions" exact component={SessionsIndex} />
+        <Route path="/all_sessions" exact component={SessionsIndex} />
         <Route path="/hosts/sign_up" exact component={HostCreate} />
         <Route path="/hosts/log_in" exact component={HostLog} />
-        <Route path="/hosts/dashboard" exact component={Dashboard} />
+        <ProtectedRoute
+          path="/hosts/dashboard"
+          exact
+          component={Dashboard}
+          currentHost={props.currentHost}
+        />
         {/* <Route path="/cleaners" exact component={CleanersIndex} /> */}
         {/* <Route path="/hosts" exact component={HostsIndex} /> */}
         {/* <Route path="/sessions/new" exact component={CreateSession} /> */}

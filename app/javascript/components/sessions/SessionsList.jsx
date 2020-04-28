@@ -8,24 +8,27 @@ import {
   ListGroupItemText,
 } from "reactstrap";
 
-import { fetchAllSessions } from "../../actions";
-import { cleanSessions } from "../../actions";
+import { fetchSessions, cleanSessions } from "../../actions";
 
 class SessionsIndex extends React.Component {
   componentDidMount() {
-    this.props.fetchAllSessions();
-    this.renderSessions();
+    this.props.fetchSessions(this.props.currentHost.id);
+    // this.renderSessions();
   }
 
   componentWillUnmount() {
-    console.log("corri");
     this.props.cleanSessions();
   }
+
   renderSessions() {
     if (!this.props.sessions) {
-      return <p>Loading...</p>;
+      return <p>You do not have any session yet</p>;
     }
+
+    console.log(this.props.sessions);
     return this.props.sessions.map((session) => {
+      console.log(session);
+      console.log(session.host);
       return (
         <ListGroupItem key={session.id}>
           <Link to={`/sessions/${session.id}`} className="header">
@@ -44,6 +47,7 @@ class SessionsIndex extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div>
         <h2>Sessions</h2>
@@ -57,13 +61,14 @@ const mapStateToProps = (state) => {
   if (state.sessions) {
     return {
       sessions: Object.values(state.sessions),
+      currentHost: state.hosts.current_host,
     };
   }
   return {
-    sessions: null,
+    currentHost: state.hosts.current_host,
   };
 };
 
-export default connect(mapStateToProps, { fetchAllSessions, cleanSessions })(
+export default connect(mapStateToProps, { fetchSessions, cleanSessions })(
   SessionsIndex
 );

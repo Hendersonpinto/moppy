@@ -12,9 +12,10 @@ class Api::V1::Hosts::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     @host = Host.new(host_params)
-    @current_host= current_host
     if @host.save!
-      render json: {host:@host, current_host:@current_host}
+      sign_in :api_v1_host, @host
+
+      render json: {host:@host, current_host:current_api_v1_host}
     else
       warden.custom_failure!
       render json: { error: 'signup error' }, status: :unprocessable_entity

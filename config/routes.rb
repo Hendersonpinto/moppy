@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
   
-  namespace :api do
-    namespace :v1 do
-      namespace :cleaning_sessions do
-        get 'cleaning_sessions/index'
-        get 'cleaning_sessions/create'
-        get 'cleaning_sessions/show'
-        get 'cleaning_sessions/destroy'
-      end
-    end
-  end
+  # namespace :api do
+  #   namespace :v1 do
+  #     namespace :cleaning_sessions do
+  #       get 'cleaning_sessions/index'
+  #       get 'cleaning_sessions/create'
+  #       get 'cleaning_sessions/show'
+  #       get 'cleaning_sessions/destroy'
+  #     end
+  #   end
+  # end
   namespace :api do
     namespace :v1 do
 
@@ -32,6 +32,7 @@ Rails.application.routes.draw do
 
       namespace :cleaning_sessions do
       get 'index', to: 'cleaning_sessions#index', as: 'sessions'
+      get 'all_sessions', to: 'cleaning_sessions#admin_index'
       post 'create'
       get 'show/:id', to: 'cleaning_sessions#show'
       post 'destroy/:id', to: 'cleaning_sessions#destroy'

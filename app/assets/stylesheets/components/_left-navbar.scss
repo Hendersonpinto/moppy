@@ -1,0 +1,15 @@
+.lnav {
+  background-color: $rose;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+
+  // justify-content: center;
+  a {
+    color: $green;
+    &:hover {
+      color: $darkgreen;
+      text-decoration: none;
+    }
+  }
+}

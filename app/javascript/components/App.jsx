@@ -13,7 +13,8 @@ class App extends React.Component {
   //   this.props.checkHost();
   // }
   render() {
-    return <Routes />;
+    console.log(this.props.current_host);
+    return <Routes currentHost={this.props.current_host} />;
   }
 }
 
