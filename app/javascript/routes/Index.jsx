@@ -6,6 +6,7 @@ import Home from "../components/Home";
 import NavBar from "../components/NavBar";
 import HostCreate from "../components/hosts/HostCreate";
 import HostLog from "../components/hosts/HostLog";
+import Dashboard from "../components/Dashboard";
 import ShowSession from "../components/sessions/ShowSession";
 import NotFound from "../components/NotFound";
 import CreateSession from "../components/sessions/CreateSession";
@@ -24,6 +25,7 @@ const Routes = () => {
         <Route path="/sessions" exact component={SessionsIndex} />
         <Route path="/hosts/sign_up" exact component={HostCreate} />
         <Route path="/hosts/log_in" exact component={HostLog} />
+        <Route path="/hosts/dashboard" exact component={Dashboard} />
         {/* <Route path="/cleaners" exact component={CleanersIndex} /> */}
         {/* <Route path="/hosts" exact component={HostsIndex} /> */}
         {/* <Route path="/sessions/new" exact component={CreateSession} /> */}

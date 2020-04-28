@@ -30,6 +30,7 @@ export const checkHost = () => {
       .catch(function (error) {
         console.log(error);
       });
+    console.log("the logged host is");
     console.dir(response);
     dispatch({ type: CHECK_HOST, payload: response.data });
   };
@@ -64,7 +65,7 @@ export const logHost = (formValues) => {
     console.dir(response);
     dispatch({ type: HOST_LOGIN, payload: response.data });
     // Here is where we force our user with programmatic navitagion
-    history.push("/");
+    history.push(`/hosts/dashboard`);
   };
 };
 
