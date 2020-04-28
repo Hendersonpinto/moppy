@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Cleaners::ConfirmationsController < Devise::ConfirmationsController
+class Api::V1::Cleaners::ConfirmationsController < Devise::ConfirmationsController
   # GET /resource/confirmation/new
   # def new
   #   super

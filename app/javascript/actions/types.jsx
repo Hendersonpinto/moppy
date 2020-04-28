@@ -3,8 +3,12 @@
 
 export const SIGN_IN = "SIGN_IN";
 export const SIGN_OUT = "SIGN_OUT";
+export const CHECK_HOST = "CHECK_HOST";
 export const CREATE_SESSION = "CREATE_SESSION";
 export const FETCH_SESSIONS = "FETCH_SESSIONS";
 export const DELETE_SESSION = "DELETE_SESSION";
 export const FETCH_SESSION = "FETCH_SESSION";
 export const UPDATE_SESSION = "UPDATE_SESSION";
+export const HOST_CREATE = "HOST_CREATE";
+export const HOST_LOG = "HOST_LOG";
+export const HOST_LOGOUT = "HOST_LOG";

@@ -1,32 +1,49 @@
 Rails.application.routes.draw do
+  
   namespace :api do
     namespace :v1 do
-      get 'cleaners/index'
+      namespace :cleaning_sessions do
+        get 'cleaning_sessions/index'
+        get 'cleaning_sessions/create'
+        get 'cleaning_sessions/show'
+        get 'cleaning_sessions/destroy'
+      end
     end
   end
   namespace :api do
     namespace :v1 do
-      get 'cleaner/index'
-    end
-  end
-  namespace :api do
-    namespace :v1 do
-      get 'hosts/index'
-    end
-  end
-  namespace :api do
-    namespace :v1 do
-      get 'cleaning_sessions/index', to: 'cleaning_sessions#index', as: 'sessions'
-      post 'cleaning_sessions/create'
-      get 'cleaning_sessions/show/:id', to: 'cleaning_sessions#show'
-      post 'cleaning_sessions/destroy/:id', to: 'cleaning_sessions#destroy'
-    end
-  end
 
+      #  ------------   CLEANERS  ------------
+      devise_for :cleaners, path: 'cleaners', controllers: { sessions: "api/v1/cleaners/sessions", registrations:"api/v1/cleaners/registrations", passwords:"api/v1/cleaners/passwords"}
+    
+
+
+      #  ------------   HOSTS  ------------
+      devise_for :hosts, controllers: { sessions: "api/v1/hosts/sessions", registrations:"api/v1/hosts/registrations", passwords:"api/v1/hosts/passwords"}
+    
+      # Custom route for custom method inside of devise
+      devise_scope :host do
+        get 'hosts/check_host', to: 'hosts/sessions#check_host'
+      end
+
+
+
+      #  ------------   CLEANING SESSIONS  ------------
+
+      namespace :cleaning_sessions do
+      get 'index', to: 'cleaning_sessions#index', as: 'sessions'
+      post 'create'
+      get 'show/:id', to: 'cleaning_sessions#show'
+      post 'destroy/:id', to: 'cleaning_sessions#destroy'
+      end
+    
+    end
+  end
+  
   root to: "static#index"
+
+  # Redirect every path that is not part of the API to our root route where the REACT app is rendered
   get '/*path' => 'static#index'
 
-  devise_for :cleaners, path: 'cleaners', controllers: { sessions: "cleaners/sessions"}
-  devise_for :hosts, path: 'hosts', controllers: { sessions: "hosts/sessions"}
-
 end
+    

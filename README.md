@@ -2,7 +2,7 @@
 
 <!-- Run two servers at the same time -->
 
-foremant start -f Procfile.dev
+foreman start -f Procfile.dev
 
 <!-- Controllers Generation -->
 <!--
