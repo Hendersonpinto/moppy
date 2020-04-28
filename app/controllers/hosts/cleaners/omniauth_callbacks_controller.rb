@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-class Cleaners::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+class Api::V1::Cleaners::OmniauthCallbacksController < Devise::SessionsController
+
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
 

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Cleaners::PasswordsController < Devise::PasswordsController
+class Api::V1::Hosts::PasswordsController < Devise::PasswordsController
   # GET /resource/password/new
   # def new
   #   super

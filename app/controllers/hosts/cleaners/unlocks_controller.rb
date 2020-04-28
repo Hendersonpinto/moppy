@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-class Cleaners::UnlocksController < Devise::UnlocksController
+class Api::V1::Cleaners::UnlocksController < Devise::SessionsController
+
   # GET /resource/unlock/new
   # def new
   #   super
