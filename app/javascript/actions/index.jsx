@@ -1,3 +1,5 @@
+import history from "../packs/history";
+import deviseHostsAxios from "../api/deviseHostsAxios";
 import sessionsAxios from "../api/sessionsAxios";
 
 import {
@@ -13,7 +15,6 @@ import {
   HOST_LOGOUT,
   HOST_CREATE,
 } from "./types";
-import deviseHostsAxios from "../api/deviseHostsAxios";
 
 export const fetchSessions = () => {
   return async (dispatch) => {

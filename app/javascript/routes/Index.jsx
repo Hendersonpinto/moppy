@@ -1,5 +1,7 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import { Router, Route, Switch } from "react-router-dom";
+import history from "../packs/history";
 import Home from "../components/Home";
 import NavBar from "../components/NavBar";
 import HostCreate from "../components/hosts/HostCreate";
@@ -15,7 +17,7 @@ import HostsIndex from "../components/hosts/HostsIndex";
 
 const Routes = () => {
   return (
-    <Router>
+    <Router history={history}>
       <NavBar />
       <Switch>
         <Route path="/" exact component={Home} />
