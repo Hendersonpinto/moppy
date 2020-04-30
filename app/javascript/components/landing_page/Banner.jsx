@@ -1,10 +1,14 @@
 import React from "react";
 
 // import MyImage from "app/assets/images/girl_sofa.png";
-import MyImage from "../../../assets/images/girl_sofa.png";
+import Sofa from "../../../assets/images/girl_sofa.png";
+import Bg from "../../../assets/images/bg.png";
 const Home = () => {
   return (
     <div className="banner">
+      <div className="banner__bg">
+        <img src={Bg} id="bg" alt="background vector" />
+      </div>
       <div className="banner__hero">
         <div className="banner__content">
           <div className="banner__title">
@@ -13,14 +17,15 @@ const Home = () => {
           </div>
           <div className="banner__message">
             <h2>
-              Hassle-free home cleaning. Choose a date and duration and our
+              Hassle-free home cleaning. Just choose a date and one of our
               cleaners will make it shine.
             </h2>
+            {/* <h2> </h2> */}
           </div>
           <button className="banner__button green-button">Get Started</button>
         </div>
-        <div>
-          <img src={MyImage} className="banner__image" alt="girl on a couch" />
+        <div className="banner__image">
+          <img src={Sofa} id="sofa" alt="girl on a couch" />
         </div>
       </div>
     </div>
