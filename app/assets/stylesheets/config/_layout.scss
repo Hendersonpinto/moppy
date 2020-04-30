@@ -1,3 +1,15 @@
 body {
   background-color: red;
+
+  h1 {
+    font-family: $raleway;
+    color: $dark-green;
+  }
+
+  h2 {
+    font-family: $muli;
+    font-weight: 500;
+    font-size: 20px;
+    color: $green-text;
+  }
 }

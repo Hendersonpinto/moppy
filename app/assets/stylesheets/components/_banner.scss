@@ -1,0 +1,18 @@
+.banner {
+  height: calc(100vh - 40px);
+  &__hero {
+    height: 500px;
+    // display: flex;
+    display: grid;
+    grid-template-columns: (1fr 1fr);
+    grid-column-gap: 10px;
+
+    .banner__content {
+      width: 100%;
+    }
+
+    .banner__image {
+      width: 100%;
+    }
+  }
+}
