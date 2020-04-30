@@ -1,0 +1,40 @@
+.hiw {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__bg {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    img {
+      height: 100vh;
+      width: 100%;
+    }
+  }
+  &__wrapper {
+    width: 80%;
+    height: 75vh;
+    .hiw__heading {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .hiw__steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      grid-column-gap: 10px;
+      .step__icon {
+        height: 120px;
+      }
+      .step__content {
+        h4 {
+          color: $dark-green;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

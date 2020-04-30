@@ -3,13 +3,32 @@ body {
 
   h1 {
     font-family: $raleway;
-    color: $dark-green;
+    color: $green;
+    font-size: 50px;
   }
 
   h2 {
+    font-family: $raleway;
+    font-weight: 500;
+    font-size: 36px;
+    color: $green;
+  }
+  h3 {
     font-family: $muli;
     font-weight: 500;
     font-size: 20px;
     color: $grey;
+  }
+  h4 {
+    font-family: $muli;
+    font-weight: 500;
+    font-size: 18px;
+    color: $grey;
+  }
+  p {
+    font-family: $muli;
+    font-weight: 400;
+    font-size: 16px;
+    color: $dark-green;
   }
 }

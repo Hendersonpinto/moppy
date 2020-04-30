@@ -12,15 +12,13 @@ const Home = () => {
       <div className="banner__hero">
         <div className="banner__content">
           <div className="banner__title">
-            <h1>Get your home clean,</h1>
-            <h1>whenever it fits you</h1>
+            <h1>Get your home clean, whenever it fits you</h1>
           </div>
           <div className="banner__message">
-            <h2>
+            <h3>
               Hassle-free home cleaning. Just choose a date and one of our
               cleaners will make it shine.
-            </h2>
-            {/* <h2> </h2> */}
+            </h3>
           </div>
           <button className="banner__button green-button">Get Started</button>
         </div>

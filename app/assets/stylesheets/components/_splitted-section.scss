@@ -1,0 +1,35 @@
+.splitted {
+  min-height: 100vh;
+  display: flex;
+
+  &.inverse {
+    .splitted__wrapper {
+      .splitted__right {
+        grid-row: 1;
+        grid-column: 1;
+      }
+    }
+  }
+  .splitted__wrapper {
+    width: 80%;
+    margin: auto auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-column-gap: 10px;
+
+    .splitted__left {
+      margin: auto;
+      #mockup {
+      }
+    }
+    .splitted__right {
+      margin: auto auto;
+      .splitted__title {
+        margin-bottom: 1rem;
+      }
+      .splitted__message {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

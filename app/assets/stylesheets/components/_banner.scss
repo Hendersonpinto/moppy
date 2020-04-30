@@ -5,6 +5,7 @@
   align-items: center;
   position: relative;
   overflow-x: hidden;
+  overflow-y: visible;
 
   .banner__bg {
     position: absolute;
@@ -19,7 +20,8 @@
     height: 500px;
     // display: flex;
     display: grid;
-    grid-template-columns: (1fr 1fr);
+    // grid-template-columns: (1fr 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-column-gap: 10px;
     width: 80%;
 
@@ -27,8 +29,10 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      // text-align: center;
-      justify-content: center;
+      // align-items: center;
+      justify-content: space-around;
+      // align-content: space-between;
+      padding: 80px 10px;
       .banner__button {
         width: 150px;
       }
@@ -39,6 +43,12 @@
 
     .banner__image {
       width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      #sofa {
+        width: 100%;
+      }
     }
   }
 }
