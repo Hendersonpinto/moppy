@@ -1,0 +1,27 @@
+.footer__card {
+  width: 30%;
+  text-align: left;
+  .footer__card-title {
+    font-size: 16px;
+    color: $salmon;
+    margin-bottom: 10px;
+  }
+  .footer__card-item {
+    font-size: 14px;
+  }
+  .footer__card-icons {
+    display: flex;
+
+    i {
+      margin-right: 16px;
+      font-size: 24px;
+      color: $rose;
+    }
+  }
+
+  @media only screen and (max-width: 576px) {
+    .footer__card-item {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,93 @@
+.myfooter {
+  width: 100%;
+  background-color: $darker-green;
+  padding: 50px 0px 20px 0px;
+  .content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+    .left {
+      width: 30%;
+      text-align: center;
+
+      .logo {
+        margin: auto;
+        width: 50%;
+        margin-bottom: 10px;
+        img {
+          width: 70%;
+        }
+      }
+
+      p {
+        font-size: 12px;
+        margin-bottom: 0.25rem;
+        margin-top: 0.25rem;
+
+        &:first-of-type {
+          margin-top: 1rem;
+        }
+      }
+      #languages {
+        margin-bottom: 1rem;
+        color: $rose;
+      }
+    }
+
+    .right {
+      flex-grow: 1;
+      display: flex;
+      justify-content: end;
+      .footer__cards {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .footer__icons {
+        display: none;
+      }
+    }
+  }
+  #copyright {
+    width: 100%;
+    text-align: center;
+  }
+
+  @media only screen and (max-width: 576px) {
+    height: 400px;
+    .footer__bg {
+      width: 300%;
+    }
+
+    .content {
+      display: grid;
+      grid-template-areas:
+        "up"
+        "down";
+      padding-bottom: 50px;
+      .left {
+        width: 100%;
+        grid-area: up;
+      }
+      .right {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        .footer__cards {
+          display: none;
+        }
+        .footer__icons {
+          width: 40%;
+          display: flex;
+          grid-area: down;
+          justify-content: space-around;
+        }
+      }
+    }
+  }
+  @media only screen and (min-width: 577px) and (max-width: 800px) {
+  }
+  @media only screen and (min-width: 1700px) {
+  }
+}

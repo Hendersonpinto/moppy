@@ -1,0 +1,29 @@
+.cta {
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+  background-color: $green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .cta__content {
+    text-align: center;
+    width: 50%;
+    h1 {
+      color: $rose;
+      margin-bottom: 25px;
+    }
+  }
+  #yoga {
+    // width: 30%;
+    // height: 100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  #plants {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}

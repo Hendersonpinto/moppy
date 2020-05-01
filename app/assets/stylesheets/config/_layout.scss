@@ -2,13 +2,13 @@ body {
   background-color: red;
 
   h1 {
-    font-family: $raleway;
+    font-family: "recoletab";
     color: $green;
     font-size: 50px;
   }
 
   h2 {
-    font-family: $raleway;
+    font-family: "recoletab";
     font-weight: 500;
     font-size: 36px;
     color: $green;
@@ -20,15 +20,15 @@ body {
     color: $grey;
   }
   h4 {
-    font-family: $muli;
-    font-weight: 500;
+    font-family: "recoletar";
     font-size: 18px;
     color: $grey;
   }
   p {
     font-family: $muli;
-    font-weight: 400;
-    font-size: 16px;
-    color: $dark-green;
+    font-weight: 500;
+    font-size: 18px;
+    color: $grey;
+    line-height: 1.2;
   }
 }

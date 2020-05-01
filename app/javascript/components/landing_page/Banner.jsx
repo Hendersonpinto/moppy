@@ -2,7 +2,7 @@ import React from "react";
 
 // import MyImage from "app/assets/images/girl_sofa.png";
 import Sofa from "../../../assets/images/girl_sofa.png";
-import Bg from "../../../assets/images/bg.png";
+import Bg from "../../../assets/images/bg4.svg";
 const Home = () => {
   return (
     <div className="banner">
@@ -20,7 +20,7 @@ const Home = () => {
               cleaners will make it shine.
             </h3>
           </div>
-          <button className="banner__button green-button">Get Started</button>
+          <button className="banner__button mybutton lg">Get Started</button>
         </div>
         <div className="banner__image">
           <img src={Sofa} id="sofa" alt="girl on a couch" />

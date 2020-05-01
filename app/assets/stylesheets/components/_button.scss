@@ -1,0 +1,27 @@
+.mybutton {
+  background-color: $green;
+  border: none;
+  border-radius: 5px;
+  padding: 4px 10px;
+  font-family: $muli;
+  font-weight: 600;
+  color: $rose;
+  font-size: 18px;
+
+  &.lg {
+    padding: 8px 40px;
+    font-size: 18px;
+    border-radius: 5px;
+    font-size: 24px;
+  }
+
+  &.salmon-button {
+    background-color: $salmon;
+    color: $dark-green;
+  }
+
+  &.rose-button {
+    background-color: $rose;
+    color: $dark-green;
+  }
+}

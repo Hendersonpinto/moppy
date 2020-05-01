@@ -9,7 +9,7 @@ const renderSteps = (steps) => {
         </div>
         <div className="step__content">
           <h4>{step.title}</h4>
-          <p>{step.message}</p>
+          <p className="dark">{step.message}</p>
         </div>
       </div>
     );

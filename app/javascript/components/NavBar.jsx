@@ -9,7 +9,7 @@ class NavBar extends React.Component {
       if (this.props.location.pathname !== "/hosts/dashboard") {
         return (
           <>
-            <Link to="/hosts/dashboard" className="navbar__action">
+            <Link to="/hosts/dashboard" className="navBar__action">
               Dashboard
             </Link>
             <button
@@ -25,14 +25,14 @@ class NavBar extends React.Component {
       }
       return (
         <>
-          <Link to="/" className="navbar__action">
+          <Link to="/" className="navBar__action">
             Home
           </Link>
           <button
             onClick={() => {
               this.props.logoutHost(this.props.current_host.id);
             }}
-            className="navbar__action"
+            className="navBar__action"
           >
             Log Out
           </button>
@@ -41,10 +41,10 @@ class NavBar extends React.Component {
     }
     return (
       <>
-        <Link to="/hosts/log_in" className="navbar__action">
+        <Link to="/hosts/log_in" className="navBar__action">
           Log in
         </Link>
-        <Link to="/hosts/sign_up" className="navbar__action">
+        <Link to="/hosts/sign_up" className="navBar__action">
           Sign up
         </Link>
       </>
@@ -53,11 +53,11 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <div className="navbar">
-        <Link to="/" className="navbar__logo">
+      <div className="navBar">
+        <Link to="/" className="navBar__logo">
           Moppy
         </Link>
-        <div className="navbar__actions">{this.renderActions()}</div>
+        <div className="navBar__actions">{this.renderActions()}</div>
       </div>
     );
   }

@@ -1,0 +1,52 @@
+.testimonials {
+  background-color: $rose2;
+  .splitted__wrapper {
+    grid-template-columns: (1fr 2fr);
+
+    .splitted__left {
+      h2 {
+        text-align: right;
+      }
+      #flowers {
+        position: relative;
+        left: -30%;
+        width: 300px;
+      }
+    }
+
+    .splitted__right {
+      margin: 0px;
+
+      .quote-wrapper {
+        margin-bottom: 40px;
+        .quote-box {
+          background-color: white;
+          padding: 20px 10px 35px 10px;
+          width: 80%;
+          border-radius: 40px;
+          margin: auto;
+          position: relative;
+          .quote-icon {
+            margin-right: 1rem;
+          }
+          .poly {
+            position: absolute;
+            bottom: 0;
+            left: 70%;
+            transform: translateY(50%);
+          }
+          .quote {
+            margin: auto;
+            width: 80%;
+            color: $dark-grey;
+            font-weight: 600;
+          }
+        }
+        .quote-owner {
+          width: 80%;
+          margin: auto;
+        }
+      }
+    }
+  }
+}

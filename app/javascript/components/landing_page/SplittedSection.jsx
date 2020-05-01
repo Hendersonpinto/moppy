@@ -20,9 +20,9 @@ const SplittedSection = ({
             <h2>{title}</h2>
           </div>
           <div className="splitted__message">
-            <h4>{message}</h4>
+            <p>{message}</p>
           </div>
-          <button className="splitted__button salmon-button">
+          <button className="splitted__button mybutton salmon-button">
             {buttonText}
           </button>
         </div>

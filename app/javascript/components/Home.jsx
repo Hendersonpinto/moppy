@@ -3,10 +3,15 @@ import React from "react";
 import Banner from "./landing_page/Banner";
 import SplittedSection from "./landing_page/SplittedSection";
 import HowItWorks from "./landing_page/HowItWorks";
+import Testimonials from "./landing_page/Testimonials";
+import CTA from "./landing_page/CTA";
+import Footer from "./landing_page/Footer";
 import {
   howItWorksContent,
   mockupContent,
   superheroContent,
+  testimonialsContent,
+  cTAContent,
 } from "./landing_page/content";
 
 const Home = () => {
@@ -28,6 +33,15 @@ const Home = () => {
         steps={howItWorksContent.steps}
         background={howItWorksContent.background}
       />
+      <Testimonials
+        title={testimonialsContent.title}
+        quotes={testimonialsContent.quotes}
+        file={testimonialsContent.image.file}
+        alt={testimonialsContent.image.alt}
+        id={testimonialsContent.image.id}
+        quoteIcon={testimonialsContent.quoteIcon}
+        polyIcon={testimonialsContent.polyIcon}
+      />
       <SplittedSection
         classname={superheroContent.classname}
         title={superheroContent.title}
@@ -38,6 +52,14 @@ const Home = () => {
         alt={superheroContent.image.alt}
         id={superheroContent.image.id}
       />
+      <CTA
+        title={cTAContent.title}
+        buttonClass={cTAContent.buttonClass}
+        buttonText={cTAContent.buttonText}
+        img1={cTAContent.yoga}
+        img2={cTAContent.plants}
+      />
+      <Footer />
     </div>
   );
 };

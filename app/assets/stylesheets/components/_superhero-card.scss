@@ -1,0 +1,19 @@
+.superhero {
+  .splitted__wrapper {
+    width: 60%;
+    grid-template-columns: (1fr 2fr);
+
+    border-radius: 20px;
+    box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
+    .splitted__left {
+      margin: 0;
+      #superhero {
+        width: 100%;
+        border-radius: 20px 0px 0px 20px;
+      }
+    }
+    .splitted__right {
+      padding: 0px 50px 50px 50px;
+    }
+  }
+}

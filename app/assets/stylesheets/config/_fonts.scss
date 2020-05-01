@@ -5,3 +5,19 @@
 $font-Poppins: "Poppins", "Helvetica", "sans-serif";
 $raleway: "Raleway", sans-serif;
 $muli: "Muli", sans-serif;
+
+@font-face {
+  font-family: "recoletar";
+  src: url("fonts/recoletar.woff") format("woff"),
+    url("fonts/recoletar.ttf") format("ttf"),
+    url("fonts/recoletar.eot") format("eot");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "recoletab";
+  src: asset-url("fonts/recoletab.woff") format("woff"),
+    url("fonts/recoletab.ttf") format("ttf"),
+    url("fonts/recoletab.eot") format("eot");
+  font-weight: 600;
+}
