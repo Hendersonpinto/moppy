@@ -9,6 +9,7 @@ gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 gem 'pg', '>= 0.18', '< 2.0'
 # Puma is the gem used for RAILS SERVER
 gem 'puma', '~> 4.1'
+gem 'foreman'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
