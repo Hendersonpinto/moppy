@@ -3,7 +3,7 @@ import React from "react";
 const renderQuotes = (quotes, quoteIcon, polyIcon) => {
   return quotes.map((quote) => {
     return (
-      <div className="quote-wrapper">
+      <div className="quote-wrapper" key={quote.owner}>
         <div className="quote-box">
           <img className="quote-icon" src={quoteIcon} />
           <p className="quote">{quote.message}</p>

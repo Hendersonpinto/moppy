@@ -3,7 +3,7 @@ import React from "react";
 const renderSteps = (steps) => {
   return steps.map((step) => {
     return (
-      <div className="step">
+      <div className="step" key={step.title}>
         <div className="step__icon">
           <img src={step.file} alt={step.alt} />
         </div>

@@ -16,17 +16,24 @@ import SessionsIndex from "../components/sessions/SessionsIndex";
 import CleanersIndex from "../components/cleaners/CleanersIndex";
 import HostsIndex from "../components/hosts/HostsIndex";
 import ProtectedRoute from "./ProtectedRoute";
+import AppRoute from "./AppRoute";
 
 const Routes = (props) => {
   console.log(props);
   return (
     <Router history={history}>
-      <NavBar />
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/all_sessions" exact component={SessionsIndex} />
-        <Route path="/hosts/sign_up" exact component={HostCreate} />
-        <Route path="/hosts/log_in" exact component={HostLog} />
+        {/* With <Switch>, only the first child <Route> that matches the location gets rendered. */}
+        {/* So in case we use /:id, it does not consider /home with home as the id. */}
+        <AppRoute path="/" navBar={NavBar} exact component={Home} />
+        <AppRoute
+          path="/all_sessions"
+          navBar={NavBar}
+          exact
+          component={SessionsIndex}
+        />
+        <AppRoute path="/hosts/sign_up" exact component={HostLog} />
+        <AppRoute path="/hosts/log_in" exact component={HostLog} />
         <ProtectedRoute
           path="/hosts/dashboard"
           exact
@@ -43,6 +50,7 @@ const Routes = (props) => {
         {/* <Route path="/cleaner/signup" component={CleanerLogOut} /> */}
         {/* <Route path="/host/login" component={HostLogin} /> */}
         {/* <Route path="/host/signup" component={HostLogout} /> */}
+        {/* <Route path="/hosts/log_in" exact component={HostLog} /> */}
         <Route path="/*" exact component={NotFound} />
       </Switch>
     </Router>
