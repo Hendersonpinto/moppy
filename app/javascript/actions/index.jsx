@@ -61,13 +61,32 @@ export const createHost = (formValues) => {
       .post("/", {
         host: { ...formValues },
       })
+      .then((response) => {
+        console.dir(response);
+        dispatch({
+          type: HOST_CREATE,
+          payload: {
+            statusText: response.statusText,
+            status: response.status,
+            success: true,
+            data: response.data,
+          },
+        });
+        // Here is where we force our user with programmatic navitagion
+        history.push("/");
+      })
       .catch(function (error) {
         console.log(error);
+        dispatch({
+          type: HOST_CREATE,
+          payload: {
+            statusText: error.response.statusText,
+            status: error.response.status,
+            success: false,
+            error: error.response.data.error,
+          },
+        });
       });
-    console.dir(response);
-    dispatch({ type: HOST_CREATE, payload: response.data });
-    // Here is where we force our user with programmatic navitagion
-    history.push("/");
   };
 };
 
@@ -77,13 +96,32 @@ export const logHost = (formValues) => {
       .post("/sign_in", {
         host: { ...formValues },
       })
+      .then((response) => {
+        console.dir(response);
+        dispatch({
+          type: HOST_LOGIN,
+          payload: {
+            statusText: response.statusText,
+            status: response.status,
+            success: true,
+            data: response.data,
+          },
+        });
+        // Here is where we force our user with programmatic navitagion
+        history.push(`/hosts/dashboard`);
+      })
       .catch(function (error) {
         console.log(error);
+        dispatch({
+          type: HOST_LOGIN,
+          payload: {
+            statusText: error.response.statusText,
+            status: error.response.status,
+            success: false,
+            error: error.response.data.error,
+          },
+        });
       });
-    console.dir(response);
-    dispatch({ type: HOST_LOGIN, payload: response.data });
-    // Here is where we force our user with programmatic navitagion
-    history.push(`/hosts/dashboard`);
   };
 };
 

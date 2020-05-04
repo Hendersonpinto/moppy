@@ -23,8 +23,8 @@ class LogForm extends React.Component {
 
   renderInput = (formProps) => {
     return (
-      <FormGroup>
-        <Label>{formProps.label}</Label>
+      <FormGroup check={formProps.check ? true : null}>
+        <Label check={formProps.check ? true : null}>{formProps.label}</Label>
         <Input
           type={formProps.type}
           id={formProps.input.name}
@@ -38,39 +38,66 @@ class LogForm extends React.Component {
       </FormGroup>
     );
   };
+  renderInputCheck = (formProps) => {
+    return (
+      <FormGroup check={formProps.check ? true : null}>
+        <Label check={formProps.check ? true : null}>
+          {formProps.label}
+          <Input type={formProps.type} />
+        </Label>
+      </FormGroup>
+    );
+  };
 
   onSubmit = (formValues) => {
     this.props.onSubmit(formValues);
   };
 
   render() {
-    // return (
-    //   <form
-    //     onSubmit={this.props.handleSubmit(this.onSubmit)}
-    //     className="ui form error"
-
+    console.log("ESTA MIERDA CORRIO");
+    console.log(this.props);
     return (
-      <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
-        <FormGroup>
+      <>
+        <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
+          <FormGroup>
+            <Field
+              name="email"
+              component={this.renderInput}
+              label="Email"
+              type="email"
+              placeholder="Insert your email"
+            />
+          </FormGroup>
+          <FormGroup>
+            <Field
+              name="password"
+              component={this.renderInput}
+              label="Password"
+              type="password"
+              placeholder="Insert your password"
+            />
+          </FormGroup>
+          <p>Forgot email or password ?</p>
           <Field
-            name="email"
-            component={this.renderInput}
-            label="Email"
-            type="email"
-            placeholder="Insert your email"
+            name="remember"
+            component={this.renderInputCheck}
+            label="Remember this device"
+            type="checkbox"
+            check={true}
           />
-        </FormGroup>
-        <FormGroup>
-          <Field
-            name="password"
-            component={this.renderInput}
-            label="Password"
-            type="password"
-            placeholder="Insert your password"
-          />
-        </FormGroup>
-        <Button>Submit</Button>
-      </form>
+          <Button className="mybutton salmon-button">
+            <div className="google">
+              <img src={this.props.buttonImage} className="lock"></img>
+              <p>Sign In</p>
+            </div>
+          </Button>
+        </form>
+        {this.props.myerror ? (
+          <p>{`Something went wrong: ${this.props.myerror}`}</p>
+        ) : (
+          ""
+        )}
+      </>
     );
   }
 }

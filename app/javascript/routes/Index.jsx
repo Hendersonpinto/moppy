@@ -17,6 +17,7 @@ import CleanersIndex from "../components/cleaners/CleanersIndex";
 import HostsIndex from "../components/hosts/HostsIndex";
 import ProtectedRoute from "./ProtectedRoute";
 import AppRoute from "./AppRoute";
+import LogContainer from "../components/LogContainer";
 
 const Routes = (props) => {
   console.log(props);
@@ -32,8 +33,14 @@ const Routes = (props) => {
           exact
           component={SessionsIndex}
         />
-        <AppRoute path="/hosts/sign_up" exact component={HostLog} />
-        <AppRoute path="/hosts/log_in" exact component={HostLog} />
+        <AppRoute path="/hosts/sign_up" exact component={HostCreate} />
+        {/* <AppRoute path="/hosts/log_in" exact component={HostLog} /> */}
+        <AppRoute
+          path="/hosts/log_in"
+          exact
+          component={LogContainer}
+          type="login"
+        />
         <ProtectedRoute
           path="/hosts/dashboard"
           exact

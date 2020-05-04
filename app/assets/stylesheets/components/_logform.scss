@@ -1,0 +1,110 @@
+.log__wrapper {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 1fr 2fr;
+  grid-column-gap: 0px;
+  background-color: $light-rose;
+
+  &.login {
+    background-color: $green;
+  }
+
+  .log__left {
+    background-color: $green;
+    border-radius: 0px 40px 40px 0px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    &.login {
+      background-color: $light-rose;
+    }
+  }
+
+  .log__right {
+    padding: 50px;
+    position: relative;
+
+    .myform {
+      margin: auto;
+      width: 60%;
+      background-color: white;
+      padding: 50px;
+      border-radius: 20px;
+
+      label {
+        font-family: $muli;
+      }
+      h3 {
+        margin: 20px 0px;
+        color: $black;
+        font-size: 36px;
+      }
+
+      p {
+        color: $green;
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+      .form-check-input {
+        left: 0px;
+        margin-left: 0px;
+      }
+      .mybutton {
+        width: 100%;
+        margin: 10px 0px;
+        .google {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        p {
+          margin-left: 10px;
+          font-size: 16px;
+          color: $dark-green;
+          margin: 0px 10px;
+        }
+        .lock {
+          width: 24px;
+        }
+      }
+
+      .separator__wrapper {
+        display: flex;
+        align-items: center;
+        .separator {
+          flex: 1;
+          width: 30%;
+          height: 1px;
+          background-color: $dark-grey;
+        }
+        span {
+          font-family: $muli;
+          margin: 0px 10px;
+        }
+      }
+
+      .formFooter {
+        text-align: center;
+        color: $black;
+        span {
+          color: $green;
+        }
+      }
+    }
+
+    .log__home-wrapper {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      flex-basis: 0px;
+      display: flex;
+      width: 130px;
+      justify-content: space-between;
+      align-items: center;
+      p {
+        color: $rose;
+      }
+    }
+  }
+}

@@ -1,15 +1,17 @@
 import React from "react";
 import { Route } from "react-router-dom";
 
-const AppRoute = ({ component, navBar, ...restProps }) => {
+const AppRoute = ({ component: Component, navBar, ...restProps }) => {
+  console.log(restProps);
   return (
     <Route
       {...restProps}
       render={(props) => {
+        console.log(restProps);
         return (
           <>
             {navBar ? React.createElement(navBar) : null}
-            {React.createElement(component, props)}
+            <Component {...restProps} {...props} />
           </>
         );
       }}

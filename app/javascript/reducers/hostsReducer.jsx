@@ -13,9 +13,16 @@ export default (state = {}, action) => {
     case CHECK_HOST:
       return { ...state, current_host: action.payload };
     case HOST_CREATE:
-      return { ...state, ...action.payload };
+      if (action.payload.success) {
+        return { ...state, ...action.payload.data };
+      }
+      return { ...state, current_host: null, error: action.payload.error };
     case HOST_LOGIN:
-      return { ...state, current_host: action.payload };
+      if (action.payload.success) {
+        return { ...state, current_host: action.payload.data };
+      }
+      return { ...state, current_host: null, error: action.payload.error };
+
     case HOST_LOGOUT:
       return { ...state, current_host: null };
     default:

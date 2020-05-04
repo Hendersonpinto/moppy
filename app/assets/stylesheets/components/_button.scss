@@ -24,4 +24,10 @@
     background-color: $rose;
     color: $dark-green;
   }
+  &.white-button {
+    background-color: white;
+    border: solid 1px;
+    border-color: $rose;
+    color: $dark-green;
+  }
 }
