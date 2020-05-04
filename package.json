@@ -5,6 +5,7 @@
     "node": "12.16.2",
     "npm": "6.x"
   },
+  "proxy": "http://localhost:5000/",
   "dependencies": {
     "@babel/preset-react": "^7.9.4",
     "@rails/actioncable": "^6.0.0",

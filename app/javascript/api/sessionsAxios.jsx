@@ -11,7 +11,7 @@ axios.defaults.paramsSerializer = (params) => {
 };
 
 export default axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "",
   headers: {
     common: {
       "X-CSRF-TOKEN": csrfToken,
