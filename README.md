@@ -138,3 +138,132 @@ return { ...state, ...\_.mapKeys(action.payload, "id") };
     and array out of them.
 
 <!-- API RESPONSE -->
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+<!-- HEROKU AND AXIOS -->
+
+<!--
+
+Problem: When I deployed to heroku, React was making the API calls to
+"localhost:5000/api/v1/hosts_check_host" instead of calling them to the
+heroku server "moppy-app.herokuapp.com".
+
+Reason: The reason was on the Axios component. I have set the baseURL as a
+hardcoded : localhost:5000/api/v1/.
+
+Solution: In order to make call to the heroku server, I needed to define
+a proxy: on package.json   "proxy": "http://localhost:5000/". And most important
+I changed my axios component to a relative baseURL of "/api/v1".
+
+With this, Heroku will handle the deployment and the right routing
+
+ -->
+
+const csrfToken = document.querySelector("[name=csrf-token]").content;
+axios.defaults.headers.common["X-CSRF-TOKEN"] = csrfToken;
+
+<!--
+Axios do not support nested queries for the get method,
+So the external qs library is used for serializing
+ -->
+
+export default axios.create({
+baseURL: "/api/v1/hosts",
+headers: {
+common: {
+"X-CSRF-TOKEN": csrfToken,
+},
+},
+});
+
+<!-- HEROKU AND AXIOS -->
+
+!
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+<!-- HEROKU -->
+
+<!--
+
+Problem: When I deployed to heroku, the app crashed. As a message I got a H10 crash error.
+However, the heroku logs and the response from the server did not help at all to show me
+what was really happening.
+
+Reason: The reason was that I had a copy of one of the controllers files, with bad code that I
+saved for my personal use. However, when deploying Rails consider every single file inside of the
+controller folder as a controller (even though the file name ends in controller_copy2.rb).
+
+Solution: In order to see what was happening I spent hours trying to configure bundlepacks, since
+I read that this error was because heroku does not know how to handle both react and rails app.
+
+I created two bundle packs:
+heroku buildpacks:add heroku/nodejs --index 1
+heroku buildpacks:add heroku/ruby --index 2
+
+This way we are telling heroku that should run the nodejs for the react app first and then rails
+
+However, this did not solve my problem, so I read another post where ppl said that if you
+run rails console in heroku, you might get more detailed info about the problem:
+
+heroku run rails console
+
+THIS WAS THE BEST THING EVER, Rails showed me exactly which file (the controller copy) was causing
+the problem when deployed so I just deleted the file and the app delpoyed successfully
+
+
+ -->
+
+heroku run rails console
+
+<!-- HEROKU -->
