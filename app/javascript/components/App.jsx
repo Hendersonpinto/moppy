@@ -1,27 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Routes from "../routes/Index";
-import { connect } from "react-redux";
+import { useSelector, useDispatch, shallowEqual } from "react-redux";
 
 import { checkHost } from "../actions";
 
-class App extends React.Component {
-  componentDidMount() {
-    this.props.checkHost();
-  }
+const App = () => {
+  const current_host = useSelector((state) => state.hosts.current_host);
+  const dispatch = useDispatch();
 
-  // componentDidUpdate() {
-  //   this.props.checkHost();
-  // }
-  render() {
-    console.log(this.props.current_host);
-    return <Routes currentHost={this.props.current_host} />;
-  }
-}
+  useEffect(() => {
+    dispatch(checkHost());
+  }, []);
 
-const mapStateToProps = (state) => {
-  return {
-    current_host: state.hosts.current_host,
-  };
+  console.log(current_host);
+  return <Routes currentHost={current_host} />;
 };
 
-export default connect(mapStateToProps, { checkHost })(App);
+export default App;
