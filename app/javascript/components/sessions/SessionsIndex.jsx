@@ -18,7 +18,6 @@ class SessionsIndex extends React.Component {
   }
 
   componentWillUnmount() {
-    console.log("corri");
     this.props.cleanSessions();
   }
   renderSessions() {

@@ -54,8 +54,6 @@ class LogForm extends React.Component {
   };
 
   render() {
-    console.log("ESTA MIERDA CORRIO");
-    console.log(this.props);
     return (
       <>
         <form onSubmit={this.props.handleSubmit(this.onSubmit)}>

@@ -1,12 +1,16 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { logoutHost } from "../actions";
 
-class NavBar extends React.Component {
-  renderActions() {
-    if (this.props.current_host) {
-      if (this.props.location.pathname !== "/hosts/dashboard") {
+const NavBar = (props) => {
+  const isSignedIn = useSelector((state) => state.hosts.isSignedIn);
+  const currentHost = useSelector((state) => state.hosts.current_host);
+  const dispatch = useDispatch();
+
+  const renderActions = () => {
+    if (isSignedIn) {
+      if (props.location.pathname !== "/hosts/dashboard") {
         return (
           <>
             <Link to="/hosts/dashboard" className="navBar__action">
@@ -14,7 +18,7 @@ class NavBar extends React.Component {
             </Link>
             <button
               onClick={() => {
-                this.props.logoutHost(this.props.current_host.id);
+                dispatch(logoutHost(currentHost.id));
               }}
               className="navbar__action"
             >
@@ -30,7 +34,7 @@ class NavBar extends React.Component {
           </Link>
           <button
             onClick={() => {
-              this.props.logoutHost(this.props.current_host.id);
+              dispatch(logoutHost(currentHost.id));
             }}
             className="navBar__action"
           >
@@ -49,24 +53,17 @@ class NavBar extends React.Component {
         </Link>
       </>
     );
-  }
-
-  render() {
-    return (
-      <div className="navBar">
-        <Link to="/" className="navBar__logo">
-          Moppy
-        </Link>
-        <div className="navBar__actions">{this.renderActions()}</div>
-      </div>
-    );
-  }
-}
-
-const mapStateToProps = (state, ownProps) => {
-  return {
-    current_host: state.hosts.current_host,
   };
+
+  console.log("navprops", props);
+  return (
+    <div className="navBar">
+      <Link to="/" className="navBar__logo">
+        Moppy
+      </Link>
+      <div className="navBar__actions">{renderActions()}</div>
+    </div>
+  );
 };
 
-export default connect(mapStateToProps, { logoutHost })(withRouter(NavBar));
+export default withRouter(NavBar);

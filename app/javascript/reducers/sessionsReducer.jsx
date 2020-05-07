@@ -31,7 +31,6 @@ export default (state = null, action) => {
     case DELETE_SESSION:
       return _.omit(state, action.payload);
     case CLEAN_SESSIONS:
-      console.log("me llegooo");
       return null;
     default:
       return state;

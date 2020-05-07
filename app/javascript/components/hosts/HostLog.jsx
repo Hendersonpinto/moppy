@@ -9,8 +9,6 @@ class HostLog extends React.Component {
   };
 
   render() {
-    console.log("ME RENDI");
-    console.log(this.props.error);
     return (
       <div className="container">
         <h3>Log a Host</h3>

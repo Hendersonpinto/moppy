@@ -25,10 +25,7 @@ class SessionsIndex extends React.Component {
       return <p>You do not have any session yet</p>;
     }
 
-    console.log(this.props.sessions);
     return this.props.sessions.map((session) => {
-      console.log(session);
-      console.log(session.host);
       return (
         <ListGroupItem key={session.id}>
           <Link to={`/sessions/${session.id}`} className="header">
@@ -47,7 +44,6 @@ class SessionsIndex extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div>
         <h2>Sessions</h2>

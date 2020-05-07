@@ -53,39 +53,41 @@ class LogForm extends React.Component {
     this.props.onSubmit(formValues);
   };
 
-renderFormGroups(fields){
-  return fields.map((field)=>{
-    return (
-      <FormGroup key={field.name}>
-      <Field
-        name={field.name}
-        component={this.renderInput}
-        label={field.label}
-        type={field.type}
-        placeholder={field.placeholder}
-        {...field.extraProps}
-      />
-    </FormGroup>
-    )
-  })
-}
-
+  renderFormGroups(fields) {
+    return fields.map((field) => {
+      return (
+        <FormGroup key={field.name}>
+          <Field
+            name={field.name}
+            component={this.renderInput}
+            label={field.label}
+            type={field.type}
+            placeholder={field.placeholder}
+            {...field.extraProps}
+          />
+        </FormGroup>
+      );
+    });
+  }
 
   render() {
-    console.log(this.props)
     return (
       <>
-        <form onSubmit={()=>{this.props.handleSubmit(this.onSubmit)}}>
+        <form
+          onSubmit={() => {
+            this.props.handleSubmit(this.onSubmit);
+          }}
+        >
           {this.renderFormGroups(this.props.fields)}
           <p>Forgot email or password ?</p>
           <FormGroup>
-          <Field
-            name="remember"
-            component={this.renderInputCheck}
-            label="Remember this device"
-            type="checkbox"
-            check={true}
-          />
+            <Field
+              name="remember"
+              component={this.renderInputCheck}
+              label="Remember this device"
+              type="checkbox"
+              check={true}
+            />
           </FormGroup>
           <Button className="mybutton salmon-button">
             <div className="google">

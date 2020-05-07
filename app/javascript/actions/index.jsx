@@ -45,24 +45,40 @@ export const checkHost = () => {
   return async (dispatch) => {
     const response = await deviseHostsAxios
       .get("/check_host")
+      .then((response) => {
+        console.log("succes");
+        console.log(response);
+        dispatch({
+          type: CHECK_HOST,
+          payload: {
+            statusText: response.statusText,
+            status: response.status,
+            success: true,
+            data: response.data,
+          },
+        });
+      })
       .catch(function (error) {
-        console.log(error);
+        dispatch({
+          type: CHECK_HOST,
+          payload: {
+            statusText: error.response.statusText,
+            status: error.response.status,
+            success: false,
+            error: error.response.data.error,
+          },
+        });
       });
-    console.log("the logged host is");
-    console.dir(response);
-    dispatch({ type: CHECK_HOST, payload: response.data });
   };
 };
 
 export const createHost = (formValues) => {
-  console.log("creating a host");
   return async (dispatch, getState) => {
     const response = await deviseHostsAxios
       .post("/", {
         host: { ...formValues },
       })
       .then((response) => {
-        console.dir(response);
         dispatch({
           type: HOST_CREATE,
           payload: {
@@ -76,7 +92,6 @@ export const createHost = (formValues) => {
         history.push("/");
       })
       .catch(function (error) {
-        console.log(error);
         dispatch({
           type: HOST_CREATE,
           payload: {
@@ -97,7 +112,6 @@ export const logHost = (formValues) => {
         host: { ...formValues },
       })
       .then((response) => {
-        console.dir(response);
         dispatch({
           type: HOST_LOGIN,
           payload: {
@@ -111,7 +125,6 @@ export const logHost = (formValues) => {
         history.push(`/hosts/dashboard`);
       })
       .catch(function (error) {
-        console.log(error);
         dispatch({
           type: HOST_LOGIN,
           payload: {
@@ -126,16 +139,12 @@ export const logHost = (formValues) => {
 };
 
 export const logoutHost = (hostId) => {
-  console.dir("ESTE FUE MI ID");
-  console.dir(hostId);
   return async (dispatch) => {
     const response = await deviseHostsAxios
       .delete("/sign_out", {
         host: { id: hostId },
       })
-      .catch(function (error) {
-        console.log(error);
-      });
+      .catch(function (error) {});
     dispatch({ type: HOST_LOGOUT });
     history.push("/");
   };

@@ -18,7 +18,6 @@ class LogContainer extends React.Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div className={`log__wrapper ${this.props.type}`}>
         <div className={`log__left ${this.props.type}`}>

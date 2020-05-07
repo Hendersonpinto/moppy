@@ -20,7 +20,6 @@ import AppRoute from "./AppRoute";
 import LogContainer from "../components/LogContainer";
 
 const Routes = (props) => {
-  console.log(props);
   return (
     <Router history={history}>
       <Switch>
