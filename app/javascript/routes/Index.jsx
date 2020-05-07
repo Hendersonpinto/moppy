@@ -32,7 +32,12 @@ const Routes = (props) => {
           exact
           component={SessionsIndex}
         />
-        <AppRoute path="/hosts/sign_up" exact component={HostCreate} />
+        <AppRoute
+          path="/hosts/sign_up"
+          exact
+          component={LogContainer}
+          type="logout"
+        />
         {/* <AppRoute path="/hosts/log_in" exact component={HostLog} /> */}
         <AppRoute
           path="/hosts/log_in"

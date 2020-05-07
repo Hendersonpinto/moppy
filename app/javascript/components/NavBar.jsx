@@ -55,7 +55,6 @@ const NavBar = (props) => {
     );
   };
 
-  console.log("navprops", props);
   return (
     <div className="navBar">
       <Link to="/" className="navBar__logo">

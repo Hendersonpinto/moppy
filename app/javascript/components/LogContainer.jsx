@@ -3,7 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 
 import { logHost } from "../actions/index";
+import { createHost } from "../actions/index";
 import LogForm from "./LogForm";
+import logInFields from "./forms/logInFields";
+import logOutFields from "./forms/logOutFields";
 
 import SuperheroUp from "../../assets/images/superheroIn.svg";
 import SuperheroIn from "../../assets/images/superheroIn.svg";
@@ -21,8 +24,75 @@ const LogContainer = (props) => {
   });
 
   const dispatch = useDispatch();
-  const onSubmit = (formValues) => {
+
+  const onLogInSubmit = (formValues) => {
     dispatch(logHost(formValues));
+  };
+
+  const onLogOutSubmit = (formValues) => {
+    dispatch(createHost(formValues));
+  };
+
+  const renderForm = (logType) => {
+    if (logType === "login") {
+      return (
+        <>
+          <h3>Welcome back</h3>
+          <LogForm
+            onSubmit={onLogInSubmit}
+            myerror={myerror}
+            buttonImage={LockIcon}
+            fields={logInFields}
+            logType="login"
+          ></LogForm>
+          <div className="separator__wrapper">
+            <div className="separator"></div>
+            <span>or sign in with</span>
+            <div className="separator"></div>
+          </div>
+          <button className="mybutton white-button">
+            <div className="google">
+              <img src={GoogleIcon}></img>
+              <p>Google</p>
+            </div>
+          </button>
+          <Link to="/hosts/sign_up" className="log__home">
+            <p className="formFooter">
+              Don't have an account? <span>Sign Up</span>
+            </p>
+          </Link>
+        </>
+      );
+    }
+    return (
+      <>
+        <h3>Hi there,</h3>
+        <LogForm
+          onSubmit={onLogOutSubmit}
+          myerror={myerror}
+          buttonImage={LockIcon}
+          fields={logOutFields}
+          logType="logout"
+        ></LogForm>
+
+        <div className="separator__wrapper">
+          <div className="separator"></div>
+          <span>or sign up with</span>
+          <div className="separator"></div>
+        </div>
+        <button className="mybutton white-button">
+          <div className="google">
+            <img src={GoogleIcon}></img>
+            <p>Google</p>
+          </div>
+        </button>
+        <Link to="/hosts/sign_up" className="log__home">
+          <p className="formFooter">
+            Already have an account? <span>Sign In</span>
+          </p>
+        </Link>
+      </>
+    );
   };
 
   console.log(props);
@@ -47,28 +117,7 @@ const LogContainer = (props) => {
           <div className="myform__header">
             <img src={Logo}></img>
           </div>
-          <h3>Welcome back</h3>
-          <LogForm
-            onSubmit={onSubmit}
-            myerror={myerror}
-            buttonImage={LockIcon}
-          ></LogForm>
-          <div className="separator__wrapper">
-            <div className="separator"></div>
-            <span>or sign in with</span>
-            <div className="separator"></div>
-          </div>
-          <button className="mybutton white-button">
-            <div className="google">
-              <img src={GoogleIcon}></img>
-              <p>Google</p>
-            </div>
-          </button>
-          <Link to="/hosts/sign_up" className="log__home">
-            <p className="formFooter">
-              Don't have an account? <span>Sign Up</span>
-            </p>
-          </Link>
+          {renderForm(props.type)}
         </div>
         <Link to="/" className="log__home">
           <div className="log__home-wrapper">

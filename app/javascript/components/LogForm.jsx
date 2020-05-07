@@ -10,8 +10,11 @@ import {
   FormFeedback,
 } from "reactstrap";
 
-class LogForm extends React.Component {
-  renderError = ({ error, touched }) => {
+import logInValidation from "./forms/validationLogIn";
+import logOutValidation from "./forms/validationLogOut";
+
+const LogForm = (props) => {
+  const renderError = ({ error, touched }) => {
     if (touched && error) {
       return { valid: false, invalid: true };
     }
@@ -20,8 +23,10 @@ class LogForm extends React.Component {
     }
     return { valid: null, invalid: null };
   };
-
-  renderInput = (formProps) => {
+  const renderInput = (formProps) => {
+    // These formProps are coming from the <Field> component of Redux Form
+    // It basically gets a bunch of props to run validation, make the field
+    // controlled and much more.
     return (
       <FormGroup check={formProps.check ? true : null}>
         <Label check={formProps.check ? true : null}>{formProps.label}</Label>
@@ -31,77 +36,55 @@ class LogForm extends React.Component {
           placeholder={formProps.placeholder}
           {...formProps.input}
           autoComplete="off"
-          valid={this.renderError(formProps.meta).valid}
-          invalid={this.renderError(formProps.meta).invalid}
+          valid={renderError(formProps.meta).valid}
+          invalid={renderError(formProps.meta).invalid}
         />
         <FormFeedback>{formProps.meta.error}</FormFeedback>
       </FormGroup>
     );
   };
-  renderInputCheck = (formProps) => {
-    return (
-      <FormGroup check={formProps.check ? true : null}>
-        <Label check={formProps.check ? true : null}>
-          {formProps.label}
-          <Input type={formProps.type} />
-        </Label>
-      </FormGroup>
-    );
+
+  const renderField = (fields) => {
+    return fields.map(({ name, label, type, placeholder, ...restFields }) => {
+      return (
+        <Field
+          key={name}
+          name={name}
+          component={renderInput}
+          label={label}
+          type={type}
+          placeholder={placeholder}
+          {...restFields}
+        />
+      );
+    });
   };
 
-  onSubmit = (formValues) => {
-    this.props.onSubmit(formValues);
+  const onSubmit = (formValues) => {
+    props.onSubmit(formValues);
   };
+  console.log(props);
+  return (
+    <>
+      <form onSubmit={props.handleSubmit(onSubmit)}>
+        {renderField(props.fields)}
+        <p>Forgot email or password ?</p>
 
-  render() {
-    return (
-      <>
-        <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
-          <FormGroup>
-            <Field
-              name="email"
-              component={this.renderInput}
-              label="Email"
-              type="email"
-              placeholder="Insert your email"
-            />
-          </FormGroup>
-          <FormGroup>
-            <Field
-              name="password"
-              component={this.renderInput}
-              label="Password"
-              type="password"
-              placeholder="Insert your password"
-            />
-          </FormGroup>
-          <p>Forgot email or password ?</p>
-          <Field
-            name="remember"
-            component={this.renderInputCheck}
-            label="Remember this device"
-            type="checkbox"
-            check={true}
-          />
-          <Button className="mybutton salmon-button">
-            <div className="google">
-              <img src={this.props.buttonImage} className="lock"></img>
-              <p>Sign In</p>
-            </div>
-          </Button>
-        </form>
-        {this.props.myerror ? (
-          <p>{`Something went wrong: ${this.props.myerror}`}</p>
-        ) : (
-          ""
-        )}
-      </>
-    );
-  }
-}
+        <Button className="mybutton salmon-button">
+          <div className="google">
+            <img src={props.buttonImage} className="lock"></img>
+            <p>{props.logType === "login" ? "Log In" : "Sign Up"}</p>
+          </div>
+        </Button>
+      </form>
+      {props.myerror ? <p>{`Something went wrong: ${props.myerror}`}</p> : ""}
+    </>
+  );
+};
 
 // formValues is passed as props with the values from the fields
 // when validate is called, with the Key specified on our Field ReactComponent
+
 const validate = (formValues) => {
   // object declared to store errors
   const min_digits = 6;
