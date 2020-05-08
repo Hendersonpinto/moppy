@@ -25,6 +25,7 @@ const renderFields = (fields) => {
     );
   });
 };
+
 const renderInput = (formProps) => {
   // These formProps are coming from the <Field> component of Redux Form
   // It basically gets a bunch of props to run validation, make the field
@@ -45,6 +46,7 @@ const renderInput = (formProps) => {
     </FormGroup>
   );
 };
+
 const renderError = ({ error, touched }) => {
   if (touched && error) {
     return { valid: false, invalid: true };
@@ -59,17 +61,15 @@ const LogForm = (props) => {
   const onSubmit = (formValues) => {
     props.onSubmit(formValues);
   };
-  console.log(props);
   return (
     <>
       <form onSubmit={props.handleSubmit(onSubmit)}>
         {renderFields(props.fields)}
-        <p>Forgot email or password ?</p>
 
         <Button className="mybutton salmon-button">
           <div className="google">
             <img src={props.buttonImage} className="lock"></img>
-            <p>Log In</p>
+            <p>Sign Up</p>
           </div>
         </Button>
       </form>
@@ -86,6 +86,13 @@ const validate = (formValues) => {
   const min_digits = 6;
   const errors = {};
   // Only run if user did not enter a title
+  if (!formValues.first_name) {
+    errors.first_name = "You must enter a name";
+  }
+  // Only run if user did not enter a description
+  if (!formValues.last_name) {
+    errors.last_name = "You must enter a last name";
+  }
   if (!formValues.email) {
     errors.email = "You must enter an email";
   }
@@ -100,6 +107,15 @@ const validate = (formValues) => {
   }
   if (formValues.password && formValues.password.length < min_digits) {
     errors.password = `Your password must contain at least ${min_digits} digits`;
+  }
+  if (!formValues.password_confirmation) {
+    errors.password_confirmation = "You must repeat your password";
+  }
+  if (
+    formValues.password_confirmation &&
+    formValues.password_confirmation !== formValues.password
+  ) {
+    errors.password_confirmation = "Your password must be identical";
   }
   return errors;
 };

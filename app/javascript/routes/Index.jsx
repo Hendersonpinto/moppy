@@ -17,7 +17,7 @@ import CleanersIndex from "../components/cleaners/CleanersIndex";
 import HostsIndex from "../components/hosts/HostsIndex";
 import ProtectedRoute from "./ProtectedRoute";
 import AppRoute from "./AppRoute";
-import LogContainer from "../components/LogContainer";
+import LogLayout from "../components/LogLayout";
 
 const Routes = (props) => {
   return (
@@ -35,14 +35,14 @@ const Routes = (props) => {
         <AppRoute
           path="/hosts/sign_up"
           exact
-          component={LogContainer}
+          component={LogLayout}
           type="logout"
         />
         {/* <AppRoute path="/hosts/log_in" exact component={HostLog} /> */}
         <AppRoute
           path="/hosts/log_in"
           exact
-          component={LogContainer}
+          component={LogLayout}
           type="login"
         />
         <ProtectedRoute

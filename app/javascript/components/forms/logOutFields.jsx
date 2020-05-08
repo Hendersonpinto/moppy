@@ -3,13 +3,13 @@ const logOutFields = [
     name: "first_name",
     label: "First Name",
     type: "text",
-    placeholder: "Kristin",
+    placeholder: "Type your first name",
   },
   {
     name: "last_name",
     label: "Last Name",
     type: "text",
-    placeholder: "Larsen",
+    placeholder: "Type your last name",
   },
   {
     name: "email",

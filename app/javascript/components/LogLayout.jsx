@@ -5,6 +5,7 @@ import { Link, withRouter } from "react-router-dom";
 import { logHost } from "../actions/index";
 import { createHost } from "../actions/index";
 import LogForm from "./LogForm";
+import LogOutForm from "./LogOutForm";
 import logInFields from "./forms/logInFields";
 import logOutFields from "./forms/logOutFields";
 
@@ -15,7 +16,7 @@ import GoogleIcon from "../../assets/images/googleIcon.svg";
 import LockIcon from "../../assets/images/lockIcon.svg";
 import Logo from "../../assets/images/logo.svg";
 
-const LogContainer = (props) => {
+const LogLayout = (props) => {
   const myerror = useSelector((state) => {
     if (state.hosts.error) {
       return state.hosts.error;
@@ -67,13 +68,13 @@ const LogContainer = (props) => {
     return (
       <>
         <h3>Hi there,</h3>
-        <LogForm
+        <LogOutForm
           onSubmit={onLogOutSubmit}
           myerror={myerror}
           buttonImage={LockIcon}
           fields={logOutFields}
           logType="logout"
-        ></LogForm>
+        ></LogOutForm>
 
         <div className="separator__wrapper">
           <div className="separator"></div>
@@ -86,16 +87,15 @@ const LogContainer = (props) => {
             <p>Google</p>
           </div>
         </button>
-        <Link to="/hosts/sign_up" className="log__home">
+        <Link to="/hosts/log_in" className="log__home">
           <p className="formFooter">
-            Already have an account? <span>Sign In</span>
+            Already have an account? <span>Log In</span>
           </p>
         </Link>
       </>
     );
   };
 
-  console.log(props);
   return (
     <div className={`log__wrapper ${props.type}`}>
       <div className={`log__left ${props.type}`}>
@@ -130,4 +130,4 @@ const LogContainer = (props) => {
   );
 };
 
-export default withRouter(LogContainer);
+export default withRouter(LogLayout);
