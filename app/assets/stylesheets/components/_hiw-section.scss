@@ -41,8 +41,40 @@
     }
   }
   @media only screen and (max-width: 576px) {
+    height: auto;
+    background-color: $green;
     &__bg {
       display: none;
+    }
+    &__wrapper {
+      height: auto;
+
+      .hiw__heading {
+        h2 {
+          color: $rose;
+        }
+        h3 {
+          display: none;
+        }
+      }
+      .hiw__steps {
+        row-gap: 30px;
+        .step {
+          .step__icon {
+            height: auto;
+          }
+        }
+        .step__content {
+          margin-top: 15px;
+          h4 {
+            color: white;
+          }
+          p {
+            color: $light-rose;
+            font-size: 16px;
+          }
+        }
+      }
     }
   }
 }

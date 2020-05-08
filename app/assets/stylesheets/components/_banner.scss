@@ -53,6 +53,10 @@
   @media only screen and (max-width: 576px) {
     height: auto;
     text-align: center;
+    overflow: hidden;
+    .banner__bg {
+      width: 420px;
+    }
 
     &__hero {
       height: auto;
@@ -66,6 +70,9 @@
         .banner__message {
           width: 100%;
           margin: 20px auto;
+          h3 {
+            font-size: 18px;
+          }
         }
         .banner__button {
           margin: auto;

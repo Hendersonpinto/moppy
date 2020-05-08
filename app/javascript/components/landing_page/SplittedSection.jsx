@@ -8,12 +8,14 @@ const SplittedSection = ({
   file,
   alt,
   id,
+  avatar,
 }) => {
   return (
     <div className={`splitted ${classname}`}>
       <div className="splitted__wrapper">
         <div className="splitted__left">
           <img src={file} id={id} alt={alt} />
+          {avatar ? <img src={avatar} id="avatar" alt={alt} /> : ""}
         </div>
         <div className="splitted__right">
           <div className="splitted__title">

@@ -11,7 +11,6 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case CHECK_HOST:
-      console.log(action.payload);
       if (action.payload.success) {
         if (action.payload.data) {
           return {

@@ -51,6 +51,7 @@ const Home = () => {
         file={superheroContent.image.file}
         alt={superheroContent.image.alt}
         id={superheroContent.image.id}
+        avatar={superheroContent.avatar}
       />
       <CTA
         title={cTAContent.title}

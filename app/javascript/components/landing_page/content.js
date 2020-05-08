@@ -1,9 +1,15 @@
 import Mockup from "../../../assets/images/mobileapp.png";
 import Superhero from "../../../assets/images/guy.png";
+import Avatar from "../../../assets/images/avatar.png";
 import HouseIcon from "../../../assets/images/houseicon.png";
+import HouseIconPink from "../../../assets/images/houseiconp.svg";
 import AddressIcon from "../../../assets/images/addressicon.png";
+import AddressIconPink from "../../../assets/images/addressiconp.svg";
 import MobileIcon from "../../../assets/images/mobicon.png";
-import CalendarIcon from "../../../assets/images/calendaricon.png";
+import MobileIconPink from "../../../assets/images/mobiconp.svg";
+// import CalendarIcon from "../../../assets/images/calendaricon.png";
+import CalendarIcon from "../../../assets/images/calendaricon.svg";
+import CalendarIconPink from "../../../assets/images/calendariconp.svg";
 import HowItWorksBG from "../../../assets/images/hiw-bg.png";
 import TestimonialBG from "../../../assets/images/flowers.svg";
 import QuoteIcon from "../../../assets/images/quotes.svg";
@@ -25,6 +31,7 @@ export const mockupContent = {
     "With our app, the process is pretty simple. You will have your own account where you can customize your home properties, compare cleanears nearby and manage your cleaning appointments.",
   buttonText: "Book a cleaner",
   image: { alt: "mobile app", id: "mockup", file: Mockup },
+  avatar: null,
 };
 export const superheroContent = {
   classname: "superhero",
@@ -33,6 +40,7 @@ export const superheroContent = {
     "Are you looking for an extra income or a flexible job? Register in our app as a superhero (some people call it cleaner) and start earning money.",
   buttonText: "Join our team",
   image: { alt: "superhero", id: "superhero", file: Superhero },
+  avatar: Avatar,
 };
 
 export const howItWorksContent = {
@@ -46,6 +54,8 @@ export const howItWorksContent = {
         "Check out if moppy is available in your city. Insert your zip code and voila!",
       alt: "address icon",
       file: AddressIcon,
+      filePink: AddressIconPink,
+      id: "addresssvg",
     },
     {
       title: "Book a cleaner",
@@ -53,6 +63,8 @@ export const howItWorksContent = {
         "Find available and dedicated moppy cleaners everyday of the week.",
       alt: "calendar icon",
       file: CalendarIcon,
+      filePink: CalendarIconPink,
+      id: "calendarsvg",
     },
     {
       title: "Pay through our app",
@@ -60,6 +72,8 @@ export const howItWorksContent = {
         "Our app makes the booking really simple and secure. Keep track your cleaning history",
       alt: "phone icon",
       file: MobileIcon,
+      filePink: MobileIconPink,
+      id: "mobilesvg",
     },
     {
       title: "Enjoy your shiny home",
@@ -67,6 +81,8 @@ export const howItWorksContent = {
         "House cleaning has never been this easy. Spend your time on what actually matters.",
       alt: "house icon",
       file: HouseIcon,
+      filePink: HouseIconPink,
+      id: "housesvg",
     },
   ],
 };

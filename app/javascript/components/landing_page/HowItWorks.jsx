@@ -1,15 +1,21 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
-const renderSteps = (steps) => {
+const renderSteps = (steps, isMobile) => {
+  console.log(isMobile);
   return steps.map((step) => {
     return (
       <div className="step" key={step.title}>
         <div className="step__icon">
-          <img src={step.file} alt={step.alt} />
+          <img
+            src={isMobile ? step.filePink : step.file}
+            alt={step.alt}
+            id={step.id}
+          />
         </div>
         <div className="step__content">
           <h4>{step.title}</h4>
-          <p className="dark">{step.message}</p>
+          <p className={isMobile ? "pink" : "dark"}>{step.message}</p>
         </div>
       </div>
     );
@@ -17,6 +23,9 @@ const renderSteps = (steps) => {
 };
 
 const HowItWorks = ({ title, message, steps, background }) => {
+  const isMobile = useSelector((state) => state.layout.isMobile);
+
+  console.log(isMobile);
   return (
     <div className="hiw">
       <div className="hiw__bg">
@@ -27,7 +36,7 @@ const HowItWorks = ({ title, message, steps, background }) => {
           <h2>{title}</h2>
           <h3>{message}</h3>
         </div>
-        <div className="hiw__steps">{renderSteps(steps)}</div>
+        <div className="hiw__steps">{renderSteps(steps, isMobile)}</div>
       </div>
     </div>
   );

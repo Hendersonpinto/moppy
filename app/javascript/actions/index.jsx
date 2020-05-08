@@ -17,8 +17,13 @@ import {
   HOST_LOGIN,
   HOST_LOGOUT,
   HOST_CREATE,
+  UPDATE_RESOLUTION,
 } from "./types";
 
+export const updateResolution = (resolution) => {
+  const isMobile = resolution < 600;
+  return { type: UPDATE_RESOLUTION, payload: isMobile };
+};
 export const cleanSessions = () => {
   return { type: CLEAN_SESSIONS };
 };
@@ -46,8 +51,6 @@ export const checkHost = () => {
     const response = await deviseHostsAxios
       .get("/check_host")
       .then((response) => {
-        console.log("succes");
-        console.log(response);
         dispatch({
           type: CHECK_HOST,
           payload: {
