@@ -16,6 +16,16 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    .log__title {
+      h1 {
+        color: $rose;
+      }
+      &.login {
+        h1 {
+          color: $dark-green;
+        }
+      }
+    }
     &.login {
       background-color: $light-rose;
     }
@@ -31,6 +41,7 @@
       background-color: white;
       padding: 50px;
       border-radius: 20px;
+      box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25);
 
       label {
         font-family: $muli;
@@ -103,7 +114,12 @@
       justify-content: space-between;
       align-items: center;
       p {
-        color: $rose;
+        color: $dark-green;
+      }
+      &.login {
+        p {
+          color: $rose;
+        }
       }
     }
   }

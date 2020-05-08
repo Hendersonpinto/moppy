@@ -50,7 +50,7 @@ export const howItWorksContent = {
     {
       title: "Book a cleaner",
       message:
-        "Find available moppy cleaners everyday of the week. There is no excuse to not have your home impeccable",
+        "Find available and dedicated moppy cleaners everyday of the week.",
       alt: "calendar icon",
       file: CalendarIcon,
     },
@@ -64,7 +64,7 @@ export const howItWorksContent = {
     {
       title: "Enjoy your shiny home",
       message:
-        "House cleaning has never been this easy. Spend your time on things that actually matter.",
+        "House cleaning has never been this easy. Spend your time on what actually matters.",
       alt: "house icon",
       file: HouseIcon,
     },

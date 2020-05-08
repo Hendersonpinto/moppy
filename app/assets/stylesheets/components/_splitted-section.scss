@@ -1,5 +1,4 @@
 .splitted {
-  min-height: 100vh;
   display: flex;
 
   &.inverse {
@@ -11,6 +10,7 @@
     }
   }
   .splitted__wrapper {
+    padding: 100px 0px;
     width: 80%;
     margin: auto auto;
     display: grid;

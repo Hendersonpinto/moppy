@@ -12,6 +12,7 @@ import logOutFields from "./forms/logOutFields";
 import SuperheroUp from "../../assets/images/superheroIn.svg";
 import SuperheroIn from "../../assets/images/superheroIn.svg";
 import HomeIcon from "../../assets/images/homeIcon.svg";
+import HomeIconGreen from "../../assets/images/homeIconGreen.svg";
 import GoogleIcon from "../../assets/images/googleIcon.svg";
 import LockIcon from "../../assets/images/lockIcon.svg";
 import Logo from "../../assets/images/logo.svg";
@@ -99,7 +100,7 @@ const LogLayout = (props) => {
   return (
     <div className={`log__wrapper ${props.type}`}>
       <div className={`log__left ${props.type}`}>
-        <div className="log__title">
+        <div className={`log__title ${props.type}`}>
           <h1>
             {props.type === "login"
               ? "We'll make it shine..."
@@ -120,9 +121,9 @@ const LogLayout = (props) => {
           {renderForm(props.type)}
         </div>
         <Link to="/" className="log__home">
-          <div className="log__home-wrapper">
+          <div className={`log__home-wrapper ${props.type}`}>
             <p>Go to home</p>
-            <img src={HomeIcon}></img>
+            <img src={props.type === "login" ? HomeIcon : HomeIconGreen}></img>
           </div>
         </Link>
       </div>
