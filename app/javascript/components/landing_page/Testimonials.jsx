@@ -25,13 +25,13 @@ const Testimonials = ({
   polyIcon,
 }) => {
   return (
-    <div className={`splitted testimonials`}>
-      <div className="splitted__wrapper">
-        <div className="splitted__left">
+    <div className={`testimonials`}>
+      <div className="testimonials__wrapper">
+        <div className="testimonials__left">
           <h2>{title}</h2>
           <img src={file} id={id} alt={alt} />
         </div>
-        <div className="splitted__right">
+        <div className="testimonials__right">
           <div className="quotes">
             {renderQuotes(quotes, quoteIcon, polyIcon)}
           </div>

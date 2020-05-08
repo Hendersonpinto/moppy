@@ -49,4 +49,28 @@
       }
     }
   }
+
+  @media only screen and (max-width: 576px) {
+    height: auto;
+    text-align: center;
+
+    &__hero {
+      height: auto;
+      margin: 70px auto;
+      .banner__image {
+        grid-row: 1;
+        grid-column: 1;
+      }
+      .banner__content {
+        padding: 30px 10px;
+        .banner__message {
+          width: 100%;
+          margin: 20px auto;
+        }
+        .banner__button {
+          margin: auto;
+        }
+      }
+    }
+  }
 }

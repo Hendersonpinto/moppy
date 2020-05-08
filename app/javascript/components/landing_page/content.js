@@ -43,7 +43,7 @@ export const howItWorksContent = {
     {
       title: "Find your address",
       message:
-        "Checkout if moppy is available in your city. Insert your zip code and voila!",
+        "Check out if moppy is available in your city. Insert your zip code and voila!",
       alt: "address icon",
       file: AddressIcon,
     },

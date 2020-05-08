@@ -1,28 +1,36 @@
 .testimonials {
+  padding: 50px 0px;
   background-color: $rose2;
-  .splitted__wrapper {
-    grid-template-columns: (1fr 2fr);
-
-    .splitted__left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .testimonials__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    .testimonials__left {
+      flex: 1 0 0;
+      width: 40%;
       h2 {
         text-align: right;
       }
       #flowers {
-        position: relative;
-        left: -30%;
-        width: 300px;
+        // position: relative;
+        // left: -30%;
+        // width: 300px;
       }
     }
 
-    .splitted__right {
+    .testimonials__right {
+      flex: 10 0 15em;
       margin: 0px;
+      width: 80%;
 
       .quote-wrapper {
         margin-bottom: 40px;
         .quote-box {
           background-color: white;
           padding: 20px 10px 35px 10px;
-          width: 80%;
+          width: 600px;
           border-radius: 40px;
           margin: auto;
           position: relative;
@@ -43,7 +51,7 @@
           }
         }
         .quote-owner {
-          width: 80%;
+          width: 600px;
           margin: auto;
         }
       }
