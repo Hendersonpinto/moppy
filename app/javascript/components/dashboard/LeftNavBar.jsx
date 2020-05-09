@@ -22,9 +22,11 @@ const renderActions = () => {
 const LeftNavBar = () => {
   return (
     <div className="lnav">
-      <div className="logo">
-        <img src={Logo} id="logo" alt="logo" />
-      </div>
+      <Link to="/" className="lnavBar__logo">
+        <div className="logo">
+          <img src={Logo} id="logo" alt="logo" />
+        </div>
+      </Link>
       <div className="lnav__actions">{renderActions()}</div>
       <div className="book">
         <Link to="/hosts/book">
