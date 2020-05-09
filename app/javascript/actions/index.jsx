@@ -125,7 +125,7 @@ export const logHost = (formValues) => {
           },
         });
         // Here is where we force our user with programmatic navitagion
-        history.push(`/hosts/dashboard`);
+        history.push(`/hosts`);
       })
       .catch(function (error) {
         dispatch({

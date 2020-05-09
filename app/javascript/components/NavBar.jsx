@@ -15,7 +15,7 @@ const NavBar = (props) => {
       if (props.location.pathname !== "/hosts/dashboard") {
         return (
           <>
-            <Link to="/hosts/dashboard" className="navBar__action">
+            <Link to="/hosts" className="navBar__action">
               Dashboard
             </Link>
             <button

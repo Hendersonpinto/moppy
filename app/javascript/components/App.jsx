@@ -20,6 +20,7 @@ const App = () => {
     dispatch(checkHost());
   }, []);
 
+  console.log(current_host);
   return <Routes currentHost={current_host} />;
 };
 
