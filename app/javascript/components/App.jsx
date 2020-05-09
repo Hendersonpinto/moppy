@@ -6,8 +6,9 @@ import { checkHost, updateResolution } from "../actions";
 
 const App = () => {
   const current_host = useSelector((state) => state.hosts.current_host);
+  const isMobile = useSelector((state) => state.layout.isMobile);
 
-  const resolution = window.innerWidth;
+  let resolution = window.innerWidth;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,6 +19,7 @@ const App = () => {
     dispatch(updateResolution(resolution));
     dispatch(checkHost());
   }, []);
+
   return <Routes currentHost={current_host} />;
 };
 

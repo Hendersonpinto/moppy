@@ -24,7 +24,7 @@
     }
     .hiw__steps {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
       grid-column-gap: 10px;
       .step__icon {
         height: 120px;

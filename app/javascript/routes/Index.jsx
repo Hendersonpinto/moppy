@@ -6,7 +6,7 @@ import Home from "../components/Home";
 import NavBar from "../components/NavBar";
 import HostCreate from "../components/hosts/HostCreate";
 import HostLog from "../components/hosts/HostLog";
-import Dashboard from "../components/Dashboard";
+import Dashboard from "../components/dashboard/Dashboard";
 import ShowSession from "../components/sessions/ShowSession";
 import NotFound from "../components/NotFound";
 import CreateSession from "../components/sessions/CreateSession";

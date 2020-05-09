@@ -3,6 +3,8 @@ import { Link, withRouter } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutHost } from "../actions";
 
+import Logo from "../../assets/images/logo.svg";
+
 const NavBar = (props) => {
   const isSignedIn = useSelector((state) => state.hosts.isSignedIn);
   const currentHost = useSelector((state) => state.hosts.current_host);
@@ -58,7 +60,9 @@ const NavBar = (props) => {
   return (
     <div className="navBar">
       <Link to="/" className="navBar__logo">
-        Moppy
+        <div className="logo">
+          <img src={Logo} id="logo" alt="logo" />
+        </div>
       </Link>
       <div className="navBar__actions">{renderActions()}</div>
     </div>

@@ -25,6 +25,7 @@ const LogLayout = (props) => {
     return null;
   });
 
+  const isMobile = useSelector((state) => state.layout.isMobile);
   const dispatch = useDispatch();
 
   const onLogInSubmit = (formValues) => {
@@ -68,7 +69,7 @@ const LogLayout = (props) => {
     }
     return (
       <>
-        <h3>Hi there,</h3>
+        <h3>Create your account</h3>
         <LogOutForm
           onSubmit={onLogOutSubmit}
           myerror={myerror}
@@ -97,22 +98,33 @@ const LogLayout = (props) => {
     );
   };
 
+  const renderLeftSide = (logType, isMobile) => {
+    if (!isMobile) {
+      return (
+        <>
+          <div className={`log__left ${logType}`}>
+            <div className={`log__title ${logType}`}>
+              <h1>
+                {logType === "login"
+                  ? "We'll make it shine..."
+                  : "Welcome to moppy!"}
+              </h1>
+            </div>
+            <img
+              src={logType === "login" ? SuperheroIn : SuperheroUp}
+              id="superheroLog"
+              alt="cleaner"
+            />
+          </div>
+        </>
+      );
+    }
+    return null;
+  };
+
   return (
     <div className={`log__wrapper ${props.type}`}>
-      <div className={`log__left ${props.type}`}>
-        <div className={`log__title ${props.type}`}>
-          <h1>
-            {props.type === "login"
-              ? "We'll make it shine..."
-              : "Welcome to moppy!"}
-          </h1>
-        </div>
-        <img
-          src={props.type === "login" ? SuperheroIn : SuperheroUp}
-          id="superheroLog"
-          alt="cleaner"
-        />
-      </div>
+      {renderLeftSide(props.type, isMobile)}
       <div className={`log__right ${props.type}`}>
         <div className="myform">
           <div className="myform__header">
