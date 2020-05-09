@@ -1,28 +1,30 @@
 .hiw {
   position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-height: 75vh;
   &__bg {
+    min-height: 75vh;
     width: 100%;
     position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
     img {
-      height: 100vh;
+      min-height: 75vh;
       width: 100%;
     }
   }
   &__wrapper {
+    margin: auto;
     width: 80%;
-    height: 75vh;
+    padding: 50px 0px 100px 0px;
+
     .hiw__heading {
+      width: 100%;
       text-align: center;
       margin-bottom: 50px;
     }
     .hiw__steps {
+      width: 100%;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
       grid-column-gap: 10px;
@@ -48,7 +50,6 @@
     }
     &__wrapper {
       height: auto;
-      margin: 50px 0px;
       .hiw__heading {
         h2 {
           color: $rose;
@@ -75,6 +76,20 @@
           }
         }
       }
+    }
+  }
+  @media only screen and (min-width: 1500px) {
+    display: flex;
+    min-height: 60vh;
+    &__bg {
+      min-height: 60vh;
+      img {
+        min-height: 60vh;
+        height: 60vh;
+      }
+    }
+    .hiw__wrapper {
+      padding: 50px 0px 200px 0px;
     }
   }
 }

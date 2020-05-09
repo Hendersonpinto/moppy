@@ -1,5 +1,5 @@
 .cta {
-  height: 500px;
+  padding: 100px 0px;
   overflow: hidden;
   position: relative;
   background-color: $green;
@@ -28,6 +28,7 @@
   }
 
   @media only screen and (max-width: 576px) {
+    padding: 50px 0px;
     .cta__content {
       z-index: 10;
       width: 90%;
@@ -38,5 +39,8 @@
     #plants {
       opacity: 0.2;
     }
+  }
+  @media only screen and (min-width: 1500px) {
+    padding: 150px 0px;
   }
 }

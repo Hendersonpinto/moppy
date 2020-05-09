@@ -10,7 +10,7 @@ import MobileIconPink from "../../../assets/images/mobiconp.svg";
 // import CalendarIcon from "../../../assets/images/calendaricon.png";
 import CalendarIcon from "../../../assets/images/calendaricon.svg";
 import CalendarIconPink from "../../../assets/images/calendariconp.svg";
-import HowItWorksBG from "../../../assets/images/hiw-bg.png";
+import HowItWorksBG from "../../../assets/images/hiw-bgm2.png";
 import TestimonialBG from "../../../assets/images/flowers.svg";
 import QuoteIcon from "../../../assets/images/quotes.svg";
 import PolyIcon from "../../../assets/images/poly.png";
