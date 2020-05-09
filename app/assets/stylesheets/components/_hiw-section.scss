@@ -24,7 +24,7 @@
     }
     .hiw__steps {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
       grid-column-gap: 10px;
       .step__icon {
         height: 120px;
@@ -41,14 +41,14 @@
     }
   }
   @media only screen and (max-width: 576px) {
-    height: auto;
     background-color: $green;
+    min-height: auto;
     &__bg {
       display: none;
     }
     &__wrapper {
       height: auto;
-
+      margin: 50px 0px;
       .hiw__heading {
         h2 {
           color: $rose;
