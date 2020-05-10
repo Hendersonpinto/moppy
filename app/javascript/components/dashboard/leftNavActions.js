@@ -6,10 +6,10 @@ import shopIcon from "../../../assets/images/lnavshop.svg";
 import profileIcon from "../../../assets/images/lnavprofile.svg";
 
 export const leftNavActions = [
-  { title: "Overview", url: "/hosts", icon: overviewIcon },
-  { title: "Calendar", url: "/hosts/calendar", icon: calendarIcon },
-  { title: "History", url: "/hosts/history", icon: historyIcon },
-  { title: "Messages", url: "/hosts/messages", icon: messagesIcon },
-  { title: "Shop", url: "/hosts/shop", icon: shopIcon },
-  { title: "Profile", url: "/hosts/profile", icon: profileIcon },
+  { title: "overview", url: "/hosts", icon: overviewIcon },
+  { title: "calendar", url: "/hosts/calendar", icon: calendarIcon },
+  { title: "history", url: "/hosts/history", icon: historyIcon },
+  { title: "messages", url: "/hosts/messages", icon: messagesIcon },
+  { title: "shop", url: "/hosts/shop", icon: shopIcon },
+  { title: "profile", url: "/hosts/profile", icon: profileIcon },
 ];

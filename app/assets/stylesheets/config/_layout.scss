@@ -3,33 +3,33 @@
 // }
 body {
   h1 {
-    font-family: "recoletab";
+    font-family: "recoleta";
     color: $green;
-    font-size: 50px;
+    font-size: 70px;
   }
 
   h2 {
-    font-family: "recoletab";
+    font-family: "recoleta";
     font-weight: 500;
-    font-size: 36px;
+    font-size: 40px;
     color: $green;
   }
   h3 {
-    font-family: $muli;
+    font-family: "avenir";
     font-weight: 500;
     font-size: 20px;
     color: $grey;
   }
   h4 {
-    font-family: "recoletar";
+    font-family: "recoleta";
     font-size: 18px;
     color: $grey;
   }
   p {
-    font-family: $muli;
+    font-family: "avenir";
     font-weight: 500;
     font-size: 18px;
-    color: $grey;
+    color: $dark-grey;
     line-height: 1.2;
     margin: 0;
   }

@@ -5,9 +5,10 @@
 $font-Poppins: "Poppins", "Helvetica", "sans-serif";
 $raleway: "Raleway", sans-serif;
 $muli: "Muli", sans-serif;
+$avenir: "avenir";
 
 @font-face {
-  font-family: "recoletar";
+  font-family: "recoleta";
   src: url("fonts/recoletar.woff") format("woff"),
     url("fonts/recoletar.ttf") format("ttf"),
     url("fonts/recoletar.eot") format("eot");
@@ -15,9 +16,25 @@ $muli: "Muli", sans-serif;
 }
 
 @font-face {
-  font-family: "recoletab";
+  font-family: "recoleta";
   src: asset-url("fonts/recoletab.woff") format("woff"),
     url("fonts/recoletab.ttf") format("ttf"),
     url("fonts/recoletab.eot") format("eot");
   font-weight: 600;
+}
+
+@font-face {
+  font-family: "avenir";
+  src: asset-url("fonts/Avenir-Light.woff") format("woff");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "avenir";
+  src: asset-url("fonts/Avenir-Book.woff") format("woff");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "avenir";
+  src: asset-url("fonts/Avenir-Medium.woff") format("woff");
+  font-weight: 500;
 }

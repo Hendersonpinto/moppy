@@ -17,12 +17,12 @@
     }
   }
   a {
-    font-family: $muli;
-    font-weight: 600;
+    font-family: $avenir;
+    font-weight: 500;
     color: $inactive;
-    font-size: 20px;
+    font-size: 18px;
     &:hover {
-      color: $green-text;
+      color: $inactive;
       text-decoration: none;
     }
   }
@@ -34,10 +34,15 @@
     justify-content: space-between;
 
     .lnav__action {
+      cursor: pointer;
       display: flex;
       align-items: baseline;
+      transition: all 200ms;
       img {
         margin-right: 10px;
+      }
+      &:hover {
+        transform: scale(1.05);
       }
     }
   }
@@ -48,6 +53,10 @@
       background-color: $black;
       border-radius: 12px;
       display: flex;
+      transition: all 100ms;
+      &:hover {
+        transform: scale(1.02);
+      }
       .left {
         background-color: whitesmoke;
         width: 25%;
@@ -78,6 +87,7 @@
       .right {
         margin: auto;
         p {
+          color: white;
           font-size: 16px;
         }
       }
