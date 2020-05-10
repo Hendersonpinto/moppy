@@ -33,11 +33,11 @@ const RightNavBar = () => {
         <p> {currentHost.email}</p>
       </div>
       <div className="rnav__address">
-        <h4>My home</h4>
+        <h5>My home</h5>
         <AddressCard owner={currentHost} />
       </div>
       <div className="rnav__calendar">
-        <h4>Upcoming cleanings</h4>
+        <h5>Upcoming cleanings</h5>
         <CalendarCard />
       </div>
     </div>

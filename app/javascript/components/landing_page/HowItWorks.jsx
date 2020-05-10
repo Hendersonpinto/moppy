@@ -23,7 +23,7 @@ const renderSteps = (steps, isMobile) => {
 };
 
 const HowItWorks = ({ title, message, steps, background }) => {
-  const isMobile = useSelector((state) => state.layout.isMobile);
+  const isMobile = useSelector((state) => state.dom.isMobile);
 
   console.log(isMobile);
   return (

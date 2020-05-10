@@ -18,8 +18,12 @@ import {
   HOST_LOGOUT,
   HOST_CREATE,
   UPDATE_RESOLUTION,
+  ACTIVATE_BUTTON,
 } from "./types";
 
+export const activateButton = (elementId) => {
+  return { type: ACTIVATE_BUTTON, payload: elementId };
+};
 export const updateResolution = (resolution) => {
   const isMobile = resolution < 600;
   return { type: UPDATE_RESOLUTION, payload: isMobile };

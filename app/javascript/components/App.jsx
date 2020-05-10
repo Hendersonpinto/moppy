@@ -6,7 +6,7 @@ import { checkHost, updateResolution } from "../actions";
 
 const App = () => {
   const current_host = useSelector((state) => state.hosts.current_host);
-  const isMobile = useSelector((state) => state.layout.isMobile);
+  const isMobile = useSelector((state) => state.dom.isMobile);
 
   let resolution = window.innerWidth;
   const dispatch = useDispatch();

@@ -25,7 +25,7 @@ const LogLayout = (props) => {
     return null;
   });
 
-  const isMobile = useSelector((state) => state.layout.isMobile);
+  const isMobile = useSelector((state) => state.dom.isMobile);
   const dispatch = useDispatch();
 
   const onLogInSubmit = (formValues) => {

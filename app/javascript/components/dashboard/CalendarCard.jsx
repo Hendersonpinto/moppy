@@ -41,7 +41,7 @@ const week = [
 const renderDays = () => {
   return week.map((day) => {
     return (
-      <div className={`daygroup ${day.status}`}>
+      <div className={`daygroup ${day.status}`} key={day.date}>
         <p className="day">{day.day}</p>
         <p>{day.date}</p>
       </div>

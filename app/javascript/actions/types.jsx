@@ -15,3 +15,4 @@ export const HOST_CREATE = "HOST_CREATE";
 export const HOST_LOGIN = "HOST_LOGIN";
 export const HOST_LOGOUT = "HOST_LOG";
 export const UPDATE_RESOLUTION = "UPDATE_RESOLUTION";
+export const ACTIVATE_BUTTON = "ACTIVATE_BUTTON";
