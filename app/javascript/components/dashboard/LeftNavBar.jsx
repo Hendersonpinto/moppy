@@ -15,9 +15,9 @@ const LeftNavBar = () => {
     dispatch(activateButton(id));
   };
   const renderActions = (activeId) => {
-    return leftNavActions.map((action) => {
+    return leftNavActions(activeId).map((action) => {
       return (
-        <div className="lnav__action">
+        <div className="lnav__action" key={action.title}>
           <Link
             to={action.url}
             className={`lnav__link ${activeId === action.title && "is-active"}`}
@@ -26,7 +26,7 @@ const LeftNavBar = () => {
               handleClick(e, action.title);
             }}
           >
-            <img src={action.icon} alt={action.title}></img>
+            {action.icon}
             <p>{action.title}</p>
           </Link>
           <div

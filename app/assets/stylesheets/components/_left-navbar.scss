@@ -43,11 +43,12 @@
         }
       }
       .lnav__link {
+        width: 130px;
         border-radius: 5px;
         padding: 10px 10px;
         cursor: pointer;
         display: flex;
-        img {
+        svg {
           margin-right: 10px;
         }
         p {
