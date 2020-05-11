@@ -104,11 +104,11 @@ const LogLayout = (props) => {
         <>
           <div className={`log__left ${logType}`}>
             <div className={`log__title ${logType}`}>
-              <h1>
+              <h2>
                 {logType === "login"
                   ? "We'll make it shine..."
                   : "Welcome to moppy!"}
-              </h1>
+              </h2>
             </div>
             <img
               src={logType === "login" ? SuperheroIn : SuperheroUp}
