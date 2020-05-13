@@ -5,7 +5,8 @@
   
     def index
       @sessions = CleaningSession.where(host_id:session_params[:id])
-      render json: @sessions, include: ['host', 'cleaner']
+      
+      # render json: @sessions, include: ['host', 'cleaner']
       # if @sessions.empty?
         # render json: nil
       # else
