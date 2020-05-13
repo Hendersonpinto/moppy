@@ -1,5 +1,7 @@
 json.array! @sessions do |session|
-    json.extract! session, :id, :date, :time, :hours, :total_price
+    json.extract! session, :id, :hours, :total_price
+    json.date session.date.strftime("%a - %d.%m")
+    json.time session.time.strftime("%k:%M")
 
     json.cleaner do 
         json.id session.cleaner.id

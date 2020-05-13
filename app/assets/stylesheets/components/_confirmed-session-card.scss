@@ -1,0 +1,60 @@
+.cleaning-card {
+  background-color: white;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  text-align: initial;
+  padding: 10px;
+  box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+  margin: 10px;
+  .cleaning-card__heading {
+    display: flex;
+    img {
+      width: 50px;
+      border-radius: 10px;
+    }
+    .name {
+      flex: 1;
+      text-align: initial;
+      margin-left: 10px;
+      .rating {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .rating-bar {
+          background-color: #f0f0f0;
+          width: 60%;
+          height: 4px;
+          .rating-score {
+            background-color: #4bd9bc;
+            width: 85%;
+            height: 4px;
+          }
+        }
+      }
+    }
+  }
+  .price__wrapper {
+    margin: 5px 0px;
+    .price {
+      padding: 0px 3px;
+      border: solid 2px;
+      width: fit-content;
+      border-radius: 10px;
+      margin-right: 5px;
+    }
+  }
+  span {
+    font-family: $avenir;
+    font-size: 16px;
+  }
+  .dark {
+    font-weight: 600;
+    color: $black;
+  }
+  .duration {
+    display: flex;
+    justify-content: space-between;
+  }
+}

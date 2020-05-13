@@ -3,6 +3,7 @@ import { Link, Route, Switch } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import LeftNavBar from "./LeftNavBar";
 import RightNavBar from "./RightNavBar";
+import PanelHeader from "./PanelHeader";
 import Calendar from "./Calendar";
 import Book from "./Book";
 import History from "./History";
@@ -16,17 +17,14 @@ import NotFound from "../NotFound";
 const Dashboard = (props) => {
   const current_host = useSelector((state) => state.hosts.current_host);
   const dispatch = useDispatch();
+  let today = new Date().toDateString();
 
   return (
     <div className="dashboard">
       <LeftNavBar />
       <div className="panel">
-        <h1 className="panel__title">
-          {`${
-            current_host.first_name.charAt(0).toUpperCase() +
-            current_host.first_name.slice(1)
-          }'s Dashboard`}
-        </h1>
+        <p className="panel__date">{today}</p>
+        <PanelHeader currentHost={current_host} />
         <div className="panel__content">
           <Switch>
             <AppRoute
