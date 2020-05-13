@@ -28,18 +28,18 @@ ActiveRecord::Schema.define(version: 2020_04_20_164640) do
     t.string "bank_account"
     t.string "address"
     t.string "photo"
+    t.integer "price_hour"
     t.index ["email"], name: "index_cleaners_on_email", unique: true
     t.index ["reset_password_token"], name: "index_cleaners_on_reset_password_token", unique: true
   end
 
   create_table "cleaning_sessions", force: :cascade do |t|
     t.bigint "host_id", null: false
-    t.bigint "cleaner_id", null: false
+    t.bigint "cleaner_id"
     t.datetime "date"
     t.time "time"
     t.integer "hours"
-    t.integer "price_hour"
-    t.integer "total_price"
+    t.integer "total_price", default: 0
     t.string "size"
     t.integer "rooms"
     t.datetime "created_at", precision: 6, null: false

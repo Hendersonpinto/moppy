@@ -5,5 +5,6 @@ class AddColumnsToCleaner < ActiveRecord::Migration[6.0]
     add_column :cleaners, :bank_account, :string
     add_column :cleaners, :address, :string
     add_column :cleaners, :photo, :string
+    add_column :cleaners, :price_hour, :integer
   end
 end
