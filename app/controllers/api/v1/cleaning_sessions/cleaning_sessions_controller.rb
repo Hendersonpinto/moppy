@@ -1,10 +1,12 @@
-class Api::V1::CleaningSessions::CleaningSessionsController < ApplicationController
+  class Api::V1::CleaningSessions::CleaningSessionsController < ApplicationController
+
     before_action :set_cleaning_session, only: [:show, :edit, :update, :destroy]
   
   
     def index
       @sessions = CleaningSession.where(host_id:session_params[:id])
-      render json: @sessions, include: ['host', 'cleaner']
+      
+      # render json: @sessions, include: ['host', 'cleaner']
       # if @sessions.empty?
         # render json: nil
       # else
@@ -21,7 +23,7 @@ class Api::V1::CleaningSessions::CleaningSessionsController < ApplicationControl
       def admin_index
         # @sessions = CleaningSession.includes(:host, :cleaner)
         @sessions = CleaningSession.all
-      render json: @sessions, include: ['host', 'cleaner']
+      # render json: @sessions, include: ['host', 'cleaner']
       # render json: {sessions:@sessions, hosts:@hosts, cleaners:@cleaners}
       # @sessions2 = @sessions.inject({}) do |hash, item|
         # hash[item[:id]]=item

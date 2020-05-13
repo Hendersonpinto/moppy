@@ -1,5 +1,5 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import {
   ListGroup,
@@ -10,61 +10,47 @@ import {
 
 import { fetchSessions, cleanSessions } from "../../actions";
 
-class SessionsIndex extends React.Component {
-  componentDidMount() {
-    this.props.fetchSessions(this.props.currentHost.id);
-    // this.renderSessions();
-  }
+const SessionsIndex = (props) => {
+  const currentHost = useSelector((state) => state.hosts.current_host);
+  const sessions = useSelector((state) =>
+    state.sessions ? Object.values(state.sessions) : null
+  );
+  const dispatch = useDispatch();
 
-  componentWillUnmount() {
-    this.props.cleanSessions();
-  }
+  useEffect(() => {
+    dispatch(fetchSessions(currentHost.id));
+    return () => {
+      dispatch(cleanSessions());
+    };
+  }, []);
 
-  renderSessions() {
-    if (!this.props.sessions) {
+  const renderSessions = () => {
+    if (!sessions) {
       return <p>You do not have any session yet</p>;
     }
 
-    return this.props.sessions.map((session) => {
+    return sessions.map((session) => {
       return (
         <ListGroupItem key={session.id}>
           <Link to={`/sessions/${session.id}`} className="header">
-            <ListGroupItemHeading>{`Host: ${session.host.first_name}`}</ListGroupItemHeading>
+            <ListGroupItemHeading>{`Host: ${currentHost.first_name}`}</ListGroupItemHeading>
           </Link>
           <ListGroupItemText>
             {`Cleaner: ${session.cleaner.first_name}`}
           </ListGroupItemText>
-          <ListGroupItemText>
-            {`Total hours: ${session.hours}`}
-          </ListGroupItemText>
+          <ListGroupItemText>{`Total hours: ${session.hours}`}</ListGroupItemText>
           <ListGroupItemText>{`Total size: ${session.size}`}</ListGroupItemText>
         </ListGroupItem>
       );
     });
-  }
-
-  render() {
-    return (
-      <div>
-        <h2>Sessions</h2>
-        <ListGroup>{this.renderSessions()}</ListGroup>
-      </div>
-    );
-  }
-}
-
-const mapStateToProps = (state) => {
-  if (state.sessions) {
-    return {
-      sessions: Object.values(state.sessions),
-      currentHost: state.hosts.current_host,
-    };
-  }
-  return {
-    currentHost: state.hosts.current_host,
   };
+
+  return (
+    <div>
+      <h2>Sessions</h2>
+      <ListGroup>{renderSessions(sessions)}</ListGroup>
+    </div>
+  );
 };
 
-export default connect(mapStateToProps, { fetchSessions, cleanSessions })(
-  SessionsIndex
-);
+export default SessionsIndex;

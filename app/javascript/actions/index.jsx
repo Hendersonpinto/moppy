@@ -46,6 +46,10 @@ export const fetchSessions = (id) => {
       `/api/v1/cleaning_sessions/index`,
       { params: { host: { id: id } } }
     );
+    console.log(
+      "response from rails when fetchin sessions for a host",
+      response
+    );
     dispatch({ type: FETCH_SESSIONS, payload: response.data });
   };
 };
