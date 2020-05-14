@@ -1,9 +1,12 @@
 .panel {
+  width: calc(100vw - 440px);
   margin: 0px 220px;
-  padding: 20px 0px;
+  padding: 15px 0px;
   background-color: $light-rose;
   z-index: 10;
   border-radius: 50px;
+  display: flex;
+  flex-direction: column;
   flex: 1;
   text-align: center;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
@@ -14,7 +17,20 @@
     color: $black;
     font-weight: 600;
   }
-  .confirmed-sessions {
+  .panel__content {
+    width: 100%;
     display: flex;
+    overflow-y: scroll;
+    flex: 1;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    -ms-overflow-style: none;
+
+    .confirmed-sessions {
+      width: 100%;
+      display: flex;
+    }
   }
 }

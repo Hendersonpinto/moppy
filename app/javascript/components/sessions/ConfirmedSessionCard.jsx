@@ -27,18 +27,20 @@ const ConfirmedSessionCard = ({ session }) => {
         <span>per hour</span>
       </div>
 
-      <div className="date">
-        <span className="dark">Date: </span>
-        <span>{date}</span>
-      </div>
-      <div className="time">
-        <span className="dark">Time: </span>
-        <span>{time}</span>
+      <div className="datetime">
+        <div className="date">
+          <span className="dark">Date: </span>
+          <span>{date}</span>
+        </div>
+        <div className="time">
+          <span className="dark">Time: </span>
+          <span>{time}</span>
+        </div>
       </div>
       <div className="duration">
         <div>
-          <span className="dark">Duration:</span>
-          <span>{hours}</span>
+          <span className="dark">Duration: </span>
+          <span>{`${hours} hours`}</span>
         </div>
 
         <SvgChatIcon />

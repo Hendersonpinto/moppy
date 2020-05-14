@@ -1,6 +1,6 @@
 .cleaning-card {
   background-color: white;
-  width: 280px;
+  width: 230px;
   display: flex;
   flex-direction: column;
   text-align: initial;
@@ -8,6 +8,14 @@
   box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.12);
   border-radius: 5px;
   margin: 10px;
+  span {
+    font-family: $avenir;
+    font-size: 14px;
+  }
+  .dark {
+    font-weight: 600;
+    color: $black;
+  }
   .cleaning-card__heading {
     display: flex;
     img {
@@ -18,13 +26,16 @@
       flex: 1;
       text-align: initial;
       margin-left: 10px;
+      p {
+        font-size: 16px;
+      }
       .rating {
         display: flex;
         justify-content: space-between;
         align-items: center;
         .rating-bar {
           background-color: #f0f0f0;
-          width: 60%;
+          width: 80%;
           height: 4px;
           .rating-score {
             background-color: #4bd9bc;
@@ -45,13 +56,10 @@
       margin-right: 5px;
     }
   }
-  span {
-    font-family: $avenir;
-    font-size: 16px;
-  }
-  .dark {
-    font-weight: 600;
-    color: $black;
+
+  .datetime {
+    display: flex;
+    justify-content: space-between;
   }
   .duration {
     display: flex;
