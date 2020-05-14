@@ -10,6 +10,11 @@ import {
   FETCH_SESSION,
 } from "../actions/types";
 
+const INITIAL_STATE = {
+  confirmed: {},
+  pending: {},
+  past: {},
+};
 export default (state = null, action) => {
   switch (action.type) {
     case FETCH_ALL_SESSIONS:

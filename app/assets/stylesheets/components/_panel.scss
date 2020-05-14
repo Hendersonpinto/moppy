@@ -18,19 +18,34 @@
     font-weight: 600;
   }
   .panel__content {
+    padding: 0px;
+    margin-top: 30px;
     width: 100%;
-    display: flex;
-    overflow-y: scroll;
+    // display: flex;
+    overflow: hidden;
     flex: 1;
-    &::-webkit-scrollbar {
-      display: none;
+    // flex-direction: column;
+    .content__title {
+      width: fit-content;
+      margin: 10px 0px 0px 50px;
+      color: $black;
     }
-
-    -ms-overflow-style: none;
-
-    .confirmed-sessions {
+    .confirmed {
       width: 100%;
-      display: flex;
+
+      .confirmed-scrollable {
+        overflow-x: scroll;
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+
+      .confirmed-sessions {
+        padding-left: 40px;
+        width: fit-content;
+        display: flex;
+      }
     }
   }
 }
