@@ -13,9 +13,7 @@ const SessionsIndex = (props) => {
   const unconfirmedCleanings = useSelector((state) => {
     return state.sessions ? Object.values(state.sessions.unconfirmed) : null;
   });
-  const pendingCleanings = useSelector((state) =>
-    state.pending ? Object.values(state.pending) : null
-  );
+
   const dispatch = useDispatch();
 
   useEffect(() => {
