@@ -7,9 +7,12 @@ import PendingCleaningCard from "./ConfirmedSessionCard";
 
 const SessionsIndex = (props) => {
   const currentHost = useSelector((state) => state.hosts.current_host);
-  const sessions = useSelector((state) =>
-    state.sessions ? Object.values(state.sessions) : null
+  const confirmedCleanings = useSelector((state) =>
+    state.sessions ? Object.values(state.sessions.confirmed) : null
   );
+  const unconfirmedCleanings = useSelector((state) => {
+    return state.sessions ? Object.values(state.sessions.unconfirmed) : null;
+  });
   const pendingCleanings = useSelector((state) =>
     state.pending ? Object.values(state.pending) : null
   );
@@ -23,23 +26,21 @@ const SessionsIndex = (props) => {
   }, []);
 
   const renderSessions = () => {
-    if (!sessions) {
-      return <p>You do not have any session yet</p>;
+    if (Array.isArray(confirmedCleanings) && confirmedCleanings.length) {
+      return confirmedCleanings.map((session) => {
+        return <ConfirmedSessionCard session={session} />;
+      });
     }
-
-    return sessions.map((session) => {
-      return <ConfirmedSessionCard session={session} />;
-    });
+    return <p>You do not have any session yet</p>;
   };
 
   const renderPendingCleanings = () => {
-    if (!pendingCleanings) {
-      return <p>You do not have any pending cleaning</p>;
+    if (Array.isArray(unconfirmedCleanings) && unconfirmedCleanings.length) {
+      return unconfirmedCleanings.map((pending) => {
+        return <PendingCleaningCard session={pending} />;
+      });
     }
-
-    return pendingCleanings.map((pending) => {
-      return <PendingCleaningCard session={pending} />;
-    });
+    return <p>You do not have any pending cleaning</p>;
   };
 
   return (

@@ -5,7 +5,11 @@
   
     def index
       @sessions = CleaningSession.where(host_id:session_params[:id])
-      
+      @unconfirmed = @sessions.where("date > ?", Time.now).where(cleaner_id:nil)
+      @confirmed = @sessions.where("date > ?", Time.now).where.not(cleaner_id:nil)
+      @past = @sessions.where("date <= ?", Time.now).where.not(cleaner_id:nil)
+      @past_unconfirmed = @sessions.where("date <= ?", Time.now).where(cleaner_id:nil)
+        
       # render json: @sessions, include: ['host', 'cleaner']
       # if @sessions.empty?
         # render json: nil
