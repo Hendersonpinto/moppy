@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_04_20_164640) do
   create_table "cleaning_sessions", force: :cascade do |t|
     t.bigint "host_id", null: false
     t.bigint "cleaner_id"
+    t.bigint "house_id"
     t.datetime "date"
     t.time "time"
     t.integer "hours"
@@ -46,6 +47,7 @@ ActiveRecord::Schema.define(version: 2020_04_20_164640) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cleaner_id"], name: "index_cleaning_sessions_on_cleaner_id"
     t.index ["host_id"], name: "index_cleaning_sessions_on_host_id"
+    t.index ["house_id"], name: "index_cleaning_sessions_on_house_id"
   end
 
   create_table "hosts", force: :cascade do |t|
@@ -106,6 +108,7 @@ ActiveRecord::Schema.define(version: 2020_04_20_164640) do
 
   add_foreign_key "cleaning_sessions", "cleaners"
   add_foreign_key "cleaning_sessions", "hosts"
+  add_foreign_key "cleaning_sessions", "houses"
   add_foreign_key "houses", "hosts"
   add_foreign_key "invoices", "cleaning_sessions"
   add_foreign_key "payment_methods", "hosts"

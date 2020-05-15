@@ -3,6 +3,7 @@ class CreateCleaningSessions < ActiveRecord::Migration[6.0]
     create_table :cleaning_sessions do |t|
       t.references :host, null: false, foreign_key: true
       t.references :cleaner, foreign_key: true
+      t.references :house, foreign_key: true
       t.datetime :date
       t.time :time
       t.integer :hours

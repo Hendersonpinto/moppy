@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { fetchSessions, cleanSessions } from "../../actions";
 import ConfirmedSessionCard from "./ConfirmedSessionCard";
-import PendingCleaningCard from "./ConfirmedSessionCard";
+import UnconfirmedCleaningCard from "./UnconfirmedCleaningCard";
 
 const SessionsIndex = (props) => {
   const currentHost = useSelector((state) => state.hosts.current_host);
@@ -37,7 +37,7 @@ const SessionsIndex = (props) => {
   const renderPendingCleanings = () => {
     if (Array.isArray(unconfirmedCleanings) && unconfirmedCleanings.length) {
       return unconfirmedCleanings.map((pending) => {
-        return <PendingCleaningCard session={pending} />;
+        return <UnconfirmedCleaningCard session={pending} />;
       });
     }
     return <p>You do not have any pending cleaning</p>;
