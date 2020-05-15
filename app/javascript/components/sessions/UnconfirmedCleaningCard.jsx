@@ -4,8 +4,11 @@ import { Link } from "react-router-dom";
 import SvgChatIcon from "../dashboard/icons/SvgChatIcon";
 import vince from "../../../assets/images/vince150.svg";
 
-const ConfirmedSessionCard = ({ session }) => {
-  const { id, cleaner, date, time, hours } = session;
+const UnconfirmedCleaningCard = ({ session }) => {
+  const { id, cleaner, date, time, hours, house } = session;
+  console.log(session);
+  console.log(house);
+  console.log(house.street);
   return (
     <div className="cleaning-card" key={id}>
       <div className="cleaning-card__heading">
@@ -13,7 +16,7 @@ const ConfirmedSessionCard = ({ session }) => {
           <img src={vince}></img>
         </Link>
         <div className="name">
-          <p>{cleaner.first_name + " " + cleaner.last_name}</p>
+          <p>{house.street}</p>
           <div className="rating">
             <div className="rating-bar">
               <div className="rating-score"></div>
@@ -49,4 +52,4 @@ const ConfirmedSessionCard = ({ session }) => {
   );
 };
 
-export default ConfirmedSessionCard;
+export default UnconfirmedCleaningCard;

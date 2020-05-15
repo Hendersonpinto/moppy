@@ -27,16 +27,7 @@
 
 
 
-  
-  
   puts "\nCreating hosts..."
-  #   address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
-      kristin = Host.new(
-        first_name: "Kristin",
-        last_name: "Larsen",
-        email: "kristin@moppy.com",
-        password: "1234567"
-      )
   50.times do|i|
     host = Host.new(
       first_name: Faker::Name.first_name, 
@@ -45,7 +36,37 @@
       password: "123456",
     )
     host.save!
+    host_house = House.new(
+      host:host,
+      city:Faker::Address.city,
+      street:Faker::Address.street_address,
+      house_number:rand(1..60),
+      size: rand(30..120),
+      rooms: rand(1..5),
+    )
+    host_house.save!
   end
+  
+  
+  puts "\nCreating Kristin host..."
+  #   address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+  kristin = Host.new(
+    first_name: "Kristin",
+    last_name: "Larsen",
+    email: "kristin@moppy.com",
+    password: "1234567"
+  )
+  puts "\nCreating kristin home..."
+  kristin_house = House.new(
+    host:kristin,
+    city:Faker::Address.city,
+    street:Faker::Address.street_address,
+    house_number:rand(1..60),
+    size: rand(30..120),
+    rooms: rand(1..5),
+  )
+  kristin_house.save!
+  
   
   
   puts "\nCreating cleaners..."
@@ -82,70 +103,76 @@
   # p Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all).strftime("%k:%M")
 50.times do |i|
   hours = rand(1..7)
+  myhost = Host.all[i]
     session = CleaningSession.new(
-      host: Host.all[i],
+      host: myhost,
+      house:House.find_by(host:myhost),
       cleaner: Cleaner.all[i],
       date:Faker::Date.between_except(from: 1.month.ago, to: 1.month.from_now, excepted: Date.today),
       time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
       hours:  hours,
-        size: rand(20..250),
-        rooms: rand(1..8),
-      )
-      session.save!
-    end
-    
-    
-    puts "\nCreating future confirmed Cleaning Sessions for Kristin..."
-    
-    5.times do |i|
-      hours = rand(1..7)
-      session = CleaningSession.new(
-          host: kristin,
-          cleaner: Cleaner.all[i],
-          date:Faker::Date.between_except(from: Date.today, to: 1.month.from_now, excepted: Date.today),
-          time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
-          hours:  hours,
-          size: rand(20..250),
-          rooms: rand(1..8),
-        )
-        session.save!
-      end
-      puts "\nCreating past confirmed Cleaning Sessions for Kristin..."
-      
-      3.times do |i|
-        hours = rand(1..7)
-        session = CleaningSession.new(
-          host: kristin,
-          cleaner: Cleaner.all[i],
-              date:Faker::Date.between(from: 1.month.ago, to: 1.day.ago),
-              time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
-              hours:  hours,
-                size: rand(20..250),
-                rooms: rand(1..8),
-              )
-              session.save!
-            end
+      size: rand(20..250),
+      rooms: rand(1..8),
+    )
+    session.save!
+  end
+  
+  
+  puts "\nCreating future confirmed Cleaning Sessions for Kristin..."
+  
+  5.times do |i|
+    hours = rand(1..7)
+    session = CleaningSession.new(
+      host: kristin,
+      house:House.find_by(host:kristin),
+      cleaner: Cleaner.all[i],
+      date:Faker::Date.between_except(from: Date.today, to: 1.month.from_now, excepted: Date.today),
+      time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
+      hours:  hours,
+      size: rand(20..250),
+      rooms: rand(1..8),
+    )
+    session.save!
+  end
+  puts "\nCreating past confirmed Cleaning Sessions for Kristin..."
+  
+  3.times do |i|
+    hours = rand(1..7)
+    session = CleaningSession.new(
+      host: kristin,
+      house:House.find_by(host:kristin),
+      cleaner: Cleaner.all[i],
+      date:Faker::Date.between(from: 1.month.ago, to: 1.day.ago),
+      time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
+      hours:  hours,
+      size: rand(20..250),
+      rooms: rand(1..8),
+    )
+    session.save!
+  end
 
-      puts "\nCreating past unconfirmed Cleaning Sessions for Kristin..."
-      
-      3.times do |i|
-        hours = rand(1..7)
-        session = CleaningSession.new(
-          host: kristin,
-              date:Faker::Date.between(from: 1.month.ago, to: 1.day.ago),
-              time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
-              hours:  hours,
-                size: rand(20..250),
-                rooms: rand(1..8),
-              )
-              session.save!
-            end
-      puts "\nCreating future unconfirmed Cleaning Sessions for Kristin..."
-      
-      3.times do |i|
-        hours = rand(1..7)
-        session = CleaningSession.new(
-          host: kristin,
+  puts "\nCreating past unconfirmed Cleaning Sessions for Kristin..."
+  
+  3.times do |i|
+    hours = rand(1..7)
+    session = CleaningSession.new(
+      host: kristin,
+      house:House.find_by(host:kristin),
+      date:Faker::Date.between(from: 1.month.ago, to: 1.day.ago),
+      time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
+      hours:  hours,
+      size: rand(20..250),
+      rooms: rand(1..8),
+    )
+    session.save!
+  end
+  puts "\nCreating future unconfirmed Cleaning Sessions for Kristin..."
+  
+  3.times do |i|
+    hours = rand(1..7)
+    session = CleaningSession.new(
+      host: kristin,
+      house:House.find_by(host:kristin),
               date:Faker::Date.between(from: Date.today, to: 1.week.from_now),
               time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
               hours:  hours,
@@ -160,8 +187,11 @@
     
         5.times do |i|
           hours = rand(1..7)
+          myhost = Host.all[i]
+
             session = CleaningSession.new(
               host: Host.all[i],
+              house:House.find_by(host:myhost),
               cleaner: amanda,
               date:Faker::Date.between_except(from: 1.month.ago, to: 1.month.from_now, excepted: Date.today),
               time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
