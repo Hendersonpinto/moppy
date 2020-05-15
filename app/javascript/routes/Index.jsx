@@ -29,17 +29,22 @@ const Routes = (props) => {
           exact
           component={LogLayout}
           type="logout"
+          currentHost={props.currentHost}
+          redirectTo="/hosts/"
         />
         <AppRoute
           path="/hosts/log_in"
           exact
           component={LogLayout}
           type="login"
+          currentHost={props.currentHost}
+          redirectTo="/hosts/"
         />
         <ProtectedRoute
           path="/hosts"
           component={Dashboard}
           currentHost={props.currentHost}
+          redirectTo="/hosts/log_in"
         />
         <Route path="/*" exact component={NotFound} />
       </Switch>

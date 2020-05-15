@@ -85,8 +85,8 @@
     session = CleaningSession.new(
       host: Host.all[i],
       cleaner: Cleaner.all[i],
-      date:Faker::Date.between_except(from: 1.year.ago, to: 1.year.from_now, excepted: Date.today).strftime("%a - %d.%m"),
-      time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all).strftime("%k:%M"),
+      date:Faker::Date.between_except(from: 1.year.ago, to: 1.year.from_now, excepted: Date.today),
+      time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
       hours:  hours,
         size: rand(20..250),
         rooms: rand(1..8),
@@ -102,8 +102,8 @@
         session = CleaningSession.new(
           host: kristin,
           cleaner: Cleaner.all[i],
-          date:Faker::Date.between_except(from: 1.year.ago, to: 1.year.from_now, excepted: Date.today).strftime("%a - %d.%m"),
-          time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all).strftime("%k:%M"),
+          date:Faker::Date.between_except(from: 1.year.ago, to: 1.year.from_now, excepted: Date.today),
+          time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
           hours:  hours,
             size: rand(20..250),
             rooms: rand(1..8),
@@ -119,8 +119,8 @@
             session = CleaningSession.new(
               host: Host.all[i],
               cleaner: amanda,
-              date:Faker::Date.between_except(from: 1.year.ago, to: 1.year.from_now, excepted: Date.today).strftime("%a - %d.%m"),
-              time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all).strftime("%k:%M"),
+              date:Faker::Date.between_except(from: 1.year.ago, to: 1.year.from_now, excepted: Date.today),
+              time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all)
               hours:  hours,
                 size: rand(20..250),
                 rooms: rand(1..8),

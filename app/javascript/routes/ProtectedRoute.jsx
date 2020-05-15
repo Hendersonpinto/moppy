@@ -1,7 +1,12 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
-const ProtectedRoute = ({ component: Component, currentHost, ...rest }) => {
+const ProtectedRoute = ({
+  component: Component,
+  redirectTo,
+  currentHost,
+  ...rest
+}) => {
   console.log(currentHost);
   return (
     <Route
@@ -10,7 +15,7 @@ const ProtectedRoute = ({ component: Component, currentHost, ...rest }) => {
         return currentHost ? (
           <Component {...rest} {...props} />
         ) : (
-          <Redirect to={{ pathname: "/hosts/log_in" }} />
+          <Redirect to={{ pathname: redirectTo }} />
         );
       }}
     />
