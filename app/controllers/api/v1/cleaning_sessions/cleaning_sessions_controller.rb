@@ -4,7 +4,7 @@
   
   
     def index
-      @sessions = CleaningSession.where(host_id:session_params[:id])
+      @sessions = CleaningSession.where(host_id:session_params[:host_id])
       @unconfirmed = @sessions.where("date > ?", Time.now).where(cleaner_id:nil)
       @confirmed = @sessions.where("date > ?", Time.now).where.not(cleaner_id:nil)
       @past = @sessions.where("date <= ?", Time.now).where.not(cleaner_id:nil)
@@ -55,16 +55,19 @@
     end
   
     def destroy
-      @session&.destroy
-      render json: { message: 'Session deleted!' }
+      @session&.destroy!
+      p @session
+      render json: { message: 'Cleaning deleted succesfully!', id:session_params[:session_id] }
     end
   
   
     private
     def session_params
-      params.require(:host).permit(:id)
-      # raise
-      # params.fetch(:host, {}).permit(:id)
+      if params[:host].present?
+      params.require(:host).permit(:host_id)
+      elsif params[:session].present?
+         params.require(:session).permit(:session_id)
+      end
 
     end
   #   def host_params
@@ -73,7 +76,8 @@
 
 
     def set_cleaning_session
-      @session = CleaningSession.find(params[:id])
+      p session_params[:session_id]
+      @session = CleaningSession.find(session_params[:session_id])
     end
   end
   

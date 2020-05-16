@@ -21,31 +21,7 @@
     padding: 0px;
     margin-top: 30px;
     width: 100%;
-    // display: flex;
     overflow: hidden;
     flex: 1;
-    // flex-direction: column;
-    .content__title {
-      width: fit-content;
-      margin: 10px 0px 0px 50px;
-      color: $black;
-    }
-    .confirmed {
-      width: 100%;
-
-      .confirmed-scrollable {
-        overflow-x: scroll;
-        -ms-overflow-style: none;
-        &::-webkit-scrollbar {
-          display: none;
-        }
-      }
-
-      .confirmed-sessions {
-        padding-left: 40px;
-        width: fit-content;
-        display: flex;
-      }
-    }
   }
 }

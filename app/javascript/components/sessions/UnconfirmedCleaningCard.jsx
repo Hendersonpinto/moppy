@@ -1,35 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Button } from "reactstrap";
+import { useSelector, useDispatch } from "react-redux";
 
-import SvgChatIcon from "../dashboard/icons/SvgChatIcon";
-import vince from "../../../assets/images/vince150.svg";
+import { deleteCleaning } from "../../actions";
 
 const UnconfirmedCleaningCard = ({ session }) => {
+  const dispatch = useDispatch();
   const { id, cleaner, date, time, hours, house } = session;
   console.log(session);
   console.log(house);
   console.log(house.street);
+
+  const handleClick = () => {
+    dispatch(deleteCleaning(id));
+  };
+
   return (
     <div className="cleaning-card" key={id}>
       <div className="cleaning-card__heading">
-        <Link to="/" className="avatar">
-          <img src={vince}></img>
-        </Link>
-        <div className="name">
-          <p>{house.street}</p>
-          <div className="rating">
-            <div className="rating-bar">
-              <div className="rating-score"></div>
-            </div>
-            <span id="rating-score">4.7</span>
-          </div>
-        </div>
+        <p className="address">{house.street}</p>
       </div>
-      <div className="price__wrapper">
-        <span className="price">{`${cleaner.price_hour} €`}</span>
-        <span>per hour</span>
-      </div>
-
       <div className="datetime">
         <div className="date">
           <span className="dark">Date: </span>
@@ -45,9 +35,17 @@ const UnconfirmedCleaningCard = ({ session }) => {
           <span className="dark">Duration: </span>
           <span>{`${hours} hours`}</span>
         </div>
-
-        <SvgChatIcon />
+        <div>
+          <span className="dark">Rooms: </span>
+          <span>{house.rooms}</span>
+        </div>
       </div>
+      <Button className="delete-button" color="danger" onClick={handleClick}>
+        <div className="content">
+          <p>Delete</p>
+          <p className="x-button">X</p>
+        </div>
+      </Button>
     </div>
   );
 };

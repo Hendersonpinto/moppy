@@ -6,7 +6,7 @@ import {
   CLEAN_SESSIONS,
   FETCH_ALL_SESSIONS,
   UPDATE_SESSION,
-  DELETE_SESSION,
+  DELETE_CLEANING,
   FETCH_SESSION,
 } from "../actions/types";
 
@@ -39,8 +39,19 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, [action.payload.id]: action.payload };
     case UPDATE_SESSION:
       return { ...state, [action.payload.id]: action.payload };
-    case DELETE_SESSION:
-      return _.omit(state, action.payload);
+    case DELETE_CLEANING:
+      if (action.payload.status === 200) {
+        const {
+          [action.payload.id]: whatever,
+          ...filteredObject
+        } = state.unconfirmed;
+        console.log(filteredObject);
+        return {
+          ...state,
+          unconfirmed: filteredObject,
+        };
+      }
+      return { ...state, error: "Something happened in our servers" };
     case CLEAN_SESSIONS:
       return null;
     default:

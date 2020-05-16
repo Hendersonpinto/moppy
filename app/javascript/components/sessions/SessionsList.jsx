@@ -26,7 +26,7 @@ const SessionsIndex = (props) => {
   const renderSessions = () => {
     if (Array.isArray(confirmedCleanings) && confirmedCleanings.length) {
       return confirmedCleanings.map((session) => {
-        return <ConfirmedSessionCard session={session} />;
+        return <ConfirmedSessionCard key={session.id} session={session} />;
       });
     }
     return <p>You do not have any session yet</p>;
@@ -35,7 +35,7 @@ const SessionsIndex = (props) => {
   const renderPendingCleanings = () => {
     if (Array.isArray(unconfirmedCleanings) && unconfirmedCleanings.length) {
       return unconfirmedCleanings.map((pending) => {
-        return <UnconfirmedCleaningCard session={pending} />;
+        return <UnconfirmedCleaningCard key={pending.id} session={pending} />;
       });
     }
     return <p>You do not have any pending cleaning</p>;
@@ -43,15 +43,17 @@ const SessionsIndex = (props) => {
 
   return (
     <>
-      <div className="confirmed">
+      <div className="cleanings">
         <h3 className="content__title">Confirmed cleanings:</h3>
-        <div className="confirmed-scrollable">
-          <div className="confirmed-sessions">{renderSessions()}</div>
+        <div className="scrollable">
+          <div className="cleanings-list">{renderSessions()}</div>
         </div>
       </div>
-      <div className="pending">
+      <div className="cleanings">
         <h3 className="content__title">Pending cleanings:</h3>
-        <div className="pending-Cleanings">{renderPendingCleanings()}</div>
+        <div className="scrollable">
+          <div className="cleanings-list">{renderPendingCleanings()}</div>
+        </div>
       </div>
     </>
   );

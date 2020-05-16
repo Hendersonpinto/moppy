@@ -17,18 +17,23 @@
     color: $black;
   }
   .cleaning-card__heading {
+    padding: 10px 0px;
     display: flex;
     img {
       width: 50px;
       border-radius: 10px;
     }
+    .address {
+      margin: auto;
+    }
+    p {
+      color: $black;
+      font-size: 16px;
+    }
     .name {
       flex: 1;
       text-align: initial;
       margin-left: 10px;
-      p {
-        font-size: 16px;
-      }
       .rating {
         display: flex;
         justify-content: space-between;
@@ -54,6 +59,7 @@
       width: fit-content;
       border-radius: 10px;
       margin-right: 5px;
+      color: $overblik;
     }
   }
 
@@ -64,5 +70,6 @@
   .duration {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 10px;
   }
 }

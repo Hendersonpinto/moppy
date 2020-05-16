@@ -11,7 +11,7 @@ import {
   FETCH_SESSIONS,
   CLEAN_SESSIONS,
   UPDATE_SESSION,
-  DELETE_SESSION,
+  DELETE_CLEANING,
   FETCH_SESSION,
   CHECK_HOST,
   HOST_LOGIN,
@@ -20,6 +20,20 @@ import {
   UPDATE_RESOLUTION,
   ACTIVATE_BUTTON,
 } from "./types";
+
+export const deleteCleaning = (cleaningId) => {
+  return async (dispatch) => {
+    const response = await sessionsAxios.delete(
+      "/api/v1/cleaning_sessions/destroy",
+      { params: { session: { session_id: cleaningId } } }
+    );
+    console.log(response);
+    dispatch({
+      type: DELETE_CLEANING,
+      payload: { status: response.status, id: response.data.id },
+    });
+  };
+};
 
 export const activateButton = (elementId) => {
   return { type: ACTIVATE_BUTTON, payload: elementId };
@@ -44,7 +58,7 @@ export const fetchSessions = (id) => {
   return async (dispatch) => {
     const response = await sessionsAxios.get(
       `/api/v1/cleaning_sessions/index`,
-      { params: { host: { id: id } } }
+      { params: { host: { host_id: id } } }
     );
     console.log(
       "response from rails when fetchin sessions for a host",

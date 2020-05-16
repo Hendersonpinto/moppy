@@ -35,7 +35,7 @@ Rails.application.routes.draw do
       get 'all_sessions', to: 'cleaning_sessions#admin_index'
       post 'create'
       get 'show/:id', to: 'cleaning_sessions#show'
-      post 'destroy/:id', to: 'cleaning_sessions#destroy'
+      delete 'destroy', to: 'cleaning_sessions#destroy'
       end
     
     end

@@ -77,7 +77,7 @@
     bank_account: Faker::Bank.account_number(digits: 11), 
     email: "amanda@moppy.com",
     password: "1234567",
-    price_hour: rand(270..400),
+    price_hour: rand(15..40),
   )
   
   50.times do |i|
@@ -88,7 +88,7 @@
       address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
       email: "cleaner#{i}@moppy.com", 
       password: "123456",
-      price_hour: rand(270..400),
+      price_hour: rand(15..40),
       
     )
     cleaner.save!
@@ -168,7 +168,7 @@
   end
   puts "\nCreating future unconfirmed Cleaning Sessions for Kristin..."
   
-  3.times do |i|
+  4.times do |i|
     hours = rand(1..7)
     session = CleaningSession.new(
       host: kristin,

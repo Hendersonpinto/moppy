@@ -1,0 +1,22 @@
+.content__title {
+  width: fit-content;
+  margin: 10px 0px 0px 50px;
+  color: $black;
+}
+.cleanings {
+  width: 100%;
+
+  .scrollable {
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .cleanings-list {
+    padding-left: 40px;
+    width: fit-content;
+    display: flex;
+  }
+}

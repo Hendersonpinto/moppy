@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Button } from "reactstrap";
 
 import SvgChatIcon from "../dashboard/icons/SvgChatIcon";
 import vince from "../../../assets/images/vince150.svg";
@@ -43,7 +44,9 @@ const ConfirmedSessionCard = ({ session }) => {
           <span>{`${hours} hours`}</span>
         </div>
 
-        <SvgChatIcon />
+        <Button className="delete-button" color="info">
+          Contact
+        </Button>
       </div>
     </div>
   );
