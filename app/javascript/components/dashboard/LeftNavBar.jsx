@@ -52,7 +52,7 @@ const LeftNavBar = () => {
               <div className="horizontal"></div>
             </div>
             <div className="right">
-              <p>Book a cleaner</p>
+              <p>Post a cleaning</p>
             </div>
           </div>
         </Link>

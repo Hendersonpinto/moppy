@@ -5,7 +5,7 @@ import LeftNavBar from "./LeftNavBar";
 import RightNavBar from "./RightNavBar";
 import PanelHeader from "./PanelHeader";
 import Calendar from "./Calendar";
-import Book from "./Book";
+import CreateCleaning from "./CreateCleaning";
 import History from "./History";
 import Messages from "./Messages";
 import Shop from "./Shop";
@@ -58,7 +58,7 @@ const Dashboard = (props) => {
               component={Profile}
               type="login"
             />
-            <AppRoute path="/hosts/book" exact component={Book} type="login" />
+            <AppRoute path="/hosts/book" exact component={CreateCleaning} />
             <AppRoute path="/hosts/*" exact component={NotFound} />
           </Switch>
         </div>

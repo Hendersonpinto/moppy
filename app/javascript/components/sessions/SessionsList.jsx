@@ -7,6 +7,7 @@ import ConfirmedSessionCard from "./ConfirmedSessionCard";
 import UnconfirmedCleaningCard from "./UnconfirmedCleaningCard";
 
 const SessionsIndex = (props) => {
+  const dispatch = useDispatch();
   const [modalDisplay, setModalDisplay] = useState(false);
   const [cleaningIdForDelete, setCleaningIdForDelete] = useState(null);
   const currentHost = useSelector((state) => state.hosts.current_host);
@@ -16,15 +17,13 @@ const SessionsIndex = (props) => {
   const unconfirmedCleanings = useSelector((state) => {
     return state.sessions ? Object.values(state.sessions.unconfirmed) : null;
   });
-  const dispatch = useDispatch();
 
   const deleteFromModal = (cleaningId) => {
-    console.log("I RAN MDFUCKER");
-    console.log(cleaningId);
     dispatch(deleteCleaning(cleaningId));
-    toggle();
+    toggleModal();
   };
-  const toggle = () => setModalDisplay(!modalDisplay);
+  const toggleModal = () => setModalDisplay(!modalDisplay);
+
   const handleDelete = (cleaningId) => {
     setCleaningIdForDelete(cleaningId);
     setModalDisplay(!modalDisplay);
@@ -37,7 +36,7 @@ const SessionsIndex = (props) => {
     };
   }, []);
 
-  const renderSessions = () => {
+  const renderConfirmedCleanings = () => {
     if (Array.isArray(confirmedCleanings) && confirmedCleanings.length) {
       return confirmedCleanings.map((session) => {
         return <ConfirmedSessionCard key={session.id} session={session} />;
@@ -61,13 +60,12 @@ const SessionsIndex = (props) => {
     return <p>You do not have any pending cleaning</p>;
   };
 
-  console.log(modalDisplay);
   return (
     <>
       <div className="cleanings">
         <h3 className="content__title">Confirmed cleanings:</h3>
         <div className="scrollable">
-          <div className="cleanings-list">{renderSessions()}</div>
+          <div className="cleanings-list">{renderConfirmedCleanings()}</div>
         </div>
       </div>
       <div className="cleanings">
@@ -77,9 +75,11 @@ const SessionsIndex = (props) => {
         </div>
         <Modal
           display={modalDisplay}
-          handleClick={toggle}
+          toggleModal={toggleModal}
           cleaningId={cleaningIdForDelete}
           onDelete={deleteFromModal}
+          modalTitle="Confirm delete"
+          modalBody="Are you sure you want to delete this cleaning?"
         />
       </div>
     </>
