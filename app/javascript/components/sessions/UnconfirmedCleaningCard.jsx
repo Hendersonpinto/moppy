@@ -1,19 +1,11 @@
 import React from "react";
 import { Button } from "reactstrap";
-import { useSelector, useDispatch } from "react-redux";
 
-import { deleteCleaning } from "../../actions";
-
-const UnconfirmedCleaningCard = ({ session }) => {
-  const dispatch = useDispatch();
+const UnconfirmedCleaningCard = ({ session, handleDelete }) => {
   const { id, cleaner, date, time, hours, house } = session;
   console.log(session);
   console.log(house);
   console.log(house.street);
-
-  const handleClick = () => {
-    dispatch(deleteCleaning(id));
-  };
 
   return (
     <div className="cleaning-card" key={id}>
@@ -40,7 +32,13 @@ const UnconfirmedCleaningCard = ({ session }) => {
           <span>{house.rooms}</span>
         </div>
       </div>
-      <Button className="delete-button" color="danger" onClick={handleClick}>
+      <Button
+        className="delete-button"
+        color="danger"
+        onClick={() => {
+          handleDelete(id);
+        }}
+      >
         <div className="content">
           <p>Delete</p>
           <p className="x-button">X</p>

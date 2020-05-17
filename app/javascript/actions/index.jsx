@@ -27,6 +27,7 @@ export const deleteCleaning = (cleaningId) => {
       "/api/v1/cleaning_sessions/destroy",
       { params: { session: { session_id: cleaningId } } }
     );
+    console.log("I DELETED A RECORD");
     console.log(response);
     dispatch({
       type: DELETE_CLEANING,
