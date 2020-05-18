@@ -16,27 +16,33 @@ const WizardFormFourthPage = (props) => {
   console.log(submitting);
   return (
     <div className="wizard-form">
-      <Button
-        type="button"
-        className="mybutton overblik-button"
-        onClick={() => {
-          previousPage(-1);
-        }}
-      >
-        Previous
-      </Button>
       <h3 className="wizard-form__title">Cleaning summary</h3>
       <p>{`Address: ${values.street} ${values.houseNumber}, ${values.city}`}</p>
       <p>{`Datetime: ${values.date} at ${values.time} ${values.city}`}</p>
       <p>{`Duration: ${values.duration} hours`}</p>
       <form onSubmit={handleSubmit}>
-        <button
-          type="submit"
-          disabled={pristine || submitting}
-          className="mybutton overblik-button"
-        >
-          Submit
-        </button>
+        <div className="buttons-form">
+          <Button
+            type="button"
+            className="mybutton overblik-button wizard previous"
+            color="info"
+            onClick={() => {
+              previousPage(-1);
+            }}
+            size="lg"
+          >
+            Previous
+          </Button>
+          <Button
+            type="submit"
+            disabled={pristine || submitting}
+            className="mybutton overblik-button wizard"
+            color="info"
+            size="lg"
+          >
+            Request cleaning
+          </Button>
+        </div>
       </form>
     </div>
   );

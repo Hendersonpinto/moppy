@@ -10,15 +10,6 @@ const WizardFormSecondPage = (props) => {
   const { previousPage, handleSubmit } = props;
   return (
     <div className="wizard-form">
-      <Button
-        type="button"
-        className="mybutton overblik-button"
-        onClick={() => {
-          previousPage(-1);
-        }}
-      >
-        Previous
-      </Button>
       <h3 className="wizard-form__title">Where is your home located ?</h3>
       <form onSubmit={handleSubmit}>
         <Field
@@ -50,8 +41,25 @@ const WizardFormSecondPage = (props) => {
           placeholder="7014"
         />
 
-        <div>
-          <Button type="submit" className="mybutton overblik-button">
+        <div className="buttons-form">
+          <Button
+            type="button"
+            className="mybutton overblik-button wizard previous"
+            color="info"
+            onClick={() => {
+              previousPage(-1);
+            }}
+            size="lg"
+          >
+            Previous
+          </Button>
+          <Button
+            type="submit"
+            className="mybutton overblik-button"
+            className="mybutton overblik-button wizard"
+            color="info"
+            size="lg"
+          >
             Continue
           </Button>
         </div>

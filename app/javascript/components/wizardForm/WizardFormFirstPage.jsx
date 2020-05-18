@@ -26,7 +26,7 @@ const WizardFormFirstPage = (props) => {
         <Field
           name="rooms"
           component={renderSelectField}
-          firstOption=""
+          firstOption="Choose rooms"
           optionsToChoose={rooms}
           label="Rooms"
           unit="rooms"
@@ -34,14 +34,20 @@ const WizardFormFirstPage = (props) => {
         <Field
           name="duration"
           component={renderSelectField}
-          firstOption=""
+          firstOption="Choose duration"
           optionsToChoose={duration}
           label="Duration of cleaning"
           unit="hours"
         />
 
-        <div>
-          <Button type="submit" className="mybutton overblik-button">
+        <div className="buttons-form">
+          <Button
+            type="submit"
+            className="mybutton overblik-button wizard"
+            color="info"
+            block
+            size="lg"
+          >
             Continue
           </Button>
         </div>

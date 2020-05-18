@@ -21,6 +21,17 @@
 
 .btn-info {
   background-color: $overblik !important;
+  border-color: $overblik !important;
+  &.wizard {
+    font-size: 18px !important;
+  }
+  &.previous {
+    margin-right: 10px;
+    border-color: $overblik !important;
+    border-color: $light-grey !important;
+    background-color: white !important;
+    color: $black !important;
+  }
   font-size: 14px !important;
   font-family: $main;
   font-weight: 500 !important;

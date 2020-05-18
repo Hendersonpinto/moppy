@@ -13,15 +13,6 @@ const WizardFormThirdPage = (props) => {
   console.log(submitting);
   return (
     <div className="wizard-form">
-      <Button
-        type="button"
-        className="mybutton overblik-button"
-        onClick={() => {
-          previousPage(-1);
-        }}
-      >
-        Previous
-      </Button>
       <h3 className="wizard-form__title">When does it fits you ?</h3>
       <form onSubmit={handleSubmit}>
         <Field
@@ -38,8 +29,25 @@ const WizardFormThirdPage = (props) => {
           label="Time"
           placeholder="11:30"
         />
-        <div>
-          <Button type="submit" className="mybutton overblik-button">
+        <div className="buttons-form">
+          <Button
+            type="button"
+            className="mybutton overblik-button wizard previous"
+            color="info"
+            onClick={() => {
+              previousPage(-1);
+            }}
+            size="lg"
+          >
+            Previous
+          </Button>
+          <Button
+            type="submit"
+            className="mybutton overblik-button"
+            className="mybutton overblik-button wizard"
+            color="info"
+            size="lg"
+          >
             Continue
           </Button>
         </div>
