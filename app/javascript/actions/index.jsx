@@ -19,7 +19,14 @@ import {
   HOST_CREATE,
   UPDATE_RESOLUTION,
   ACTIVATE_BUTTON,
+  NEXT_PAGE,
+  PREVIOUS_PAGE,
+  UPDATE_PAGE,
 } from "./types";
+
+export const changePageAction = (change) => {
+  return { type: UPDATE_PAGE, payload: change };
+};
 
 export const deleteCleaning = (cleaningId) => {
   return async (dispatch) => {

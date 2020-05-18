@@ -8,12 +8,14 @@ import {
   UPDATE_SESSION,
   DELETE_CLEANING,
   FETCH_SESSION,
+  UPDATE_PAGE,
 } from "../actions/types";
 
 const INITIAL_STATE = {
   confirmed: {},
   unconfirmed: {},
   past: {},
+  page: 1,
 };
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -52,8 +54,11 @@ export default (state = INITIAL_STATE, action) => {
         };
       }
       return { ...state, error: "Something happened in our servers" };
+    case UPDATE_PAGE:
+      console.log("I RAN FROM REDUCER");
+      return { ...state, page: state.page + action.payload };
     case CLEAN_SESSIONS:
-      return null;
+      return { ...state, confirmed: {}, unconfirmed: {}, past: {} };
     default:
       return state;
   }

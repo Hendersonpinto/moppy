@@ -16,3 +16,6 @@ export const HOST_LOGIN = "HOST_LOGIN";
 export const HOST_LOGOUT = "HOST_LOG";
 export const UPDATE_RESOLUTION = "UPDATE_RESOLUTION";
 export const ACTIVATE_BUTTON = "ACTIVATE_BUTTON";
+export const NEXT_PAGE = "NEXT_PAGE";
+export const PREVIOUS_PAGE = "PREVIOUS_PAGE";
+export const UPDATE_PAGE = "UPDATE_PAGE";
