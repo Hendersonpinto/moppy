@@ -7,18 +7,23 @@
   border-radius: 20px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
 
-  .form-group {
-    margin-bottom: 0.5rem;
-    label {
-      font-family: $muli;
-    }
-  }
   h3 {
     font-weight: 800;
     font-family: $muli;
     color: $black;
     font-size: 24px;
     text-align: center;
+  }
+  .calendar {
+    h3 {
+      font-size: 18px;
+    }
+  }
+  .form-group {
+    margin-bottom: 0.5rem;
+    label {
+      font-family: $muli;
+    }
   }
 
   .buttons-form {

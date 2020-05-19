@@ -9,6 +9,8 @@ import {
   DELETE_CLEANING,
   FETCH_SESSION,
   UPDATE_PAGE,
+  CREATE_CLEANING,
+  PICK_DATE,
 } from "../actions/types";
 
 const INITIAL_STATE = {
@@ -16,6 +18,7 @@ const INITIAL_STATE = {
   unconfirmed: {},
   past: {},
   page: 1,
+  date: new Date(),
 };
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -37,7 +40,7 @@ export default (state = INITIAL_STATE, action) => {
       };
     case FETCH_SESSION:
       return { ...state, [action.payload.id]: action.payload };
-    case CREATE_SESSION:
+    case CREATE_CLEANING:
       return { ...state, [action.payload.id]: action.payload };
     case UPDATE_SESSION:
       return { ...state, [action.payload.id]: action.payload };
@@ -59,6 +62,9 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, page: state.page + action.payload };
     case CLEAN_SESSIONS:
       return { ...state, confirmed: {}, unconfirmed: {}, past: {} };
+    case PICK_DATE:
+      console.log("I RAN FROM REDUCER");
+      return { ...state, date: action.payload };
     default:
       return state;
   }

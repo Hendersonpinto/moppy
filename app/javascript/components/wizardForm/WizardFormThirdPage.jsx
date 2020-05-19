@@ -5,30 +5,39 @@ import { Button } from "reactstrap";
 import validate from "./validate";
 import renderField from "./renderField";
 import renderSelectField from "./renderSelectField";
+import Calendar from "../bit/calendar/components/Calendar/index";
+import { useSelector, useDispatch } from "react-redux";
+import { pickDate } from "../../actions";
 
 const WizardFormThirdPage = (props) => {
+  const date = useSelector((state) => state.sessions.date);
+  const dispatch = useDispatch();
   const { handleSubmit, previousPage, pristine, submitting } = props;
 
-  console.log(pristine);
-  console.log(submitting);
+  const renderCalendar = ({
+    input,
+    defaultValue,
+    meta: { touched, error },
+  }) => (
+    <div className="calendar">
+      <Calendar
+        {...input}
+        value={date}
+        onChange={(newDate) => {
+          console.log(newDate);
+          dispatch(pickDate(newDate));
+        }}
+      />
+      {touched && error && <span>{error}</span>}
+    </div>
+  );
+
   return (
     <div className="wizard-form">
       <h3 className="wizard-form__title">When does it fits you ?</h3>
+      <Field name="cleaningDate" type="text" component={renderCalendar} />
+
       <form onSubmit={handleSubmit}>
-        <Field
-          name="date"
-          type="text"
-          component={renderField}
-          label="Date"
-          placeholder="25/05"
-        />
-        <Field
-          name="time"
-          type="text"
-          component={renderField}
-          label="Time"
-          placeholder="11:30"
-        />
         <div className="buttons-form">
           <Button
             type="button"

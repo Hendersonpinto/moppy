@@ -8,6 +8,8 @@
   "proxy": "http://localhost:5000/",
   "dependencies": {
     "@babel/preset-react": "^7.9.4",
+    "@bit/nexxtway.react-rainbow.calendar": "file:./app/javascript/components/bit/calendar",
+    "@bit/nexxtway.react-rainbow.card": "^1.10.0",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
@@ -35,11 +37,17 @@
     "reselect": "^4.0.0",
     "resolve-url-loader": "^3.1.1",
     "turbolinks": "^5.2.0",
-    "yarn": "^1.22.4"
+    "yarn": "^1.22.4",
+    "@bit/advantagelearn.nova.form-text-area": "file:./bitcomponents/form-text-area"
   },
   "version": "0.1.0",
   "devDependencies": {
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
+  },
+  "bit": {
+    "env": {},
+    "componentsDefaultDirectory": "app/javascript/components/bit/{name}",
+    "packageManager": "npm"
   }
 }

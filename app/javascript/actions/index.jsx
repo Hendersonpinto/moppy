@@ -6,7 +6,7 @@ import axios from "axios";
 import {
   SIGN_IN,
   SIGN_OUT,
-  CREATE_SESSION,
+  CREATE_CLEANING,
   FETCH_ALL_SESSIONS,
   FETCH_SESSIONS,
   CLEAN_SESSIONS,
@@ -22,7 +22,14 @@ import {
   NEXT_PAGE,
   PREVIOUS_PAGE,
   UPDATE_PAGE,
+  PICK_DATE,
 } from "./types";
+
+export const pickDate = (newDate) => {
+  return { type: PICK_DATE, payload: newDate };
+};
+
+export const createCleaning = () => {};
 
 export const changePageAction = (change) => {
   return { type: UPDATE_PAGE, payload: change };

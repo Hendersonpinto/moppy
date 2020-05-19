@@ -4,7 +4,7 @@ import WizardFormSecondPage from "./WizardFormSecondPage";
 import WizardFormThirdPage from "./WizardFormThirdPage";
 import WizardFormFourthPage from "./WizardFormFourthPage";
 
-import { changePageAction } from "../../actions";
+import { changePageAction, createCleaning } from "../../actions";
 import { useSelector, useDispatch } from "react-redux";
 
 const WizardForm = (props) => {
@@ -12,6 +12,7 @@ const WizardForm = (props) => {
   const dispatch = useDispatch();
 
   const changePage = (change) => {
+    console.log("I ran");
     dispatch(changePageAction(change));
   };
   const onFormSubmission = (values) => {

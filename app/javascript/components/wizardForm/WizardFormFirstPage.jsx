@@ -10,11 +10,13 @@ const rooms = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const WizardFormFirstPage = (props) => {
   const { handleSubmit } = props;
+
   return (
     <div className="wizard-form">
       <h3 className="wizard-form__title">
         Let us know more about your cleaning needs
       </h3>
+
       <form onSubmit={handleSubmit}>
         <Field
           name="size"

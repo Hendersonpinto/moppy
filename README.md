@@ -464,3 +464,5 @@ const response = await sessionsAxios.delete(
 |
 |
 |
+
+npm install bit-bin -g
