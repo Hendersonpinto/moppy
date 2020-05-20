@@ -1,19 +1,19 @@
-import styled from 'styled-components';
-import { COLOR_GRAY_3 } from '../../../styles/colors';
-import { FONT_SIZE_TEXT_MEDIUM } from '../../../styles/fontSizes';
+import styled from "styled-components";
+import { COLOR_GRAY_3 } from "../../../styles/colors";
+import { FONT_SIZE_TEXT_MEDIUM } from "../../../styles/fontSizes";
 
 const StyledHeaderDays = styled.th`
-    text-align: center;
-    color: ${COLOR_GRAY_3};
-    font-size: ${FONT_SIZE_TEXT_MEDIUM};
-    font-weight: 400;
-    line-height: 40px;
-    height: 40px;
+  text-align: center;
+  color: ${COLOR_GRAY_3};
+  font-size: ${FONT_SIZE_TEXT_MEDIUM};
+  font-weight: 400;
+  line-height: 15px;
+  height: 16px;
 
-    abbr {
-        cursor: default;
-        text-transform: capitalize;
-    }
+  abbr {
+    cursor: default;
+    text-transform: capitalize;
+  }
 `;
 
 export default StyledHeaderDays;

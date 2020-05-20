@@ -9,9 +9,9 @@ const StyledDayAdjacent = styled.span`
   text-align: center;
   font-size: ${FONT_SIZE_TEXT_MEDIUM};
   font-weight: 400;
-  line-height: 36px;
-  height: 36px;
-  margin: 5px auto;
+  line-height: 18px;
+  height: 30px;
+  margin: 0px auto;
   cursor: not-allowed;
   user-select: none;
 

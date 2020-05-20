@@ -3,6 +3,7 @@ import WizardFormFirstPage from "./WizardFormFirstPage";
 import WizardFormSecondPage from "./WizardFormSecondPage";
 import WizardFormThirdPage from "./WizardFormThirdPage";
 import WizardFormFourthPage from "./WizardFormFourthPage";
+import WizardFormFifthPage from "./WizardFormFifthPage";
 
 import { changePageAction, createCleaning } from "../../actions";
 import { useSelector, useDispatch } from "react-redux";
@@ -37,6 +38,12 @@ const WizardForm = (props) => {
       )}
       {page === 4 && (
         <WizardFormFourthPage
+          previousPage={changePage}
+          onSubmit={() => changePage(1)}
+        />
+      )}
+      {page === 5 && (
+        <WizardFormFifthPage
           previousPage={changePage}
           onSubmit={onFormSubmission}
         />

@@ -7,6 +7,7 @@ import {
   Input,
   FormText,
   FormFeedback,
+  Col,
 } from "reactstrap";
 
 const renderError = (error, touched) => {
@@ -27,27 +28,30 @@ const renderSelectField = ({
   label,
   name,
   unit,
+  width,
 }) => (
-  <FormGroup>
-    <Label for={name}>{label}</Label>
-    <Input
-      type="select"
-      name={name}
-      id={name}
-      {...input}
-      autoComplete="off"
-      valid={renderError(error, touched).valid}
-      invalid={renderError(error, touched).invalid}
-    >
-      <option value="">{firstOption}</option>
-      {optionsToChoose.map((val) => (
-        <option value={val} key={val}>
-          {`${val} ${unit}`}
-        </option>
-      ))}
-    </Input>
-    <FormFeedback>{error}</FormFeedback>
-  </FormGroup>
+  <Col md={width}>
+    <FormGroup>
+      <Label for={name}>{label}</Label>
+      <Input
+        type="select"
+        name={name}
+        id={name}
+        {...input}
+        autoComplete="off"
+        valid={renderError(error, touched).valid}
+        invalid={renderError(error, touched).invalid}
+      >
+        <option value="">{firstOption}</option>
+        {optionsToChoose.map((val) => (
+          <option value={val} key={val}>
+            {`${val} ${unit}`}
+          </option>
+        ))}
+      </Input>
+      <FormFeedback>{error}</FormFeedback>
+    </FormGroup>
+  </Col>
 );
 
 export default renderSelectField;

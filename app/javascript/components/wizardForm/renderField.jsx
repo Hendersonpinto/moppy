@@ -1,5 +1,5 @@
 import React from "react";
-import { FormGroup, Label, Input, FormFeedback } from "reactstrap";
+import { Col, FormGroup, Label, Input, FormFeedback } from "reactstrap";
 
 const renderError = ({ error, touched }) => {
   if (touched && error) {
@@ -17,7 +17,7 @@ const renderField = (formProps) => {
   // controlled and much more.
   console.log(formProps);
   return (
-    <>
+    <Col md={formProps.width}>
       <FormGroup check={formProps.check ? true : null}>
         <Label check={formProps.check ? true : null}>{formProps.label}</Label>
         <Input
@@ -31,7 +31,7 @@ const renderField = (formProps) => {
         />
         <FormFeedback>{formProps.meta.error}</FormFeedback>
       </FormGroup>
-    </>
+    </Col>
   );
 };
 export default renderField;

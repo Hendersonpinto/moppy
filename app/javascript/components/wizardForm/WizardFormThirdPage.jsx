@@ -18,49 +18,65 @@ const WizardFormThirdPage = (props) => {
     input,
     defaultValue,
     meta: { touched, error },
-  }) => (
-    <div className="calendar">
-      <Calendar
-        {...input}
-        value={date}
-        onChange={(newDate) => {
-          console.log(newDate);
-          dispatch(pickDate(newDate));
-        }}
-      />
-      {touched && error && <span>{error}</span>}
-    </div>
-  );
+  }) => {
+    let now = new Date();
+    return (
+      <div className="calendar">
+        <Calendar
+          {...input}
+          value={date}
+          onChange={(newDate) => {
+            console.log(newDate);
+            const dateformated = new Intl.DateTimeFormat("en-US", {
+              month: "long",
+            }).format(newDate);
+            const dateformated2 = newDate.toLocaleDateString();
+            console.log(dateformated);
+            console.log(dateformated2);
+
+            dispatch(pickDate(newDate));
+          }}
+          minDate={
+            new Date().getHours() >= 18
+              ? new Date(now.setDate(now.getDate() + 1))
+              : new Date()
+          }
+        />
+        {touched && error && <span>{error}</span>}
+      </div>
+    );
+  };
 
   return (
     <div className="wizard-form">
       <h3 className="wizard-form__title">When does it fits you ?</h3>
       <Field name="cleaningDate" type="text" component={renderCalendar} />
-
-      <form onSubmit={handleSubmit}>
-        <div className="buttons-form">
-          <Button
-            type="button"
-            className="mybutton overblik-button wizard previous"
-            color="info"
-            onClick={() => {
-              previousPage(-1);
-            }}
-            size="lg"
-          >
-            Previous
-          </Button>
-          <Button
-            type="submit"
-            className="mybutton overblik-button"
-            className="mybutton overblik-button wizard"
-            color="info"
-            size="lg"
-          >
-            Continue
-          </Button>
-        </div>
-      </form>
+      <div className="wizard-content">
+        <form onSubmit={handleSubmit}>
+          <div className="buttons-form">
+            <Button
+              type="button"
+              className="mybutton overblik-button wizard previous"
+              color="info"
+              onClick={() => {
+                previousPage(-1);
+              }}
+              size="lg"
+            >
+              Previous
+            </Button>
+            <Button
+              type="submit"
+              className="mybutton overblik-button"
+              className="mybutton overblik-button wizard"
+              color="info"
+              size="lg"
+            >
+              Continue
+            </Button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

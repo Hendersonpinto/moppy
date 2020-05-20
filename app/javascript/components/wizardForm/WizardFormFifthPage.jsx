@@ -1,35 +1,26 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 import { Button } from "reactstrap";
+import { useSelector, useDispatch } from "react-redux";
 
 import validate from "./validate";
 import renderField from "./renderField";
 import renderSelectField from "./renderSelectField";
-import Timetable from "./Timetable";
-import Calendar from "../bit/calendar/components/Calendar/index";
-import { useSelector, useDispatch } from "react-redux";
-import { pickDate } from "../../actions";
 
 const WizardFormFourthPage = (props) => {
   const date = useSelector((state) => state.sessions.date);
-  const dispatch = useDispatch();
+  const values = useSelector((state) => state.form.wizard.values);
+  console.log(props);
   const { handleSubmit, previousPage, pristine, submitting } = props;
 
-  const renderTimetable = ({
-    input,
-    defaultValue,
-    meta: { touched, error },
-  }) => (
-    <>
-      <Timetable date={date} />
-      {touched && error && <span>{error}</span>}
-    </>
-  );
-
+  console.log(pristine);
+  console.log(submitting);
   return (
     <div className="wizard-form">
-      <h3 className="wizard-form__title">When does it fits you ?</h3>
-      <Field name="cleaningTime" type="text" component={renderTimetable} />
+      <h3 className="wizard-form__title">Cleaning summary</h3>
+      <p>{`Address: ${values.street} ${values.houseNumber}, ${values.city}`}</p>
+      <p>{`Datetime: ${date} at ${values.time}`}</p>
+      <p>{`Duration: ${values.duration} hours`}</p>
       <div className="wizard-content">
         <form onSubmit={handleSubmit}>
           <div className="buttons-form">
@@ -46,12 +37,12 @@ const WizardFormFourthPage = (props) => {
             </Button>
             <Button
               type="submit"
-              className="mybutton overblik-button"
+              disabled={pristine || submitting}
               className="mybutton overblik-button wizard"
               color="info"
               size="lg"
             >
-              Continue
+              Request cleaning
             </Button>
           </div>
         </form>
