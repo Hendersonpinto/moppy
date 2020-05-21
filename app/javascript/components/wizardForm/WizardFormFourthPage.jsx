@@ -11,9 +11,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { pickDate } from "../../actions";
 
 const WizardFormFourthPage = (props) => {
-  const date = useSelector((state) => state.sessions.date);
   const dispatch = useDispatch();
-  const { handleSubmit, previousPage, pristine, submitting } = props;
+  const {
+    handleSubmit,
+    previousPage,
+    pristine,
+    submitting,
+    date,
+    timeslot,
+  } = props;
 
   const renderTimetable = ({
     input,
@@ -54,6 +60,7 @@ const WizardFormFourthPage = (props) => {
               className="mybutton overblik-button wizard"
               color="info"
               size="lg"
+              disabled={timeslot === null}
             >
               Continue
             </Button>

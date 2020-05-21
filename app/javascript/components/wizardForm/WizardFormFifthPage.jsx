@@ -7,15 +7,12 @@ import validate from "./validate";
 import renderField from "./renderField";
 import renderSelectField from "./renderSelectField";
 
-const WizardFormFourthPage = (props) => {
+const WizardFormFifthPage = (props) => {
   const date = useSelector((state) => state.sessions.date);
   const timeslot = useSelector((state) => state.sessions.timeslot);
   const values = useSelector((state) => state.form.wizard.values);
-  console.log(props);
   const { handleSubmit, previousPage, pristine, submitting } = props;
 
-  console.log(pristine);
-  console.log(submitting);
   return (
     <div className="wizard-form">
       <h3 className="wizard-form__title">Cleaning summary</h3>
@@ -58,4 +55,4 @@ export default reduxForm({
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
   validate,
-})(WizardFormFourthPage);
+})(WizardFormFifthPage);

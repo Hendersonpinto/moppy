@@ -1,5 +1,6 @@
 import _ from "lodash";
 
+import { roundToHour } from "../components/wizardForm/Timetable";
 import {
   CREATE_SESSION,
   FETCH_SESSIONS,
@@ -60,15 +61,12 @@ export default (state = INITIAL_STATE, action) => {
       }
       return { ...state, error: "Something happened in our servers" };
     case UPDATE_PAGE:
-      console.log("I RAN FROM REDUCER");
       return { ...state, page: state.page + action.payload };
     case CLEAN_SESSIONS:
       return { ...state, confirmed: {}, unconfirmed: {}, past: {} };
     case PICK_DATE:
-      console.log("I RAN FROM REDUCER");
       return { ...state, date: action.payload };
     case PICK_TIMESLOT:
-      console.log("I AM PICKING TIMESLOT");
       return { ...state, timeslot: action.payload };
     default:
       return state;

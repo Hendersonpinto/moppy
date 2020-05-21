@@ -4,10 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { pickTimeslot } from "../../actions";
 
-function roundToHour(date) {
+export const roundToHour = (date) => {
   const p = 60 * 60 * 1000; // milliseconds in an hour
   return new Date(Math.ceil(date.getTime() / p) * p);
-}
+};
 
 const Timetable = ({ date }) => {
   const activeHour = useSelector((state) => state.sessions.timeslot);
@@ -32,6 +32,7 @@ const Timetable = ({ date }) => {
           hour={hour}
           handleClick={handleClick}
           activeHour={activeHour}
+          key={hour}
         />
       );
     });
@@ -40,3 +41,33 @@ const Timetable = ({ date }) => {
 };
 
 export default Timetable;
+
+//            RENDER SLOTS WITH MINUTES FOR HALF AN HOUR 30
+// return list.map((hour) => {
+//   if (hour < 18) {
+//     return (
+//       <>
+//         <TimeslotButton
+//           hour={hour}
+//           handleClick={handleClick}
+//           activeHour={activeHour}
+//           key={hour}
+//         />
+//         <TimeslotButton
+//           hour={hour}
+//           handleClick={handleClick}
+//           activeHour={activeHour}
+//           key={hour}
+//         />
+//       </>
+//     );
+//   }
+//   return (
+//     <TimeslotButton
+//       hour={hour}
+//       handleClick={handleClick}
+//       activeHour={activeHour}
+//       key={hour}
+//     />
+//   );
+// });

@@ -3,16 +3,13 @@ import { Field, reduxForm } from "redux-form";
 import { Button } from "reactstrap";
 
 import validate from "./validate";
-import renderField from "./renderField";
-import renderSelectField from "./renderSelectField";
 import Calendar from "../bit/calendar/components/Calendar/index";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { pickDate } from "../../actions";
 
 const WizardFormThirdPage = (props) => {
-  const date = useSelector((state) => state.sessions.date);
   const dispatch = useDispatch();
-  const { handleSubmit, previousPage, pristine, submitting } = props;
+  const { handleSubmit, previousPage, pristine, submitting, date } = props;
 
   const renderCalendar = ({
     input,
@@ -26,13 +23,10 @@ const WizardFormThirdPage = (props) => {
           {...input}
           value={date}
           onChange={(newDate) => {
-            console.log(newDate);
             const dateformated = new Intl.DateTimeFormat("en-US", {
               month: "long",
             }).format(newDate);
             const dateformated2 = newDate.toLocaleDateString();
-            console.log(dateformated);
-            console.log(dateformated2);
 
             dispatch(pickDate(newDate));
           }}

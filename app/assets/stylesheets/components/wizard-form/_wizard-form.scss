@@ -25,10 +25,19 @@
   }
 
   .wrapper {
+    overflow: hidden;
     justify-content: center;
     flex: 4;
     flex-direction: column;
     display: flex;
+    .timetables {
+      overflow-y: scroll;
+      -ms-overflow-style: none;
+      padding-bottom: 5px;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
   }
 
   .timetable {

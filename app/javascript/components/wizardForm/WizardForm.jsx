@@ -10,15 +10,18 @@ import { useSelector, useDispatch } from "react-redux";
 
 const WizardForm = (props) => {
   const page = useSelector((state) => state.sessions.page);
+  const date = useSelector((state) => state.sessions.date);
+  const timeslot = useSelector((state) => state.sessions.timeslot);
   const dispatch = useDispatch();
 
   const changePage = (change) => {
-    console.log("I ran");
     dispatch(changePageAction(change));
   };
   const onFormSubmission = (values) => {
     console.log("finished submitting form");
     console.log(values);
+    console.log(date);
+    console.log(timeslot);
   };
 
   return (
@@ -34,12 +37,15 @@ const WizardForm = (props) => {
         <WizardFormThirdPage
           previousPage={changePage}
           onSubmit={() => changePage(1)}
+          date={date}
         />
       )}
       {page === 4 && (
         <WizardFormFourthPage
           previousPage={changePage}
           onSubmit={() => changePage(1)}
+          date={date}
+          timeslot={timeslot}
         />
       )}
       {page === 5 && (
