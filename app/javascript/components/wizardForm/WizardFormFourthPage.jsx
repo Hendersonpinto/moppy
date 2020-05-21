@@ -29,7 +29,11 @@ const WizardFormFourthPage = (props) => {
   return (
     <div className="wizard-form">
       <h3 className="wizard-form__title">When does it fits you ?</h3>
-      <Field name="cleaningTime" type="text" component={renderTimetable} />
+      <div className="wrapper">
+        <p>{date.toDateString()}</p>
+        <hr style={{ width: "100%" }} />
+        <Field name="cleaningTime" type="text" component={renderTimetable} />
+      </div>
       <div className="wizard-content">
         <form onSubmit={handleSubmit}>
           <div className="buttons-form">

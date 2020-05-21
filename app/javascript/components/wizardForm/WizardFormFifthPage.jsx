@@ -9,6 +9,7 @@ import renderSelectField from "./renderSelectField";
 
 const WizardFormFourthPage = (props) => {
   const date = useSelector((state) => state.sessions.date);
+  const timeslot = useSelector((state) => state.sessions.timeslot);
   const values = useSelector((state) => state.form.wizard.values);
   console.log(props);
   const { handleSubmit, previousPage, pristine, submitting } = props;
@@ -18,9 +19,11 @@ const WizardFormFourthPage = (props) => {
   return (
     <div className="wizard-form">
       <h3 className="wizard-form__title">Cleaning summary</h3>
-      <p>{`Address: ${values.street} ${values.houseNumber}, ${values.city}`}</p>
-      <p>{`Datetime: ${date} at ${values.time}`}</p>
-      <p>{`Duration: ${values.duration} hours`}</p>
+      <div className="wrapper">
+        <p>{`Address: ${values.street} ${values.houseNumber}, ${values.city}`}</p>
+        <p>{`Datetime: ${date} at ${timeslot}`}</p>
+        <p>{`Duration: ${values.duration} hours`}</p>
+      </div>
       <div className="wizard-content">
         <form onSubmit={handleSubmit}>
           <div className="buttons-form">

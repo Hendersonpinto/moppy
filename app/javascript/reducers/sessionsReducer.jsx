@@ -11,6 +11,7 @@ import {
   UPDATE_PAGE,
   CREATE_CLEANING,
   PICK_DATE,
+  PICK_TIMESLOT,
 } from "../actions/types";
 
 const INITIAL_STATE = {
@@ -19,6 +20,7 @@ const INITIAL_STATE = {
   past: {},
   page: 1,
   date: new Date(),
+  timeslot: null,
 };
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -65,6 +67,9 @@ export default (state = INITIAL_STATE, action) => {
     case PICK_DATE:
       console.log("I RAN FROM REDUCER");
       return { ...state, date: action.payload };
+    case PICK_TIMESLOT:
+      console.log("I AM PICKING TIMESLOT");
+      return { ...state, timeslot: action.payload };
     default:
       return state;
   }

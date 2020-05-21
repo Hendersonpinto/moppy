@@ -23,10 +23,14 @@ import {
   PREVIOUS_PAGE,
   UPDATE_PAGE,
   PICK_DATE,
+  PICK_TIMESLOT,
 } from "./types";
 
 export const pickDate = (newDate) => {
   return { type: PICK_DATE, payload: newDate };
+};
+export const pickTimeslot = (newTimeslot) => {
+  return { type: PICK_TIMESLOT, payload: newTimeslot };
 };
 
 export const createCleaning = () => {};

@@ -1,0 +1,23 @@
+.timetables {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, 80px);
+  justify-content: center;
+  .timeslot {
+    height: 50px;
+    background-color: #ffffff;
+    border: 1px solid #eaeaea;
+    box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.12);
+    border-radius: 3px;
+
+    p {
+      color: $green;
+    }
+    &.is-active {
+      background-color: $overblik;
+      p {
+        color: white;
+      }
+    }
+  }
+}

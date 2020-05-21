@@ -20,3 +20,4 @@ export const NEXT_PAGE = "NEXT_PAGE";
 export const PREVIOUS_PAGE = "PREVIOUS_PAGE";
 export const UPDATE_PAGE = "UPDATE_PAGE";
 export const PICK_DATE = "PICK_DATE";
+export const PICK_TIMESLOT = "PICK_TIMESLOT";
