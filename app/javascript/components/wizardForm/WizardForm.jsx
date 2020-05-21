@@ -22,7 +22,7 @@ const WizardForm = (props) => {
     console.log(values);
     console.log(date);
     console.log(session);
-    // dispatch(createCleaning(session));
+    dispatch(createCleaning(session));
   };
 
   return (

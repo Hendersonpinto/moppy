@@ -15,7 +15,7 @@ const Timetable = ({ date }) => {
   const renderTimes = (date) => {
     let now = new Date();
     const initialTime =
-      date.getDate() === now.getDate()
+      date.getDate() === now.getDate() && now.getHours() >= 7
         ? roundToHour(now)
         : new Date(now.setHours(8, 0));
     let list = [];
