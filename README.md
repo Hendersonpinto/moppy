@@ -466,3 +466,79 @@ const response = await sessionsAxios.delete(
 |
 
 npm install bit-bin -g
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+<!-- CREATING A RECORD IN RAILS USING POST METHOD AND AXIOS -->
+
+<!--
+
+Problem: I had to create a record in Rails, using axios. However when sending the parameters in the optional fields of axios. I got an error in Rails
+
+Solution: The problem raised because when I used the get or delete method we need to specify "params" in our body. Instead, when using post method
+            we don't need to specify "params" but pass the content of the params instead. (Below you can compare both methods)
+
+            As you can see, we dropped the "params" key in the last line for the POST. The problem was that rails wanted to permit the
+            params[:session] data but since we added a "params" in POST our params object lokked like this:
+
+            params:{
+                params:{
+                    session:session
+                }
+            }
+ -->
+
+<!-- GET -->
+
+const response = await sessionsAxios.get(
+`/api/v1/cleaning_sessions/index`,
+{ params: { host: { host_id: id } } }
+);
+
+<!-- DELETE -->
+
+const response = await sessionsAxios.delete(
+"/api/v1/cleaning_sessions/destroy",
+{ params: { session: { session_id: cleaningId } } }
+);
+
+<!-- POST -->
+
+const response = await sessionsAxios.post(
+"/api/v1/cleaning_sessions/create",
+{ session: session }
+);
+
+<!-- DELETING A RECORD IN RAILS USING DELETE METHOD AND AXIOS -->
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|

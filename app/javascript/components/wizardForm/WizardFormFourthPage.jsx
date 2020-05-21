@@ -12,15 +12,9 @@ import { pickDate } from "../../actions";
 
 const WizardFormFourthPage = (props) => {
   const dispatch = useDispatch();
-  const {
-    handleSubmit,
-    previousPage,
-    pristine,
-    submitting,
-    date,
-    timeslot,
-  } = props;
+  const { handleSubmit, previousPage, pristine, submitting, date } = props;
 
+  const timeslot = date.getHours();
   const renderTimetable = ({
     input,
     defaultValue,

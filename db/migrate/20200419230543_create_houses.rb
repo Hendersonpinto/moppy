@@ -5,6 +5,7 @@ class CreateHouses < ActiveRecord::Migration[6.0]
       t.string :city
       t.string :street
       t.string :house_number
+      t.string :post_code
       t.integer :size
       t.integer :rooms
 

@@ -1,1 +1,1 @@
-json.extract! session, :id, :host_id, :cleaner_id, :date, :time, :hours, :price_hour, :total_price, :size, :rooms, :created_at, :updated_at
+json.extract! session, :id, :host_id, :cleaner_id, :date, :time, :duration, :price_hour, :total_price, :size, :rooms, :created_at, :updated_at

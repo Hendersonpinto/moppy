@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "reactstrap";
 
 const UnconfirmedCleaningCard = ({ session, handleDelete }) => {
-  const { id, cleaner, date, time, hours, house } = session;
+  const { id, cleaner, date, time, duration, house } = session;
   console.log(session);
   console.log(house);
   console.log(house.street);
@@ -25,7 +25,7 @@ const UnconfirmedCleaningCard = ({ session, handleDelete }) => {
       <div className="duration">
         <div>
           <span className="dark">Duration: </span>
-          <span>{`${hours} hours`}</span>
+          <span>{`${duration} hours`}</span>
         </div>
         <div>
           <span className="dark">Rooms: </span>

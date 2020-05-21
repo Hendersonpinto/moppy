@@ -4,23 +4,17 @@ import sessionsAxios from "../api/sessionsAxios";
 import axios from "axios";
 
 import {
-  SIGN_IN,
-  SIGN_OUT,
   CREATE_CLEANING,
   FETCH_ALL_SESSIONS,
   FETCH_SESSIONS,
   CLEAN_SESSIONS,
-  UPDATE_SESSION,
   DELETE_CLEANING,
-  FETCH_SESSION,
   CHECK_HOST,
   HOST_LOGIN,
   HOST_LOGOUT,
   HOST_CREATE,
   UPDATE_RESOLUTION,
   ACTIVATE_BUTTON,
-  NEXT_PAGE,
-  PREVIOUS_PAGE,
   UPDATE_PAGE,
   PICK_DATE,
   PICK_TIMESLOT,
@@ -33,10 +27,23 @@ export const pickTimeslot = (newTimeslot) => {
   return { type: PICK_TIMESLOT, payload: newTimeslot };
 };
 
-export const createCleaning = () => {};
-
 export const changePageAction = (change) => {
   return { type: UPDATE_PAGE, payload: change };
+};
+
+export const createCleaning = (session) => {
+  return async (dispatch) => {
+    const response = await sessionsAxios.post(
+      "/api/v1/cleaning_sessions/create",
+      { session: session }
+    );
+    console.log("I CREATED A RECORD");
+    console.log(response);
+    // dispatch({
+    //   type: CREATE_CLEANING,
+    //   payload: { status: response.status, id: response.data },
+    // });
+  };
 };
 
 export const deleteCleaning = (cleaningId) => {

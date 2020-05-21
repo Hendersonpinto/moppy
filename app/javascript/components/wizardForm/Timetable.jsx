@@ -10,22 +10,24 @@ export const roundToHour = (date) => {
 };
 
 const Timetable = ({ date }) => {
-  const activeHour = useSelector((state) => state.sessions.timeslot);
+  const activeHour = useSelector((state) => state.sessions.date.getHours());
   const dispatch = useDispatch();
   const renderTimes = (date) => {
     let now = new Date();
     const initialTime =
       date.getDate() === now.getDate()
         ? roundToHour(now)
-        : new Date(date.setHours(8, 0));
+        : new Date(now.setHours(8, 0));
     let list = [];
     for (let i = initialTime.getHours(); i <= 18; i++) {
       list.push(i);
     }
 
     const handleClick = (hour) => {
+      console.log("Iam triggered", hour);
       dispatch(pickTimeslot(hour));
     };
+    console.log(activeHour);
     return list.map((hour) => {
       return (
         <TimeslotButton

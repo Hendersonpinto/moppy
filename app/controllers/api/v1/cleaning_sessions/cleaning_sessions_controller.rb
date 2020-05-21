@@ -4,6 +4,13 @@
   
   
     def index
+      # p "WHAT 1"
+      # p params
+      # p "WHAT 2"
+      # p params[:host]
+      # p "WHAT 3"
+      # p session_params
+      # p "WHAT 4"
       @sessions = CleaningSession.where(host_id:session_params[:host_id])
       @unconfirmed = @sessions.where("date > ?", Time.now).where(cleaner_id:nil)
       @confirmed = @sessions.where("date > ?", Time.now).where.not(cleaner_id:nil)
@@ -38,14 +45,16 @@
     end
   
     def create
-      @session = CleaningSession.create!(session_params)
-      if @session
-      render json: @session
-      else
-        render json: @session.errors
-      end
+      house = House.create!(host:current_api_v1_host, city:session_params[:city], street:session_params[:street], house_number:session_params[:houseNumber], post_code:session_params[:postCode], size:session_params[:size], rooms:session_params[:rooms])
+      p "I am creating a cleaning session"
+      p session_params
+      @session = CleaningSession.create!(host:current_api_v1_host, house:house, date:session_params[:date], time:session_params[:timeslot], duration:session_params[:duration])
+      p house
+     p @session
     end
   
+
+    
     def show
       if @session
         render json: @session
@@ -64,9 +73,9 @@
     private
     def session_params
       if params[:host].present?
-      params.require(:host).permit(:host_id)
+        params.require(:host).permit(:host_id)
       elsif params[:session].present?
-         params.require(:session).permit(:session_id)
+         params.require(:session).permit(:session_id, :size, :rooms, :duration, :city, :street, :houseNumber, :postCode, :date, :timeslot)
       end
 
     end

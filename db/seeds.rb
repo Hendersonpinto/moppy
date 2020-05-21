@@ -43,6 +43,7 @@
       house_number:rand(1..60),
       size: rand(30..120),
       rooms: rand(1..5),
+      post_code: "7014"
     )
     host_house.save!
   end
@@ -64,6 +65,7 @@
     house_number:rand(1..60),
     size: rand(30..120),
     rooms: rand(1..5),
+    post_code: "7014"
   )
   kristin_house.save!
   
@@ -102,7 +104,7 @@
   # p Faker::Date.between_except(from: 1.month.ago, to: 1.month.from_now, excepted: Date.today).strftime("%a - %d.%m")
   # p Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all).strftime("%k:%M")
 50.times do |i|
-  hours = rand(1..7)
+  duration = rand(1..7)
   myhost = Host.all[i]
     session = CleaningSession.new(
       host: myhost,
@@ -110,7 +112,7 @@
       cleaner: Cleaner.all[i],
       date:Faker::Date.between_except(from: 1.month.ago, to: 1.month.from_now, excepted: Date.today),
       time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
-      hours:  hours,
+      duration:  duration,
       size: rand(20..250),
       rooms: rand(1..8),
     )
@@ -121,14 +123,14 @@
   puts "\nCreating future confirmed Cleaning Sessions for Kristin..."
   
   5.times do |i|
-    hours = rand(1..7)
+    duration = rand(1..7)
     session = CleaningSession.new(
       host: kristin,
       house:House.find_by(host:kristin),
       cleaner: Cleaner.all[i],
       date:Faker::Date.between_except(from: Date.today, to: 1.month.from_now, excepted: Date.today),
       time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
-      hours:  hours,
+      duration:  duration,
       size: rand(20..250),
       rooms: rand(1..8),
     )
@@ -137,14 +139,14 @@
   puts "\nCreating past confirmed Cleaning Sessions for Kristin..."
   
   3.times do |i|
-    hours = rand(1..7)
+    duration = rand(1..7)
     session = CleaningSession.new(
       host: kristin,
       house:House.find_by(host:kristin),
       cleaner: Cleaner.all[i],
       date:Faker::Date.between(from: 1.month.ago, to: 1.day.ago),
       time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
-      hours:  hours,
+      duration:  duration,
       size: rand(20..250),
       rooms: rand(1..8),
     )
@@ -154,13 +156,13 @@
   puts "\nCreating past unconfirmed Cleaning Sessions for Kristin..."
   
   3.times do |i|
-    hours = rand(1..7)
+    duration = rand(1..7)
     session = CleaningSession.new(
       host: kristin,
       house:House.find_by(host:kristin),
       date:Faker::Date.between(from: 1.month.ago, to: 1.day.ago),
       time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
-      hours:  hours,
+      duration:  duration,
       size: rand(20..250),
       rooms: rand(1..8),
     )
@@ -169,13 +171,13 @@
   puts "\nCreating future unconfirmed Cleaning Sessions for Kristin..."
   
   4.times do |i|
-    hours = rand(1..7)
+    duration = rand(1..7)
     session = CleaningSession.new(
       host: kristin,
       house:House.find_by(host:kristin),
               date:Faker::Date.between(from: Date.today, to: 1.week.from_now),
               time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
-              hours:  hours,
+              duration:  duration,
                 size: rand(20..250),
                 rooms: rand(1..8),
               )
@@ -186,7 +188,7 @@
         puts "\nCreating Cleaning Sessions for Amanda..."
     
         5.times do |i|
-          hours = rand(1..7)
+          duration = rand(1..7)
           myhost = Host.all[i]
 
             session = CleaningSession.new(
@@ -195,10 +197,10 @@
               cleaner: amanda,
               date:Faker::Date.between_except(from: 1.month.ago, to: 1.month.from_now, excepted: Date.today),
               time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
-              hours:  hours,
+              duration:  duration,
                 size: rand(20..250),
                 rooms: rand(1..8),
-                total_price:  amanda.price_hour * hours,
+                total_price:  amanda.price_hour * duration,
               )
               session.save!
             end

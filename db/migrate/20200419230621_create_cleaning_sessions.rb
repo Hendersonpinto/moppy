@@ -6,7 +6,7 @@ class CreateCleaningSessions < ActiveRecord::Migration[6.0]
       t.references :house, foreign_key: true
       t.datetime :date
       t.time :time
-      t.integer :hours
+      t.integer :duration
       t.integer :total_price, default: 0
       t.string :size
       t.integer :rooms

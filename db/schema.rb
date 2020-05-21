@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_04_20_164640) do
     t.bigint "house_id"
     t.datetime "date"
     t.time "time"
-    t.integer "hours"
+    t.integer "duration"
     t.integer "total_price", default: 0
     t.string "size"
     t.integer "rooms"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2020_04_20_164640) do
     t.string "city"
     t.string "street"
     t.string "house_number"
+    t.string "post_code"
     t.integer "size"
     t.integer "rooms"
     t.datetime "created_at", precision: 6, null: false

@@ -33,7 +33,7 @@ Rails.application.routes.draw do
       namespace :cleaning_sessions do
       get 'index', to: 'cleaning_sessions#index', as: 'sessions'
       get 'all_sessions', to: 'cleaning_sessions#admin_index'
-      post 'create'
+      post 'create', to: 'cleaning_sessions#create'
       get 'show/:id', to: 'cleaning_sessions#show'
       delete 'destroy', to: 'cleaning_sessions#destroy'
       end

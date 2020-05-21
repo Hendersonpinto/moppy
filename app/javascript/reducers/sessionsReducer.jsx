@@ -1,8 +1,6 @@
 import _ from "lodash";
 
-import { roundToHour } from "../components/wizardForm/Timetable";
 import {
-  CREATE_SESSION,
   FETCH_SESSIONS,
   CLEAN_SESSIONS,
   FETCH_ALL_SESSIONS,
@@ -21,7 +19,6 @@ const INITIAL_STATE = {
   past: {},
   page: 1,
   date: new Date(),
-  timeslot: null,
 };
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -44,7 +41,10 @@ export default (state = INITIAL_STATE, action) => {
     case FETCH_SESSION:
       return { ...state, [action.payload.id]: action.payload };
     case CREATE_CLEANING:
-      return { ...state, [action.payload.id]: action.payload };
+      console.log(
+        "I AM CALLING FROM REDUCER AFTER SUCCESSFULLY TRIGGER CREATE_CLEANING ACTION"
+      );
+    // return { ...state, [action.payload.id]: action.payload };
     case UPDATE_SESSION:
       return { ...state, [action.payload.id]: action.payload };
     case DELETE_CLEANING:
@@ -67,7 +67,14 @@ export default (state = INITIAL_STATE, action) => {
     case PICK_DATE:
       return { ...state, date: action.payload };
     case PICK_TIMESLOT:
-      return { ...state, timeslot: action.payload };
+      const newDate = new Date(
+        state.date.getFullYear(),
+        state.date.getMonth(),
+        state.date.getDate(),
+        action.payload
+      );
+      console.log(newDate);
+      return { ...state, date: newDate };
     default:
       return state;
   }

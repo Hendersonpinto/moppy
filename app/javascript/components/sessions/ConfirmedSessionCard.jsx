@@ -6,7 +6,7 @@ import SvgChatIcon from "../dashboard/icons/SvgChatIcon";
 import vince from "../../../assets/images/vince150.svg";
 
 const ConfirmedSessionCard = ({ session }) => {
-  const { id, cleaner, date, time, hours } = session;
+  const { id, cleaner, date, time, duration } = session;
   return (
     <div className="cleaning-card" key={id}>
       <div className="cleaning-card__heading">
@@ -41,7 +41,7 @@ const ConfirmedSessionCard = ({ session }) => {
       <div className="duration">
         <div>
           <span className="dark">Duration: </span>
-          <span>{`${hours} hours`}</span>
+          <span>{`${duration} hours`}</span>
         </div>
 
         <Button className="delete-button" color="info">

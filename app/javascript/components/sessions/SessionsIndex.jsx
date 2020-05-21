@@ -34,7 +34,7 @@ class SessionsIndex extends React.Component {
             {`Cleaner: ${session.cleaner.first_name}`}
           </ListGroupItemText>
           <ListGroupItemText>
-            {`Total hours: ${session.hours}`}
+            {`Total hours: ${session.duration}`}
           </ListGroupItemText>
           <ListGroupItemText>{`Total size: ${session.size}`}</ListGroupItemText>
         </ListGroupItem>
