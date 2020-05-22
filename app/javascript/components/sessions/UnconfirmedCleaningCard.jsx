@@ -15,11 +15,11 @@ const UnconfirmedCleaningCard = ({ session, handleDelete }) => {
       <div className="datetime">
         <div className="date">
           <span className="dark">Date: </span>
-          <span>{date}</span>
+          <span>{new Date(date).getDate()}</span>
         </div>
         <div className="time">
           <span className="dark">Time: </span>
-          <span>{time}</span>
+          <span>{new Date(date).getHours()}</span>
         </div>
       </div>
       <div className="duration">

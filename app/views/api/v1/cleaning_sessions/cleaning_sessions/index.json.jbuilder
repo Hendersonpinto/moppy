@@ -1,7 +1,6 @@
     json.confirmed @confirmed do |session|
     json.extract! session, :id, :duration, :total_price
-    json.date session.date.strftime("%a - %d.%m")
-    json.time session.time.strftime("%k:%M")
+    json.date session.date
     json.house session.house
     
     json.cleaner do 
@@ -14,14 +13,21 @@
 end
 json.unconfirmed @unconfirmed do |session|
     json.extract! session, :id, :duration, :total_price
-    json.date session.date.strftime("%a - %d.%m")
-    json.time session.time.strftime("%k:%M")
+    json.date session.date
     json.house session.house
     
     json.cleaner do 
         json.id nil
     end
 end
+
+
+
+# json.date session.date.strftime("%a - %d.%m")
+# json.time session.date.strftime("%k:%M")
+
+
+
 # json.array! @confirmed do |session|
 #     json.extract! session, :id, :duration, :total_price
 #     json.date session.date.strftime("%a - %d.%m")

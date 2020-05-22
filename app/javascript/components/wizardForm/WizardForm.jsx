@@ -25,6 +25,7 @@ const WizardForm = (props) => {
     dispatch(createCleaning(session));
   };
 
+  console.log(date);
   return (
     <div>
       {page === 1 && <WizardFormFirstPage onSubmit={() => changePage(1)} />}

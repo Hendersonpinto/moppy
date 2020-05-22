@@ -7,6 +7,7 @@ import { checkHost, updateResolution } from "../actions";
 const App = () => {
   const current_host = useSelector((state) => state.hosts.current_host);
   const isMobile = useSelector((state) => state.dom.isMobile);
+  const date = useSelector((state) => state.sessions.date);
 
   let resolution = window.innerWidth;
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const App = () => {
   }, []);
 
   console.log(current_host);
+  console.log(date);
   return <Routes currentHost={current_host} />;
 };
 

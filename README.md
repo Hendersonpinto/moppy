@@ -524,7 +524,82 @@ const response = await sessionsAxios.post(
 { session: session }
 );
 
-<!-- DELETING A RECORD IN RAILS USING DELETE METHOD AND AXIOS -->
+<!-- CREATING A RECORD IN RAILS USING POST METHOD AND AXIOS -->
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+<!-- Dealing with DATETIME  VALUES IN THE CLIENT AND IN THE SERVER -->
+
+<!--
+
+Problem: I had to create a cleaning session with the date sent from the client to the server. However when trying to display the new recorrd, it seem that Rails
+        had created it with the time 2 hours before.
+
+Solution: The problem raised because when I was mixing local time dates and UTC. Whenever I picked a new datetime supposed at 18:00 and send it to the Rails server
+        the value is sent in UTC so it is two hours behind since I am in Denmark. Then rails created the record and sent back the time as an string using strftime("%k:%M")
+        But this time was taken from UTC without conversion so the time that I got was 2 hours before.
+
+        I solved it by sending UTC from React to Rails and also from Rails to React but I am sending the whole datetime value from Rails to React and in React I am
+        Formatting and taking what I need from the datetime value using:
+            new Date(date).getDate(), where "date" is the UTC value from Rails. When using new Date on a UTC it gets converted to local time.
+
+
+ -->
+
+<!-- JSON BUILDER -->
+
+    json.confirmed @confirmed do |session|
+    json.extract! session, :id, :duration, :total_price
+    json.date session.date
+    json.house session.house
+
+    json.cleaner do
+        json.id session.cleaner.id
+        json.email session.cleaner.email
+        json.first_name session.cleaner.first_name
+        json.last_name session.cleaner.last_name
+        json.price_hour session.cleaner.price_hour
+    end
+
+<!-- IN REACT -->
+<div className="datetime">
+        <div className="date">
+          <span className="dark">Date: </span>
+          <span>{new Date(date).toLocaleDateString()}</span>
+        </div>
+        <div className="time">
+          <span className="dark">Time: </span>
+          <span>{new Date(date).toLocaleTimeString()}</span>
+        </div>
+      </div>
+
+       <div className="datetime">
+        <div className="date">
+          <span className="dark">Date: </span>
+          <span>{new Date(date).getDate()}</span>
+        </div>
+        <div className="time">
+          <span className="dark">Time: </span>
+          <span>{new Date(date).getHours()}</span>
+        </div>
+      </div>
+
+<!-- Dealing with DATETIME  VALUES IN THE CLIENT AND IN THE SERVER -->
 
 |
 |

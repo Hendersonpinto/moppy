@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2020_04_20_164640) do
     t.bigint "cleaner_id"
     t.bigint "house_id"
     t.datetime "date"
-    t.time "time"
     t.integer "duration"
     t.integer "total_price", default: 0
     t.string "size"

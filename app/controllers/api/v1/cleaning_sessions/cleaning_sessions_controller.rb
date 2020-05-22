@@ -48,7 +48,7 @@
       house = House.create!(host:current_api_v1_host, city:session_params[:city], street:session_params[:street], house_number:session_params[:houseNumber], post_code:session_params[:postCode], size:session_params[:size], rooms:session_params[:rooms])
       p "I am creating a cleaning session"
       p session_params
-      @session = CleaningSession.create!(host:current_api_v1_host, house:house, date:session_params[:date], time:session_params[:timeslot], duration:session_params[:duration])
+      @session = CleaningSession.create!(host:current_api_v1_host, house:house, date:session_params[:date], duration:session_params[:duration])
       p house
      p @session
     end
