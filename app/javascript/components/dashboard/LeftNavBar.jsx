@@ -45,7 +45,12 @@ const LeftNavBar = () => {
       </Link>
       <div className="lnav__actions">{renderActions(activeId)}</div>
       <div className="book">
-        <Link to="/hosts/book">
+        <Link
+          to="/hosts/book"
+          onClick={(e) => {
+            handleClick(e, null);
+          }}
+        >
           <div className="book-button">
             <div className="left">
               <div className="vertical"></div>
