@@ -16,7 +16,9 @@ const UnconfirmedCleaningCard = ({ session, handleDelete }) => {
       <div className="datetime">
         <div className="date">
           <span className="dark">Date: </span>
-          <span>{`${convertedDate.getDate()}/${convertedDate.getMonth()}`}</span>
+          <span>{`${convertedDate.getDate()}/${
+            convertedDate.getMonth() + 1
+          }`}</span>
         </div>
         <div className="time">
           <span className="dark">Time: </span>
