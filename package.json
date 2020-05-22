@@ -8,8 +8,19 @@
   "proxy": "http://localhost:5000/",
   "dependencies": {
     "@babel/preset-react": "^7.9.4",
-    "@bit/nexxtway.react-rainbow.calendar": "file:./app/javascript/components/bit/calendar",
+    "@bit/nexxtway.react-rainbow.calendar": "1.10.0",
     "@bit/nexxtway.react-rainbow.card": "^1.10.0",
+    "styled-components": "^4.3.2",
+    "@bit/nexxtway.react-rainbow.types": "1.10.0",
+    "@bit/nexxtway.react-rainbow.application": "1.10.0",
+    "@bit/nexxtway.react-rainbow.select": "1.10.0",
+    "@bit/nexxtway.react-rainbow.libs.constants": "1.10.0",
+    "@bit/nexxtway.react-rainbow.libs.unique-id": "1.10.0",
+    "@bit/nexxtway.react-rainbow.libs.get-locale": "1.10.0",
+    "@bit/nexxtway.react-rainbow.button-icon": "1.10.0",
+    "@bit/nexxtway.react-rainbow.libs.colors": "1.10.0",
+    "@bit/nexxtway.react-rainbow.libs.font-sizes": "1.10.0",
+    "@bit/nexxtway.react-rainbow.libs.shadows": "1.10.0",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
@@ -43,7 +54,7 @@
   "version": "0.1.0",
   "devDependencies": {
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "^3.11.0"
   },
   "bit": {
     "env": {},
