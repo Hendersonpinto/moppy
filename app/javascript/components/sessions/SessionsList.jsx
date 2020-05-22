@@ -7,6 +7,7 @@ import ConfirmedSessionCard from "./ConfirmedSessionCard";
 import UnconfirmedCleaningCard from "./UnconfirmedCleaningCard";
 
 const SessionsIndex = (props) => {
+  const mysessions = useSelector((state) => state.sessions.confirmed);
   const dispatch = useDispatch();
   const [modalDisplay, setModalDisplay] = useState(false);
   const [cleaningIdForDelete, setCleaningIdForDelete] = useState(null);
@@ -38,28 +39,34 @@ const SessionsIndex = (props) => {
 
   const renderConfirmedCleanings = () => {
     if (Array.isArray(confirmedCleanings) && confirmedCleanings.length) {
-      return confirmedCleanings.map((session) => {
-        return <ConfirmedSessionCard key={session.id} session={session} />;
-      });
+      return confirmedCleanings
+        .sort((a, b) => (a.date > b.date ? 1 : -1))
+        .map((session) => {
+          return <ConfirmedSessionCard key={session.id} session={session} />;
+        });
     }
     return <p>You do not have any session yet</p>;
   };
 
   const renderPendingCleanings = () => {
     if (Array.isArray(unconfirmedCleanings) && unconfirmedCleanings.length) {
-      return unconfirmedCleanings.map((pending) => {
-        return (
-          <UnconfirmedCleaningCard
-            key={pending.id}
-            session={pending}
-            handleDelete={handleDelete}
-          />
-        );
-      });
+      return unconfirmedCleanings
+        .sort((a, b) => (a.date > b.date ? 1 : -1))
+        .map((pending) => {
+          return (
+            <UnconfirmedCleaningCard
+              key={pending.id}
+              session={pending}
+              handleDelete={handleDelete}
+            />
+          );
+        });
     }
     return <p>You do not have any pending cleaning</p>;
   };
-
+  console.log(mysessions);
+  console.log(confirmedCleanings);
+  console.log(unconfirmedCleanings);
   return (
     <>
       <div className="cleanings">

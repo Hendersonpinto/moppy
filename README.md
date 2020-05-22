@@ -617,3 +617,78 @@ Solution: The problem raised because when I was mixing local time dates and UTC.
 |
 |
 |
+
+<!-- SORTING OF RECORDS BOTH IN FRONT END AND BACK END-->
+
+<!--
+
+Problem: I needed to display the records based on their datetime. From Rails this was easy to accomplish since I just used .srt while doing my query with active record.
+        However, when I iterated over the records in React they were sorted by the id which Rails gives to these records.
+
+Solution: The problem raised because I am using a ._mapKey method from lodash which will take an array of objects (Like the one returned from Rails) and convert it
+          into an object of objects, which each key is the "id" from the record and the value is the record itself.
+          The problem with this is that the Object gets ordered by id. To iterate over an object of objects I needed to convert it to an array (enumerable). TO do this
+          I used, Object.values(state.sessions.unconfirmed). It takes all the values and use them as element into a new array. However since the former object is ordered
+          by id, the new array is also ordered by the ids so I needed to order this array of objects using .sort.
+
+          What I don't like about this system is that even though I am getting an already sorted array of records by date from Rails, in order to save them as an object of objects they get resorted by id and then I have to sort them again by date.
+
+          My plan is to change the way I store the records so they are stored as an array of objects and drop the conversion from array of objects to object of objects
+
+
+  WHY I WANT TO STORE THE RECORDS AS AN OBJECT OF OBJECTS?
+          All the pain is to store an object of objects which is easier to handle when deleting and adding, since we can use ._omit from lodash or (The way I am actually
+          doing it) destructuring an object and taking only the records that I am interested in.
+
+          However I think that even thought is easier, when it comes to displaying, iterating or sorting the records is too complicated. SO I am going to use array of
+          objects instead and when it comes to delete or add I can use filter or reduce methods on the array
+
+ -->
+
+<!-- RAILS QUERY -->
+
+@sessions = CleaningSession.where(host_id:session_params[:host_id]).order(:date)
+
+<!-- Handling response in reducer to convert the array of objects into an object of objects -->
+
+return {
+...state,
+confirmed: _.mapKeys(action.payload.confirmed, "id"),
+unconfirmed: _.mapKeys(action.payload.unconfirmed, "id"),
+};
+
+<!-- Using object.values to convert it into an enumerable -->
+
+const confirmedCleanings = useSelector((state) =>
+state.sessions ? Object.values(state.sessions.confirmed) : null
+);
+
+<!-- Using sort to reorder my new enumerable -->
+
+const renderConfirmedCleanings = () => {
+if (Array.isArray(confirmedCleanings) && confirmedCleanings.length) {
+return confirmedCleanings
+.sort((a, b) => (a.date > b.date ? 1 : -1))
+.map((session) => {
+return <ConfirmedSessionCard key={session.id} session={session} />;
+});
+}
+
+<!-- Dealing with DATETIME  VALUES IN THE CLIENT AND IN THE SERVER -->
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|

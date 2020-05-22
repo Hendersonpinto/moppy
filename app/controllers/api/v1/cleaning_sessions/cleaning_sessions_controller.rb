@@ -4,18 +4,12 @@
   
   
     def index
-      # p "WHAT 1"
-      # p params
-      # p "WHAT 2"
-      # p params[:host]
-      # p "WHAT 3"
-      # p session_params
-      # p "WHAT 4"
-      @sessions = CleaningSession.where(host_id:session_params[:host_id])
-      @unconfirmed = @sessions.where("date > ?", Time.now).where(cleaner_id:nil)
-      @confirmed = @sessions.where("date > ?", Time.now).where.not(cleaner_id:nil)
-      @past = @sessions.where("date <= ?", Time.now).where.not(cleaner_id:nil)
-      @past_unconfirmed = @sessions.where("date <= ?", Time.now).where(cleaner_id:nil)
+     
+      @sessions = CleaningSession.where(host_id:session_params[:host_id]).order(:date)
+      @unconfirmed = @sessions.where("date > ?", Time.now).where(cleaner_id:nil).order(:date)
+      @confirmed = @sessions.where("date > ?", Time.now).where.not(cleaner_id:nil).order(:date)
+      @past = @sessions.where("date <= ?", Time.now).where.not(cleaner_id:nil).order(:date)
+      @past_unconfirmed = @sessions.where("date <= ?", Time.now).where(cleaner_id:nil).order(:date)
         
       # render json: @sessions, include: ['host', 'cleaner']
       # if @sessions.empty?

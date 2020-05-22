@@ -28,7 +28,8 @@ export default (state = INITIAL_STATE, action) => {
       }
       return { ...state, ..._.mapKeys(action.payload, "id") };
     case FETCH_SESSIONS:
-      // console.log(action.payload);
+      console.log(action.payload);
+      console.log(action.payload.confirmed);
       // console.log(_.mapKeys(action.payload, "id"));
       if (action.payload.length < 1) {
         return { ...state };
