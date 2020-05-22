@@ -11,6 +11,7 @@ import {
   CREATE_CLEANING,
   PICK_DATE,
   PICK_TIMESLOT,
+  CLEAN_FORM,
 } from "../actions/types";
 
 const INITIAL_STATE = {
@@ -65,6 +66,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, page: state.page + action.payload };
     case CLEAN_SESSIONS:
       return { ...state, confirmed: {}, unconfirmed: {}, past: {} };
+    case CLEAN_FORM:
+      return { ...state, page: 1, date: new Date() };
     case PICK_DATE:
       return { ...state, date: action.payload };
     case PICK_TIMESLOT:

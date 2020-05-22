@@ -51,7 +51,7 @@ const WizardFormFifthPage = (props) => {
 };
 export default reduxForm({
   form: "wizard", //Form name is same
-  destroyOnUnmount: false,
+  destroyOnUnmount: true,
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
   validate,
 })(WizardFormFifthPage);

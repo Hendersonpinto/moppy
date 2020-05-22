@@ -18,6 +18,7 @@ import {
   UPDATE_PAGE,
   PICK_DATE,
   PICK_TIMESLOT,
+  CLEAN_FORM,
 } from "./types";
 
 export const pickDate = (newDate) => {
@@ -43,6 +44,7 @@ export const createCleaning = (session) => {
     //   type: CREATE_CLEANING,
     //   payload: { status: response.status, id: response.data },
     // });
+    history.push("/hosts");
   };
 };
 
@@ -70,6 +72,9 @@ export const updateResolution = (resolution) => {
 };
 export const cleanSessions = () => {
   return { type: CLEAN_SESSIONS };
+};
+export const cleanForm = () => {
+  return { type: CLEAN_FORM };
 };
 export const fetchAllSessions = () => {
   return async (dispatch) => {
