@@ -9,7 +9,7 @@
   "dependencies": {
     "@babel/preset-react": "^7.9.4",
     "@bit/advantagelearn.nova.form-text-area": "file:./bitcomponents/form-text-area",
-    "@bit/nexxtway.react-rainbow.application": "1.10.0",
+    "@bit/nexxtway.react-rainbow.application": "^1.10.0",
     "@bit/nexxtway.react-rainbow.button-icon": "1.10.0",
     "@bit/nexxtway.react-rainbow.calendar": "1.10.0",
     "@bit/nexxtway.react-rainbow.card": "^1.10.0",
