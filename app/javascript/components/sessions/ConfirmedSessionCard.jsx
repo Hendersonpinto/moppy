@@ -7,6 +7,9 @@ import vince from "../../../assets/images/vince150.svg";
 
 const ConfirmedSessionCard = ({ session }) => {
   const { id, cleaner, date, time, duration } = session;
+  const convertedDate = new Date(date);
+  console.log(convertedDate.getMinutes());
+
   return (
     <div className="cleaning-card" key={id}>
       <div className="cleaning-card__heading">
@@ -31,11 +34,14 @@ const ConfirmedSessionCard = ({ session }) => {
       <div className="datetime">
         <div className="date">
           <span className="dark">Date: </span>
-          <span>{new Date(date).toLocaleDateString()}</span>
+          <span>{`${convertedDate.getDate()}/${convertedDate.getMonth()}`}</span>
         </div>
         <div className="time">
           <span className="dark">Time: </span>
-          <span>{new Date(date).toLocaleTimeString()}</span>
+          <span>{`${convertedDate.getHours()}:${convertedDate
+            .getMinutes()
+            .toString()
+            .padStart(2, "0")}`}</span>
         </div>
       </div>
       <div className="duration">

@@ -3,6 +3,7 @@ import { Button } from "reactstrap";
 
 const UnconfirmedCleaningCard = ({ session, handleDelete }) => {
   const { id, cleaner, date, time, duration, house } = session;
+  const convertedDate = new Date(date);
   console.log(session);
   console.log(house);
   console.log(house.street);
@@ -15,11 +16,14 @@ const UnconfirmedCleaningCard = ({ session, handleDelete }) => {
       <div className="datetime">
         <div className="date">
           <span className="dark">Date: </span>
-          <span>{new Date(date).getDate()}</span>
+          <span>{`${convertedDate.getDate()}/${convertedDate.getMonth()}`}</span>
         </div>
         <div className="time">
           <span className="dark">Time: </span>
-          <span>{new Date(date).getHours()}</span>
+          <span>{`${convertedDate.getHours()}:${convertedDate
+            .getMinutes()
+            .toString()
+            .padStart(2, "0")}`}</span>
         </div>
       </div>
       <div className="duration">
