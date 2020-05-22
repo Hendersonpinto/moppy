@@ -1,0 +1,70 @@
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .breadcrumbs {
+    margin-right: 50px;
+    display: flex;
+    width: 180px;
+    height: 250px;
+    align-items: center;
+    justify-content: space-between;
+
+    &__titles {
+      justify-content: space-between;
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      text-align: end;
+      h3 {
+        margin: 7px 0px;
+        font-size: 16px;
+        font-weight: 800;
+        color: $inactive2;
+        transition: all ease-in-out 500ms;
+        &.is-active {
+          color: $light-black;
+        }
+      }
+    }
+    &__steps {
+      height: 100%;
+      justify-content: space-between;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      flex: 1;
+      align-items: center;
+      .circle {
+        height: 35px;
+        border: solid $inactive2;
+        border-radius: 50%;
+        width: 35px;
+        transition: all ease-in-out 500ms;
+        &.is-active {
+          border: solid $green;
+          p {
+            color: $light-black;
+          }
+        }
+        p {
+          font-weight: 800;
+          color: $inactive2;
+          line-height: 1.5;
+        }
+      }
+      .vertical-line {
+        .inner {
+          background-color: $green;
+          height: 0%;
+          transition: all ease-in-out 1000ms;
+          &.is-active {
+            height: 100%;
+          }
+        }
+        width: 3px;
+        flex: 1;
+      }
+    }
+  }
+}
