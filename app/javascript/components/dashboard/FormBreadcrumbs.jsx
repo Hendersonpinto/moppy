@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
-
 import { changePageAction } from "../../actions";
 import { useSelector, useDispatch } from "react-redux";
+
+import checkIcon from "../../../assets/images/check.svg";
 
 const FormBreadcrumbs = (props) => {
   const page = useSelector((state) => state.sessions.page);
@@ -30,21 +31,36 @@ const FormBreadcrumbs = (props) => {
         </h3>
       </div>
       <div className="breadcrumbs__steps">
-        <div className={`circle ${page >= 1 ? "is-active" : ""}`}>
+        <div
+          className={`circle ${page === 1 ? "is-active" : ""} ${
+            page > 1 ? "is-completed" : ""
+          }`}
+        >
           <p className="step">1</p>
+          <img className="check" src={checkIcon} alt="notifications" />
         </div>
         <div className="vertical-line">
           <div className={`inner ${page >= 2 ? "is-active" : ""}`}></div>
         </div>
-        <div className={`circle ${page >= 2 ? "is-active" : ""}`}>
+        <div
+          className={`circle ${page === 2 ? "is-active" : ""} ${
+            page > 2 ? "is-completed" : ""
+          }`}
+        >
+          <img className="check" src={checkIcon} alt="notifications" />
           <p className="step">2</p>
         </div>
         <div className="vertical-line">
           <div className={`inner ${page >= 3 ? "is-active" : ""}`}></div>
         </div>
 
-        <div className={`circle ${page >= 3 || page >= 4 ? "is-active" : ""}`}>
+        <div
+          className={`circle ${page === 3 || page === 4 ? "is-active" : ""} ${
+            page > 4 ? "is-completed" : ""
+          }`}
+        >
           <p className="step">3</p>
+          <img className="check" src={checkIcon} alt="notifications" />
         </div>
         <div className="vertical-line">
           <div className={`inner ${page >= 5 ? "is-active" : ""}`}></div>
@@ -52,6 +68,7 @@ const FormBreadcrumbs = (props) => {
 
         <div className={`circle ${page >= 5 ? "is-active" : ""}`}>
           <p className="step">4</p>
+          <img className="check" src={checkIcon} alt="notifications" />
         </div>
       </div>
     </div>

@@ -21,7 +21,7 @@
         font-size: 16px;
         font-weight: 800;
         color: $inactive2;
-        transition: all ease-in-out 500ms;
+        transition: all ease-in-out 1000ms;
         &.is-active {
           color: $light-black;
         }
@@ -36,18 +36,38 @@
       flex: 1;
       align-items: center;
       .circle {
+        position: relative;
         height: 35px;
         border: solid $inactive2;
         border-radius: 50%;
         width: 35px;
-        transition: all ease-in-out 500ms;
+        transition: all ease-in-out 1000ms;
+        .check {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin-left: -8px;
+          margin-top: -7px;
+          display: none;
+        }
         &.is-active {
           border: solid $green;
           p {
             color: $light-black;
           }
         }
+        &.is-completed {
+          border: solid $green;
+          background-color: $green;
+          .check {
+            display: initial;
+          }
+          p {
+            display: none;
+          }
+        }
         p {
+          transition: all ease-in-out 1000ms;
           font-weight: 800;
           color: $inactive2;
           line-height: 1.5;
