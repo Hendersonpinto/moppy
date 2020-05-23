@@ -5,9 +5,13 @@ class Api::V1::Hosts::SessionsController < Devise::SessionsController
 
 
   def check_host
-    @host = current_api_v1_host
+    if current_api_v1_host
+      @host = current_api_v1_host
+    else
+    render json:{error: nil, message: "No one is logged"}, status: :not_found
     # @houses = House.where(host: @host)
         # render json: current_api_v1_host
+    end
   end
 
 

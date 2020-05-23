@@ -5,6 +5,7 @@
   grid-column-gap: 0px;
   background-color: $light-rose;
   position: relative;
+  overflow: hidden;
 
   &.login {
     background-color: $green;
