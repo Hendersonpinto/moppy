@@ -1,14 +1,8 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
-import {
-  Button,
-  Row,
-  FormGroup,
-  Label,
-  Input,
-  Col,
-  FormFeedback,
-} from "reactstrap";
+import MoppyButton from "./MoppyButton";
+
+import { FormGroup, Label, Input, FormFeedback } from "reactstrap";
 
 const renderFields = (fields) => {
   return fields.map(({ name, label, type, placeholder, ...restFields }) => {
@@ -69,12 +63,12 @@ const LogForm = (props) => {
       <form onSubmit={props.handleSubmit(onSubmit)}>
         {renderFields(props.fields)}
 
-        <Button className="mybutton salmon-button">
+        <MoppyButton className="salmon-button bordered" type="submit">
           <div className="google">
             <img src={props.buttonImage} className="lock"></img>
             <p>Sign Up</p>
           </div>
-        </Button>
+        </MoppyButton>
       </form>
       {props.myerror ? <p>{`Something went wrong: ${props.myerror}`}</p> : ""}
     </>

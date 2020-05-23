@@ -18,6 +18,7 @@ const MoppyButton = (props) => {
       className={`mybutton ${classes} ${props.disabled ? "disabled" : ""}`}
       onClick={onClick}
       disabled={props.disabled}
+      type={props.type || "button"}
     >
       {props.children}
     </button>

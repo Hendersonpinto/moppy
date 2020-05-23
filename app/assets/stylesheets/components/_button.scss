@@ -26,6 +26,12 @@
   &.salmon-button {
     background-color: $salmon;
     color: $dark-green;
+    &:hover {
+      background-color: $dark-salmon;
+    }
+    &.bordered {
+      border: solid 0.5px $green;
+    }
   }
 
   &.rose-button {
