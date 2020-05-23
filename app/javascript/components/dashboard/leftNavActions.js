@@ -12,13 +12,13 @@ import SvgShopIcon from "./icons/SvgShopIcon";
 import SvgProfileIcon from "./icons/SvgProfileIcon";
 import React from "react";
 
-export const leftNavActions = (activeId) => {
+export const leftNavActions = (currentPath) => {
   return [
     {
       title: "overview",
       url: "/hosts",
       icon:
-        activeId === "overview" ? (
+        currentPath === "/hosts" ? (
           <SvgHomeIcon fill="#235952" />
         ) : (
           <SvgHomeIcon fill="#FCD9D9" />
@@ -28,7 +28,7 @@ export const leftNavActions = (activeId) => {
       title: "calendar",
       url: "/hosts/calendar",
       icon:
-        activeId === "calendar" ? (
+        currentPath === "/hosts/calendar" ? (
           <SvgCalendarIcon fill="#235952" />
         ) : (
           <SvgCalendarIcon fill="#FCD9D9" />
@@ -38,7 +38,7 @@ export const leftNavActions = (activeId) => {
       title: "history",
       url: "/hosts/history",
       icon:
-        activeId === "history" ? (
+        currentPath === "/hosts/history" ? (
           <SvgHistoryIcon fill="#235952" />
         ) : (
           <SvgHistoryIcon fill="#FCD9D9" />
@@ -48,7 +48,7 @@ export const leftNavActions = (activeId) => {
       title: "messages",
       url: "/hosts/messages",
       icon:
-        activeId === "messages" ? (
+        currentPath === "/hosts/messages" ? (
           <SvgChatIcon fill="#235952" />
         ) : (
           <SvgChatIcon fill="#FCD9D9" />
@@ -58,7 +58,7 @@ export const leftNavActions = (activeId) => {
       title: "shop",
       url: "/hosts/shop",
       icon:
-        activeId === "shop" ? (
+        currentPath === "/hosts/shop" ? (
           <SvgShopIcon fill="#235952" />
         ) : (
           <SvgShopIcon fill="#FCD9D9" />
@@ -68,7 +68,7 @@ export const leftNavActions = (activeId) => {
       title: "profile",
       url: "/hosts/profile",
       icon:
-        activeId === "profile" ? (
+        currentPath === "/hosts/profile" ? (
           <SvgProfileIcon fill="#235952" />
         ) : (
           <SvgProfileIcon fill="#FCD9D9" />

@@ -5,12 +5,7 @@ import WizardFormThirdPage from "./WizardFormThirdPage";
 import WizardFormFourthPage from "./WizardFormFourthPage";
 import WizardFormFifthPage from "./WizardFormFifthPage";
 
-import {
-  changePageAction,
-  createCleaning,
-  cleanForm,
-  activateButton,
-} from "../../actions";
+import { changePageAction, createCleaning, cleanForm } from "../../actions";
 import { useSelector, useDispatch } from "react-redux";
 
 const WizardForm = (props) => {
@@ -28,7 +23,6 @@ const WizardForm = (props) => {
     console.log(date);
     console.log(session);
     dispatch(createCleaning(session));
-    dispatch(activateButton("overview"));
   };
   useEffect(() => {
     return () => {
