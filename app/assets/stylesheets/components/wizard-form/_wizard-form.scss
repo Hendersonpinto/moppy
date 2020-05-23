@@ -42,8 +42,9 @@
       color: $green;
     }
     .fields {
-      width: 70%;
-      margin: auto;
+      padding: 30px 30px;
+      width: 100%;
+      background-color: #f7f7f7;
       .order-field {
         display: flex;
         justify-content: space-between;
@@ -78,6 +79,9 @@
       flex-direction: column;
       justify-content: space-around;
       height: 100%;
+      .form-check {
+        margin-bottom: 10px;
+      }
     }
   }
 }

@@ -3,6 +3,7 @@ import { Field, reduxForm } from "redux-form";
 import { Button } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
 
+import renderCheckField from "./renderCheckField";
 import validate from "./validate";
 
 const WizardFormFifthPage = (props) => {
@@ -42,12 +43,13 @@ const WizardFormFifthPage = (props) => {
       </div>
       <div className="wizard-content">
         <form onSubmit={handleSubmit}>
-          {/* <div>
-            <label htmlFor="employed">Employed</label>
-            <div>
-              <Field name="employed" id="employed" type="checkbox" />
-            </div>
-          </div> */}
+          <Field
+            name="employed"
+            id="employed"
+            label="I accept terms and privacy policy"
+            component={renderCheckField}
+            type="checkbox"
+          />
           <div className="buttons-form">
             <Button
               type="button"
