@@ -13,13 +13,13 @@ const AppRoute = ({
     <Route
       {...restProps}
       render={(props) => {
-        return !currentHost ? (
+        return currentHost ? (
+          <Redirect to={{ pathname: redirectTo }} />
+        ) : (
           <>
             {navBar ? React.createElement(navBar) : null}
             <Component {...restProps} {...props} />
           </>
-        ) : (
-          <Redirect to={{ pathname: redirectTo }} />
         );
       }}
     />

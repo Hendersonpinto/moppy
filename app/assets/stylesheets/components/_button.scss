@@ -7,6 +7,14 @@
   font-weight: 500;
   color: $rose;
   font-size: 18px;
+  transition: all ease-in-out 300ms;
+  &:hover {
+    background-color: $dark-green;
+  }
+  &.disabled {
+    background-color: $inactive2;
+    color: $grey;
+  }
 
   &.lg {
     padding: 8px 40px;
@@ -29,5 +37,8 @@
     border: solid 1px;
     border-color: $rose;
     color: $dark-green;
+    &:hover {
+      border-color: $medium-pink;
+    }
   }
 }

@@ -241,7 +241,7 @@ However, the heroku logs and the response from the server did not help at all to
 what was really happening.
 
 Reason: The reason was that I had a copy of one of the controllers files, with bad code that I
-saved for my personal use. However, when deploying Rails consider every single file inside of the
+saved for my personal use. However, when deploying, Rails consider every single file inside of the
 controller folder as a controller (even though the file name ends in controller_copy2.rb).
 
 Solution: In order to see what was happening I spent hours trying to configure bundlepacks, since

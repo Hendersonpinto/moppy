@@ -32,6 +32,7 @@ export const mockupContent = {
   buttonText: "Book a cleaner",
   image: { alt: "mobile app", id: "mockup", file: Mockup },
   avatar: null,
+  buttonURL: "/hosts/book",
 };
 export const superheroContent = {
   classname: "superhero",

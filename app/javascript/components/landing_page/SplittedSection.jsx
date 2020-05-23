@@ -1,15 +1,22 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
-const SplittedSection = ({
-  classname,
-  title,
-  message,
-  buttonText,
-  file,
-  alt,
-  id,
-  avatar,
-}) => {
+import MoppyButton from "../MoppyButton";
+
+const SplittedSection = ({ content }) => {
+  const {
+    title,
+    message,
+    buttonText,
+    image,
+    buttonURL,
+    avatar,
+    classname,
+  } = content;
+  const { alt, id, file } = image;
+  const currentHost = useSelector((state) => state.hosts.current_host);
+  console.log(buttonURL);
   return (
     <div className={`splitted ${classname}`}>
       <div className="splitted__wrapper">
@@ -24,9 +31,11 @@ const SplittedSection = ({
           <div className="splitted__message">
             <p>{message}</p>
           </div>
-          <button className="splitted__button mybutton salmon-button">
-            {buttonText}
-          </button>
+          <Link to={currentHost ? buttonURL : "/hosts/log_in"}>
+            <MoppyButton className="splitted__button salmon-button">
+              {buttonText}
+            </MoppyButton>
+          </Link>
         </div>
       </div>
     </div>

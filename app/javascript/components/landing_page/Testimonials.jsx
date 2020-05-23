@@ -15,15 +15,9 @@ const renderQuotes = (quotes, quoteIcon, polyIcon) => {
   });
 };
 
-const Testimonials = ({
-  title,
-  file,
-  id,
-  alt,
-  quotes,
-  quoteIcon,
-  polyIcon,
-}) => {
+const Testimonials = ({ content }) => {
+  const { title, quotes, image, quoteIcon, polyIcon } = content;
+  const { file, alt, id } = image;
   return (
     <div className={`testimonials`}>
       <div className="testimonials__wrapper">

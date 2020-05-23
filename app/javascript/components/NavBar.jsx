@@ -1,7 +1,10 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { Button } from "reactstrap";
+
 import { logoutHost } from "../actions";
+import MoppyButton from "./MoppyButton";
 
 import Logo from "../../assets/images/logo.svg";
 
@@ -16,42 +19,42 @@ const NavBar = (props) => {
         return (
           <>
             <Link to="/hosts" className="navBar__action">
-              Dashboard
+              <MoppyButton className="white-button">Dashboard</MoppyButton>
             </Link>
-            <button
+            <MoppyButton
+              className="navBar__action"
               onClick={() => {
                 dispatch(logoutHost(currentHost.id));
               }}
-              className="navbar__action"
             >
-              Log Out
-            </button>
+              Log out
+            </MoppyButton>
           </>
         );
       }
       return (
         <>
           <Link to="/" className="navBar__action">
-            Home
+            <MoppyButton className="white-button">Home</MoppyButton>
           </Link>
-          <button
+          <MoppyButton
+            className="navbar__action"
             onClick={() => {
               dispatch(logoutHost(currentHost.id));
             }}
-            className="navBar__action"
           >
-            Log Out
-          </button>
+            Log out
+          </MoppyButton>
         </>
       );
     }
     return (
       <>
         <Link to="/hosts/log_in" className="navBar__action">
-          Log in
+          <MoppyButton className="white-button">Log in</MoppyButton>
         </Link>
         <Link to="/hosts/sign_up" className="navBar__action">
-          Sign up
+          <MoppyButton>Sign up</MoppyButton>
         </Link>
       </>
     );

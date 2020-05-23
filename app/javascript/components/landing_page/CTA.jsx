@@ -1,16 +1,29 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
-const Home = ({ title, buttonClass, buttonText, img1, img2 }) => {
+import MoppyButton from "../MoppyButton";
+
+const CTA = ({ content }) => {
+  console.log(content);
+  const { title, buttonClass, buttonText, yoga, plants } = content;
+
+  const currentHost = useSelector((state) => state.hosts.current_host);
+
   return (
     <div className="cta">
       <div className="cta__content">
         <h1>{title}</h1>
-        <button className={buttonClass}>{buttonText}</button>
+        <Link to={currentHost ? "/hosts" : "/hosts/sign_up"}>
+          <MoppyButton className={buttonClass}>
+            {currentHost ? "Request a cleaning" : "Sign up"}
+          </MoppyButton>
+        </Link>
       </div>
-      <img src={img1.file} id={img1.id} alt={img1.alt} />
-      <img src={img2.file} id={img2.id} alt={img2.alt} />
+      <img src={yoga.file} id={yoga.id} alt={yoga.alt} />
+      <img src={plants.file} id={plants.id} alt={plants.alt} />
     </div>
   );
 };
 
-export default Home;
+export default CTA;
