@@ -735,7 +735,7 @@ npm config set @bit:registry https://node.bit.dev
 HEROKU
 heroku config:set NPM_TOKEN=bf1b06a2-6beb-4b9e-852c-86ae88ed3d34
 
-I GOT THE KEY BU RUNNING
+I GOT THE KEY BY RUNNING
 bit config
 
 WITH THIS COMMAND I CAN SEE MY CONFIGURATION ON ALL THE NPMRC FILES (BOTH GLOBAL AND LOCAL)
