@@ -4,11 +4,11 @@ import { useSelector, useDispatch } from "react-redux";
 
 import CalendarCard from "./CalendarCard";
 import AddressCard from "./AddressCard";
-import { logoutHost } from "../../actions";
+import { logoutHost } from "../../../actions";
 
-import Avatar from "../../../assets/images/susan.svg";
-import BellIcon from "../../../assets/images/bellIcon.svg";
-import LogOutIcon from "../../../assets/images/logoutIcon.svg";
+import Avatar from "../../../../assets/images/susan.svg";
+import BellIcon from "../../../../assets/images/bellIcon.svg";
+import LogOutIcon from "../../../../assets/images/logoutIcon.svg";
 
 const RightNavBar = () => {
   const currentHost = useSelector((state) => state.hosts.current_host);

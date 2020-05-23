@@ -3,12 +3,10 @@ import { Field, reduxForm } from "redux-form";
 import { Button } from "reactstrap";
 
 import validate from "./validate";
-import renderField from "./renderField";
-import renderSelectField from "./renderSelectField";
 import Timetable from "./Timetable";
-import Calendar from "../bit/calendar/components/Calendar/index";
+import Calendar from "../../bit/calendar/components/Calendar/index";
 import { useSelector, useDispatch } from "react-redux";
-import { pickDate } from "../../actions";
+import { pickDate } from "../../../actions";
 
 const WizardFormFourthPage = (props) => {
   const dispatch = useDispatch();

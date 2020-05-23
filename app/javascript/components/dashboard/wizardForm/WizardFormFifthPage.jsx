@@ -4,8 +4,6 @@ import { Button } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
 
 import validate from "./validate";
-import renderField from "./renderField";
-import renderSelectField from "./renderSelectField";
 
 const WizardFormFifthPage = (props) => {
   const date = useSelector((state) => state.sessions.date);
@@ -14,14 +12,42 @@ const WizardFormFifthPage = (props) => {
 
   return (
     <div className="wizard-form">
-      <h3 className="wizard-form__title">Cleaning summary</h3>
+      <h3 className="wizard-form__title">Almost there...</h3>
       <div className="wrapper">
-        <p>{`Address: ${values.street} ${values.houseNumber}, ${values.city}`}</p>
-        <p>{`Datetime: ${date} at ${date.getHours()}`}</p>
-        <p>{`Duration: ${values.duration} hours`}</p>
+        <h4>Order summary</h4>
+        <hr style={{ width: "100%" }} />
+        <div className="fields">
+          <div className="order-field">
+            <p>City:</p>
+            <p>{`${values.city}`}</p>
+          </div>
+          <div className="order-field">
+            <p>Street:</p>
+            <p>{`${values.street}`}</p>
+          </div>
+          <div className="order-field">
+            <p>House number:</p>
+            <p>{`${values.houseNumber}`}</p>
+          </div>
+          <div className="order-field">
+            <p>Date:</p>
+            <p>{`${date.toLocaleDateString()} at ${date.getHours()}`}</p>
+          </div>
+          <div className="order-field">
+            <p>Duration:</p>
+            <p>{`${values.duration} hours`}</p>
+          </div>
+        </div>
+        <hr style={{ width: "100%" }} />
       </div>
       <div className="wizard-content">
         <form onSubmit={handleSubmit}>
+          {/* <div>
+            <label htmlFor="employed">Employed</label>
+            <div>
+              <Field name="employed" id="employed" type="checkbox" />
+            </div>
+          </div> */}
           <div className="buttons-form">
             <Button
               type="button"

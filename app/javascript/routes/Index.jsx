@@ -6,7 +6,7 @@ import Home from "../components/Home";
 import NavBar from "../components/NavBar";
 import Dashboard from "../components/dashboard/Dashboard";
 import NotFound from "../components/NotFound";
-import SessionsIndex from "../components/sessions/SessionsIndex";
+import SessionsIndex from "../components/dashboard/sessions/SessionsIndex";
 import ProtectedRoute from "./ProtectedRoute";
 import AppRoute from "./AppRoute";
 import LogLayout from "../components/LogLayout";

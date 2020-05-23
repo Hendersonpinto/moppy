@@ -8,8 +8,8 @@ import {
   ListGroupItemText,
 } from "reactstrap";
 
-import { fetchAllSessions } from "../../actions";
-import { cleanSessions } from "../../actions";
+import { fetchAllSessions } from "../../../actions";
+import { cleanSessions } from "../../../actions";
 
 class SessionsIndex extends React.Component {
   componentDidMount() {

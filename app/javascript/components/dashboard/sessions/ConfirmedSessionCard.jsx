@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "reactstrap";
 
-import SvgChatIcon from "../dashboard/icons/SvgChatIcon";
-import vince from "../../../assets/images/vince150.svg";
+import SvgChatIcon from "../icons/SvgChatIcon";
+import vince from "../../../../assets/images/vince150.svg";
 
 const ConfirmedSessionCard = ({ session }) => {
   const { id, cleaner, date, time, duration } = session;

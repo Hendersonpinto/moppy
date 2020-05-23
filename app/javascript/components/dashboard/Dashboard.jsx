@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link, Route, Switch } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import LeftNavBar from "./LeftNavBar";
-import RightNavBar from "./RightNavBar";
+import RightNavBar from "./rightNavbar/RightNavBar";
 import PanelHeader from "./PanelHeader";
 import Calendar from "./Calendar";
 import CreateCleaning from "./CreateCleaning";
@@ -10,7 +10,7 @@ import History from "./History";
 import Messages from "./Messages";
 import Shop from "./Shop";
 import Profile from "./Profile";
-import SessionsList from "../sessions/SessionsList";
+import SessionsList from "./sessions/SessionsList";
 import AppRoute from "../../routes/AppRoute";
 import NotFound from "../NotFound";
 

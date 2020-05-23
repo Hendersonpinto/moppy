@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import WizardForm from "../wizardForm/WizardForm";
+import WizardForm from "./wizardForm/WizardForm";
 import FormBreadcrumbs from "./FormBreadcrumbs";
 const CreateCleaning = () => {
   return (

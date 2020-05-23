@@ -20,7 +20,7 @@ class Api::V1::Hosts::SessionsController < Devise::SessionsController
     
     if @host.valid_password?(host_params[:password])
       sign_in :api_v1_host, @host
-      render json: @host
+      @host = current_api_v1_host
     else
       invalid_login_attempt
     end

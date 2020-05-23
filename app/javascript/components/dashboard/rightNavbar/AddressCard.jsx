@@ -1,6 +1,6 @@
 import React from "react";
 
-import Building from "../../../assets/images/building.svg";
+import Building from "../../../../assets/images/building.svg";
 
 const AddressCard = ({ owner }) => {
   const { street, house_number, city, size, rooms } = owner.houses[0];

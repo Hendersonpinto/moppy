@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TimeslotButton from "./TimeslotButton";
 import { useDispatch, useSelector } from "react-redux";
 
-import { pickTimeslot } from "../../actions";
+import { pickTimeslot } from "../../../actions";
 
 export const roundToHour = (date) => {
   const p = 60 * 60 * 1000; // milliseconds in an hour
