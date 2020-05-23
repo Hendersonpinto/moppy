@@ -5,7 +5,9 @@ class Api::V1::Hosts::SessionsController < Devise::SessionsController
 
 
   def check_host
-        render json: current_api_v1_host
+    @host = current_api_v1_host
+    # @houses = House.where(host: @host)
+        # render json: current_api_v1_host
   end
 
 

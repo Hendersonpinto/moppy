@@ -2,7 +2,8 @@ import React from "react";
 
 import Building from "../../../assets/images/building.svg";
 
-const AddressCard = (owner) => {
+const AddressCard = ({ owner }) => {
+  const { street, house_number, city, size, rooms } = owner.houses[0];
   return (
     <div className="address-card">
       <div className="left">
@@ -11,15 +12,15 @@ const AddressCard = (owner) => {
       <div className="right">
         <div className="group">
           <p className="title">Address</p>
-          <p>Nedre Bakklandet 61, Trondheim</p>
+          <p>{`${street} ${house_number}, ${city}`}</p>
         </div>
         <div className="group">
           <p className="title">Area</p>
-          <p>165 sqm</p>
+          <p>{`${size} sqm`}</p>
         </div>
         <div className="group">
           <p className="title">Rooms</p>
-          <p>4</p>
+          <p>{rooms}</p>
         </div>
       </div>
     </div>

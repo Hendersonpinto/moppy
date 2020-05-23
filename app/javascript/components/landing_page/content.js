@@ -42,6 +42,7 @@ export const superheroContent = {
   buttonText: "Join our team",
   image: { alt: "superhero", id: "superhero", file: Superhero },
   avatar: Avatar,
+  buttonURL: "/",
 };
 
 export const howItWorksContent = {
