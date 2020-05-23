@@ -674,7 +674,79 @@ return <ConfirmedSessionCard key={session.id} session={session} />;
 });
 }
 
-<!-- Dealing with DATETIME  VALUES IN THE CLIENT AND IN THE SERVER -->
+<!-- RAILS QUERY -->
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+<!-- ADDING A NEW REGISTRY FOR DEPENDENCIES WITH SCOPE @BIT -->
+
+<!--
+
+Problem: I am using a component from BIT which uses some dependencies from the BIT registry. The problem arose when I wanted to deploy the app
+          to Heroku. THe main reason is that I had a global npmrc file where the registrys are defined. In this file I had not specified which
+          registry to use for dependencies with scope = @bit.
+
+          I tried to solve this by creating a local .npmrc file, where I have specified the registry for unscoped dependencies and the registry
+          for @bit scoped dependencies like this:
+
+          registry=https://registry.npmjs.org
+          @bit:registry=https://node.bit.dev
+
+          This is totally fine, but when I deployed to heroku, I got this :
+          npm ERR! code E404
+remote:        npm ERR! 404 Not Found - GET https://registry.npmjs.org/@bit%2fnexxtway.react-rainbow.libs.colors - Not found
+remote:        npm ERR! 404
+remote:        npm ERR! 404  '@bit/nexxtway.react-rainbow.libs.colors@1.10.0' is not in the npm registry.
+
+          The error is basically saying that Heroku is trying to download the dependency with a get request to the "registry.npmjs.org"
+          Which is the registry for my unscoped dependencies and not my @bit dependencies.
+
+Solution: THe problem was that I needed to specify the registry for the @bit dependencies in global and local files but also and more important
+          I need to commit and push to github before pushing to heroku. After adding the new registry, I tried to push to heroku but nothing
+          changed, the reason of this is that I was pushing the last version that I pushed to github (without the registry update)
+
+ -->
+
+<!-- Local npmrc file-->
+
+registry=https://registry.npmjs.org
+@bit:registry=https://node.bit.dev
+
+<!-- Setting global registry for unscoped dependencies and @bit scoped dependencies  (global npmrc file)-->
+
+npm config set registry "https://registry.npmjs.org/"  
+npm config set @bit:registry https://node.bit.dev
+
+HEROKU
+heroku config:set NPM_TOKEN=bf1b06a2-6beb-4b9e-852c-86ae88ed3d34
+
+I GOT THE KEY BU RUNNING
+bit config
+
+WITH THIS COMMAND I CAN SEE MY CONFIGURATION ON ALL THE NPMRC FILES (BOTH GLOBAL AND LOCAL)
+npm config ls -l
+
+<!-- In case of a registry which I need a authentication key I can specify a variable in the npmrc and created the variable in heroku -->
+
+@bit:registry=https://node.bit.dev
+//node.bit.dev/:\_authToken=\${NPM_TOKEN}
+
+<!-- ADDING A NEW REGISTRY FOR DEPENDENCIES WITH SCOPE @BIT -->
 
 |
 |
