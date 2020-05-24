@@ -22,5 +22,25 @@
     width: 100%;
     overflow: hidden;
     flex: 1;
+
+    .welcome-message {
+      margin: auto;
+      width: 60%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 160px;
+        margin-bottom: 20px;
+      }
+      h1 {
+        font-size: 40px;
+        color: $black;
+      }
+    }
   }
 }

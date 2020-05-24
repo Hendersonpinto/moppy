@@ -5,6 +5,7 @@ import ModalDelete from "../../ModalDelete";
 import { fetchSessions, cleanSessions, deleteCleaning } from "../../../actions";
 import ConfirmedSessionCard from "./ConfirmedSessionCard";
 import UnconfirmedCleaningCard from "./UnconfirmedCleaningCard";
+import Superhero from "../../../../assets/images/superheroIn.svg";
 
 const SessionsIndex = (props) => {
   const mysessions = useSelector((state) => state.sessions.confirmed);
@@ -13,10 +14,12 @@ const SessionsIndex = (props) => {
   const [cleaningIdForDelete, setCleaningIdForDelete] = useState(null);
   const currentHost = useSelector((state) => state.hosts.current_host);
   const confirmedCleanings = useSelector((state) =>
-    state.sessions ? Object.values(state.sessions.confirmed) : null
+    state.sessions.confirmed ? Object.values(state.sessions.confirmed) : null
   );
   const unconfirmedCleanings = useSelector((state) => {
-    return state.sessions ? Object.values(state.sessions.unconfirmed) : null;
+    return state.sessions.unconfirmed
+      ? Object.values(state.sessions.unconfirmed)
+      : null;
   });
 
   const deleteFromModal = (cleaningId) => {
@@ -64,30 +67,44 @@ const SessionsIndex = (props) => {
     }
     return <p>You do not have any pending cleaning</p>;
   };
-  console.log(mysessions);
-  console.log(confirmedCleanings);
+
+  console.log(confirmedCleanings.length);
   console.log(unconfirmedCleanings);
+  if (
+    (Array.isArray(unconfirmedCleanings) && unconfirmedCleanings.length) ||
+    (Array.isArray(confirmedCleanings) && confirmedCleanings.length)
+  ) {
+    return (
+      <>
+        <div className="cleanings">
+          <h3 className="content__title">Confirmed cleanings:</h3>
+          <div className="scrollable">
+            <div className="cleanings-list">{renderConfirmedCleanings()}</div>
+          </div>
+        </div>
+        <div className="cleanings">
+          <h3 className="content__title">Pending cleanings:</h3>
+          <div className="scrollable">
+            <div className="cleanings-list">{renderPendingCleanings()}</div>
+          </div>
+          <ModalDelete
+            display={modalDisplay}
+            toggleModal={toggleModal}
+            cleaningId={cleaningIdForDelete}
+            onDelete={deleteFromModal}
+            modalTitle="Confirm delete"
+            modalBody="Are you sure you want to delete this cleaning?"
+          />
+        </div>
+      </>
+    );
+  }
   return (
     <>
-      <div className="cleanings">
-        <h3 className="content__title">Confirmed cleanings:</h3>
-        <div className="scrollable">
-          <div className="cleanings-list">{renderConfirmedCleanings()}</div>
-        </div>
-      </div>
-      <div className="cleanings">
-        <h3 className="content__title">Pending cleanings:</h3>
-        <div className="scrollable">
-          <div className="cleanings-list">{renderPendingCleanings()}</div>
-        </div>
-        <ModalDelete
-          display={modalDisplay}
-          toggleModal={toggleModal}
-          cleaningId={cleaningIdForDelete}
-          onDelete={deleteFromModal}
-          modalTitle="Confirm delete"
-          modalBody="Are you sure you want to delete this cleaning?"
-        />
+      <div className="welcome-message">
+        <img src={Superhero} id="superhero" alt="cleaner" />
+
+        <h1>Welcome to your dashboard.</h1>
       </div>
     </>
   );

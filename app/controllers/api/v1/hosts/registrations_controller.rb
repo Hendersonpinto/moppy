@@ -15,7 +15,8 @@ class Api::V1::Hosts::RegistrationsController < Devise::RegistrationsController
     if @host.save!
       sign_in :api_v1_host, @host
 
-      render json: {host:@host, current_host:current_api_v1_host}
+      # render json: {host:@host, current_host:current_api_v1_host}
+      render json: @host
     else
       warden.custom_failure!
       render json: { error: 'signup error' }, status: :unprocessable_entity

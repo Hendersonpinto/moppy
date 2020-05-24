@@ -131,6 +131,9 @@ export const createHost = (formValues) => {
         host: { ...formValues },
       })
       .then((response) => {
+        console.log(response);
+        console.dir(response);
+        console.log(response.data);
         dispatch({
           type: HOST_CREATE,
           payload: {
@@ -144,6 +147,9 @@ export const createHost = (formValues) => {
         history.push("/");
       })
       .catch(function (error) {
+        console.log(error);
+        console.dir(error);
+        console.log(error.data);
         dispatch({
           type: HOST_CREATE,
           payload: {

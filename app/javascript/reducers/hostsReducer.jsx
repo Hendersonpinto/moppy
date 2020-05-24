@@ -34,7 +34,11 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, current_host: null, error: action.payload.error };
     case HOST_CREATE:
       if (action.payload.success) {
-        return { ...state, ...action.payload.data, isSignedIn: true };
+        return {
+          ...state,
+          current_host: action.payload.data,
+          isSignedIn: true,
+        };
       }
       return { ...state, current_host: null, error: action.payload.error };
     case HOST_LOGIN:
