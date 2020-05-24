@@ -10,7 +10,12 @@ $recoleta: "recoleta";
 
 @font-face {
   font-family: "recoleta";
-  src: url("fonts/recoletar.woff") format("woff");
+  src: asset-url("fonts/recoletar.woff") format("woff");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "recoletar";
+  src: asset-url("fonts/recoletar.woff") format("woff");
   font-weight: 400;
 }
 
