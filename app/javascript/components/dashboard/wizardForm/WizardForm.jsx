@@ -23,13 +23,14 @@ const WizardForm = (props) => {
     console.log(date);
     console.log(session);
     dispatch(createCleaning(session));
+    props.toggleModal();
   };
   useEffect(() => {
     return () => {
       dispatch(cleanForm());
     };
   }, []);
-  console.log(date);
+  console.log(props);
   return (
     <div>
       {page === 1 && <WizardFormFirstPage onSubmit={() => changePage(1)} />}

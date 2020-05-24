@@ -43,7 +43,7 @@ export const createCleaning = (session) => {
     //   type: CREATE_CLEANING,
     //   payload: { status: response.status, id: response.data },
     // });
-    history.push("/hosts");
+    // history.push("/hosts");
   };
 };
 

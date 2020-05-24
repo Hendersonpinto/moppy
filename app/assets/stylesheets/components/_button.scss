@@ -5,7 +5,7 @@
   padding: 4px 10px;
   font-family: $main;
   font-weight: 500;
-  color: $rose;
+  color: white;
   font-size: 18px;
   transition: all ease-in-out 300ms;
   &:hover {
@@ -20,6 +20,10 @@
     padding: 8px 40px;
     border-radius: 5px;
     font-size: 20px;
+  }
+
+  &.full-width {
+    width: 80%;
   }
 
   &.sm {
@@ -39,6 +43,13 @@
     }
   }
 
+  &.danger {
+    background: #dc3545;
+    color: white;
+    &:hover {
+      background-color: #c93433;
+    }
+  }
   &.rose-button {
     background-color: $rose;
     color: $dark-green;

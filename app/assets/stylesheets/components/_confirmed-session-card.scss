@@ -8,6 +8,8 @@
   box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.12);
   border-radius: 5px;
   margin: 10px;
+  border: solid 0.5px #d9d9d9;
+
   span {
     font-family: $main;
     font-size: 14px;
@@ -31,16 +33,21 @@
   .cleaning-card__heading {
     padding: 10px 0px;
     display: flex;
+    justify-content: center;
     img {
       width: 50px;
       border-radius: 10px;
     }
     .address {
-      margin: auto;
+      margin-right: 3px;
     }
     p {
       color: $black;
       font-size: 16px;
+    }
+    .new-label {
+      line-height: 0;
+      color: $green;
     }
     .name {
       flex: 1;

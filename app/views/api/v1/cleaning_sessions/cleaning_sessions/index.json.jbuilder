@@ -1,5 +1,5 @@
     json.confirmed @confirmed do |session|
-    json.extract! session, :id, :duration, :total_price
+    json.extract! session, :id, :duration, :total_price, :created_at
     json.date session.date
     json.house session.house
     
@@ -12,7 +12,7 @@
     end
 end
 json.unconfirmed @unconfirmed do |session|
-    json.extract! session, :id, :duration, :total_price
+    json.extract! session, :id, :duration, :total_price, :created_at
     json.date session.date
     json.house session.house
     
@@ -22,7 +22,7 @@ json.unconfirmed @unconfirmed do |session|
 end
 
 json.expired @expired do |session|
-    json.extract! session, :id, :duration, :total_price
+    json.extract! session, :id, :duration, :total_price, :created_at
     json.date session.date
     json.house session.house
     
@@ -31,7 +31,7 @@ json.expired @expired do |session|
     end
 end
 json.completed @completed do |session|
-    json.extract! session, :id, :duration, :total_price
+    json.extract! session, :id, :duration, :total_price, :created_at
     json.date session.date
     json.house session.house
     

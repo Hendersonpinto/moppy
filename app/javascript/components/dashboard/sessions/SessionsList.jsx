@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import Modal from "../../Modal";
+import ModalDelete from "../../ModalDelete";
 import { fetchSessions, cleanSessions, deleteCleaning } from "../../../actions";
 import ConfirmedSessionCard from "./ConfirmedSessionCard";
 import UnconfirmedCleaningCard from "./UnconfirmedCleaningCard";
@@ -80,7 +80,7 @@ const SessionsIndex = (props) => {
         <div className="scrollable">
           <div className="cleanings-list">{renderPendingCleanings()}</div>
         </div>
-        <Modal
+        <ModalDelete
           display={modalDisplay}
           toggleModal={toggleModal}
           cleaningId={cleaningIdForDelete}

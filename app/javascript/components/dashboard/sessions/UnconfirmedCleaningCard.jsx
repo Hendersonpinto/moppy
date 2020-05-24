@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "reactstrap";
 
 const UnconfirmedCleaningCard = ({ session, handleDelete }) => {
-  const { id, cleaner, date, time, duration, house } = session;
+  const { id, date, duration, house, created_at } = session;
   const convertedDate = new Date(date);
   console.log(session);
   console.log(house);
@@ -12,6 +12,10 @@ const UnconfirmedCleaningCard = ({ session, handleDelete }) => {
     <div className="cleaning-card" key={id}>
       <div className="cleaning-card__heading">
         <p className="address">{house.street}</p>
+        <span className="new-label">
+          {new Date(created_at).getTime() > new Date().getTime() - 600000 &&
+            "new"}
+        </span>
       </div>
       <div className="datetime">
         <div className="date">

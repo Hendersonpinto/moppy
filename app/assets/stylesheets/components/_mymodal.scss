@@ -1,0 +1,47 @@
+#mymodal__header {
+  background-color: $superlight-rose;
+  border-bottom: 1px solid $grey;
+
+  h5 {
+    font-size: 40px;
+    font-family: "recoleta";
+    color: $green;
+  }
+}
+
+#mymodal__body {
+  text-align: center;
+  overflow: hidden;
+
+  #superhero {
+    margin-bottom: 20px;
+    width: 160px;
+    animation: walk 10s linear infinite;
+  }
+}
+#mymodal__footer {
+  justify-content: center;
+}
+
+@keyframes walk {
+  0%,
+  100% {
+    transform: translate(0, 0) scaleX(1);
+  }
+
+  24.5% {
+    transform: translate(370px, 0) scaleX(1);
+  }
+  25% {
+    transform: translate(370px, 0) scaleX(-1);
+  }
+  50% {
+    transform: translate(0, 0) scaleX(-1);
+  }
+  74.5% {
+    transform: translate(-370px, 0) scaleX(-1);
+  }
+  75% {
+    transform: translate(-370px, 0) scaleX(1);
+  }
+}

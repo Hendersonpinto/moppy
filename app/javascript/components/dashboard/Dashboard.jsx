@@ -16,7 +16,6 @@ import NotFound from "../NotFound";
 
 const Dashboard = (props) => {
   const current_host = useSelector((state) => state.hosts.current_host);
-  const dispatch = useDispatch();
   let today = new Date().toDateString();
 
   return (

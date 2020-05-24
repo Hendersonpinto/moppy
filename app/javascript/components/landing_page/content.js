@@ -1,4 +1,4 @@
-import Mockup from "../../../assets/images/mobileapp.png";
+import Mockup from "../../../assets/images/mobileapp2.svg";
 import Superhero from "../../../assets/images/guy.png";
 import Avatar from "../../../assets/images/avatar.png";
 import HouseIcon from "../../../assets/images/houseicon.png";
