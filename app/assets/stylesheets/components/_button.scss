@@ -18,9 +18,14 @@
 
   &.lg {
     padding: 8px 40px;
-    font-size: 18px;
     border-radius: 5px;
     font-size: 20px;
+  }
+
+  &.sm {
+    padding: 2px 10px;
+    font-size: 14px;
+    border-radius: 5px;
   }
 
   &.salmon-button {
@@ -43,8 +48,25 @@
     border: solid 1px;
     border-color: $rose;
     color: $dark-green;
+    &.filled {
+      &:hover {
+        background-color: $rose;
+        border-color: $medium-pink;
+      }
+    }
     &:hover {
       border-color: $medium-pink;
+    }
+    &.rate {
+      .button-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p {
+          font-size: 14px;
+          margin-right: 5px;
+        }
+      }
     }
   }
 }

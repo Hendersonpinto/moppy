@@ -8,8 +8,8 @@
       @sessions = CleaningSession.where(host_id:session_params[:host_id]).order(:date)
       @unconfirmed = @sessions.where("date > ?", Time.now).where(cleaner_id:nil).order(:date)
       @confirmed = @sessions.where("date > ?", Time.now).where.not(cleaner_id:nil).order(:date)
-      @past = @sessions.where("date <= ?", Time.now).where.not(cleaner_id:nil).order(:date)
-      @past_unconfirmed = @sessions.where("date <= ?", Time.now).where(cleaner_id:nil).order(:date)
+      @completed = @sessions.where("date <= ?", Time.now).where.not(cleaner_id:nil).order(:date)
+      @expired = @sessions.where("date <= ?", Time.now).where(cleaner_id:nil).order(:date)
         
       # render json: @sessions, include: ['host', 'cleaner']
       # if @sessions.empty?

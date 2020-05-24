@@ -17,7 +17,8 @@ import {
 const INITIAL_STATE = {
   confirmed: {},
   unconfirmed: {},
-  past: {},
+  completed: {},
+  expired: {},
   page: 1,
   date: new Date(),
 };
@@ -39,6 +40,8 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         confirmed: _.mapKeys(action.payload.confirmed, "id"),
         unconfirmed: _.mapKeys(action.payload.unconfirmed, "id"),
+        completed: _.mapKeys(action.payload.completed, "id"),
+        expired: _.mapKeys(action.payload.expired, "id"),
       };
     case FETCH_SESSION:
       return { ...state, [action.payload.id]: action.payload };
