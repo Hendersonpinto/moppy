@@ -10,17 +10,13 @@ $recoleta: "recoleta";
 
 @font-face {
   font-family: "recoleta";
-  src: url("fonts/recoletar.woff") format("woff"),
-    url("fonts/recoletar.ttf") format("ttf"),
-    url("fonts/recoletar.eot") format("eot");
+  src: url("fonts/recoletar.woff") format("woff");
   font-weight: 400;
 }
 
 @font-face {
   font-family: "recoleta";
-  src: asset-url("fonts/recoletab.woff") format("woff"),
-    url("fonts/recoletab.ttf") format("ttf"),
-    url("fonts/recoletab.eot") format("eot");
+  src: asset-url("fonts/recoletab.woff") format("woff");
   font-weight: 600;
 }
 
