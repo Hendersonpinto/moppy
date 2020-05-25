@@ -58,4 +58,19 @@
       font-size: 14px;
     }
   }
+
+  @media only screen and (min-width: 1500px) {
+    width: 300px;
+    &__contact {
+      img {
+        width: 150px;
+      }
+      h3 {
+        font-size: 24px;
+      }
+      p {
+        font-size: 18px;
+      }
+    }
+  }
 }

@@ -29,4 +29,19 @@
     right: 0;
     height: 110px;
   }
+
+  @media only screen and (min-width: 1500px) {
+    width: 60%;
+    margin: auto;
+    height: 15%;
+    .panel__date {
+      font-size: 20px;
+    }
+    #plants {
+      height: 120px;
+    }
+    #yoga {
+      height: 125px;
+    }
+  }
 }

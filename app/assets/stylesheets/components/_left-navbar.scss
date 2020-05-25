@@ -46,7 +46,7 @@
         }
       }
       .lnav__link {
-        width: 130px;
+        width: 75%;
         border-radius: 5px;
         padding: 10px 10px;
         cursor: pointer;
@@ -122,6 +122,26 @@
   .yogaBall {
     img {
       height: 80px;
+    }
+  }
+
+  @media only screen and (min-width: 1500px) {
+    width: 300px;
+    &__actions {
+      height: 45%;
+      .lnav__action {
+        padding: 4% 0 4% 30%;
+        .lnav__link {
+          p {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+    .yogaBall {
+      img {
+        height: 130px;
+      }
     }
   }
 }
