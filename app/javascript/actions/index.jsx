@@ -144,7 +144,7 @@ export const createHost = (formValues) => {
           },
         });
         // Here is where we force our user with programmatic navitagion
-        history.push("/");
+        history.push("/hosts");
       })
       .catch(function (error) {
         console.log(error);
