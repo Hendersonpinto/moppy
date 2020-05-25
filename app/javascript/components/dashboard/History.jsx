@@ -7,6 +7,8 @@ import { fetchSessions, cleanSessions, deleteCleaning } from "../../actions";
 import ExpiredCleaningCard from "./sessions/ExpiredCleaningCard";
 import CompletedCleaningCard from "./sessions/CompletedCleaningCard";
 
+import HistoryBackground from "../../../assets/images/historyBackground.svg";
+
 const History = () => {
   const completed = useSelector((state) =>
     state.sessions ? Object.values(state.sessions.completed) : null
@@ -37,19 +39,33 @@ const History = () => {
     return <p>You do not have any session yet</p>;
   };
 
+  if (
+    (Array.isArray(completed) && completed.length) ||
+    (Array.isArray(expired) && expired.length)
+  ) {
+    return (
+      <>
+        <div className="cleanings">
+          <h3 className="content__title">Completed cleanings:</h3>
+          <div className="scrollable">
+            <div className="cleanings-list">{renderCompletedCleanings()}</div>
+          </div>
+        </div>
+        <div className="cleanings">
+          <h3 className="content__title">Expired cleanings:</h3>
+          <div className="scrollable">
+            <div className="cleanings-list">{renderExpiredCleanings()}</div>
+          </div>
+        </div>
+      </>
+    );
+  }
   return (
     <>
-      <div className="cleanings">
-        <h3 className="content__title">Completed cleanings:</h3>
-        <div className="scrollable">
-          <div className="cleanings-list">{renderCompletedCleanings()}</div>
-        </div>
-      </div>
-      <div className="cleanings">
-        <h3 className="content__title">Expired cleanings:</h3>
-        <div className="scrollable">
-          <div className="cleanings-list">{renderExpiredCleanings()}</div>
-        </div>
+      <div className="welcome-message">
+        <img src={HistoryBackground} alt="history" />
+
+        <h1>You don't have previous cleanings</h1>
       </div>
     </>
   );

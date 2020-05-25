@@ -34,8 +34,12 @@
       align-items: center;
 
       img {
-        width: 160px;
+        width: 300px;
         margin-bottom: 20px;
+
+        &#superhero {
+          width: 160px;
+        }
       }
       h1 {
         font-size: 40px;
