@@ -156,7 +156,7 @@ export const createHost = (formValues) => {
             statusText: error.response.statusText,
             status: error.response.status,
             success: false,
-            error: error.response.data.error,
+            error: error.response.data.fullErrors,
           },
         });
       });
